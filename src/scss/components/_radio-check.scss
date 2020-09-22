@@ -1,0 +1,51 @@
+.radio-check {
+  display: flex;
+  align-items: center;
+  
+  &__check {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid $geomagical;
+    margin-right: 10px;
+    color: $geomagical;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .35s ease-in-out;
+    
+    .material-icons {
+      font-size: 10px;
+    }
+  }
+  
+  &__label {
+    flex-shrink: 0;
+    color: $grey500;
+    transition: .35s ease-in-out;
+  }
+
+  &.checked {
+    .radio-check__check {
+      background-color: $geomagical;
+      color: $white;
+    }
+
+    .radio-check__label {
+      color: $geomagical;
+    }
+  }
+
+}
+
+
+// a {
+//   display: block;
+//   color: $grey500;
+
+//   &.done {
+//     color: $geomagical;
+//   }      
+
+// }

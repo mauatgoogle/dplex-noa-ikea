@@ -1,0 +1,165 @@
+.card-wrap {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  
+  @include media-breakpoint-up(md) {
+    padding-right: 11.5vw;
+    padding-left: 11.5vw;
+  }
+}
+
+.card {
+  width: 310px;
+
+  @include media-breakpoint-up(md) {
+    width: 360px;
+  } 
+
+  &__header {
+    background-color: $white;
+    padding: 22px 30px 18px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.56;
+  }
+
+  &__step {
+    display: flex;
+    align-items: center;
+
+    img {
+      flex-shrink: 0;
+      display: block;
+      margin-right: 10px;
+    }
+    
+    span {
+      flex-shrink: 0;
+      display: block;
+      line-height: 1;
+      // color: $grey500;
+      // AA FIX
+      color: $grey700;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    // Optical fix
+    &--capture {
+      img {
+        position: relative;
+        top: -4px;
+      }
+    }
+  }
+
+  &__body {
+    border-top: 1px solid $black;
+    background-color: rgba($white, .7);
+    backdrop-filter: blur(5);
+    padding: 22px 30px 30px;
+    border-radius: 0 0 10px 10px; 
+    
+    p {
+      line-height: 1.56;
+    }
+  }
+ 
+  &__actions {
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+
+    .btn {
+      @include media-breakpoint-up(md) {
+        &:not(.btn--icon) {
+          width: auto;
+          flex-grow: 1;
+        }
+      }
+
+      + .btn {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  &--geomagical {
+    .card__body {
+      border-color: $geomagical;
+    }
+  }
+
+  &--recommendations {
+    .card__body {
+      border-color: $recommendations;
+    }
+  }  
+
+  &--recap {
+    .card__body {
+      border-color: $recap;
+    }
+  }    
+}
+
+.card-animation {
+  transform: translateX(50px);
+  opacity: 0;
+  transition: 600ms ease-in;
+  transform-origin: center top;
+
+  .card__step,
+  .card__title,
+  .card__content,
+  .card__actions {
+    opacity: 0;
+  }
+
+  .card__step {
+    transition: 450ms ease-in-out;
+    transition-delay: 600ms;
+    transform: translateX(15px);
+  }
+
+  .card__title {
+    transition: 450ms ease-in-out;
+    transition-delay: 800ms;
+    transform: translateX(15px);
+  }
+
+  .card__content {
+    transition: 600ms ease-in-out;
+    transition-delay: 1100ms;
+    transform: translateY(15px);
+  }
+
+  .card__actions {
+    transition: 650ms ease-in-out;
+    transition-delay: 1400ms;
+    transform: translateY(15px);
+  }
+
+  &.animate {
+    transform: translateX(0);
+    opacity: 1;
+
+    .card__step,
+    .card__title,
+    .card__content,
+    .card__actions {
+      opacity: 1;
+      transform: translate(0);
+    }    
+  }
+
+}

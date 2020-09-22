@@ -1,0 +1,217 @@
+button:focus {
+  outline: 0 dashed;
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  min-width: 146px;
+  height: 48px;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: $font-family-base;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: .3s cubic-bezier(.25, .8, .5, 1);
+  vertical-align: middle;
+  white-space: nowrap;
+  user-select: none;
+  z-index: 1; // necesario para anim
+
+  // &::before {
+  //   background: $white;
+  //   content: "";
+  //   height: 200%;
+  //   left: 0;
+  //   opacity: 0;
+  //   pointer-events: none;
+  //   position: absolute;
+  //   top: 0;
+  //   width: 200%;
+  //   z-index: 1;
+  //   transition: .35s ease-in-out;
+  // }
+
+  // &:active::before {
+  //   opacity: .32;
+  // }  
+
+  .material-icons {
+    position: relative;
+  }
+
+  &--block {
+    width: 100%;
+  }
+
+  @include media-breakpoint-up(md) {
+    &:hover .anim {
+      width: 320px;
+      height: 320px;
+    } 
+
+    .anim {
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      //background-color: darken($white, 5%);
+      transition: width 800ms ease-in-out, height 800ms ease-in-out;
+      transform: translate(-50%, -50%);
+      z-index: -2;    
+    }    
+  }
+  
+  &:disabled,
+  &.disabled {
+    cursor: default;
+    opacity: .2 !important;
+    pointer-events: none !important;
+  }
+
+  &--primary {
+    background: $blue600;
+    color: $white;
+
+    &:active {
+      box-shadow: 0 1px 2px 0 rgba(66, 133, 244, .3),
+        0 2px 6px 2px rgba(66, 133, 244, .15);
+    }    
+
+    @include media-breakpoint-up(md) {
+      &:focus,
+      &:hover,
+      &:hover:focus {
+        box-shadow: 0 1px 2px 0 rgba(66, 133, 244, .3),
+          0 1px 3px 1px rgba(66, 133, 244, .15);
+      }
+
+      .anim {
+        background-color: darken($blue600, 5%);
+      }
+    }
+  }
+
+  &--secondary {
+    background: $white;
+    color: $grey800;
+
+    &:active {
+      box-shadow: 0 1px 2px 0 rgba($white, .3),
+        0 2px 6px 2px rgba($white, .15);
+    }    
+
+    @include media-breakpoint-up(md) {
+      &:focus,
+      &:hover,
+      &:hover:focus {
+        box-shadow: 0 1px 2px 0 rgba($white, .3),
+          0 1px 3px 1px rgba($white, .15);
+      }
+
+      .anim {
+        background-color: darken($white, 5%);
+      }
+    }
+  }
+
+  &--geomagical {
+    background: $geomagical;
+    color: $white;
+
+    &:active {
+      box-shadow: 0 1px 2px 0 rgba($geomagical, .3),
+        0 2px 6px 2px rgba($geomagical, .15);
+    }    
+
+    @include media-breakpoint-up(md) {
+      &:focus,
+      &:hover,
+      &:hover:focus {
+        box-shadow: 0 1px 2px 0 rgba($geomagical, .3),
+          0 1px 3px 1px rgba($geomagical, .15);
+      }
+
+      .anim {
+        background-color: darken($geomagical, 5%);
+      }
+    }
+  }
+  
+  &--recommendations {
+    background: $recommendations;
+    color: $white;
+
+    &:active {
+      box-shadow: 0 1px 2px 0 rgba($recommendations, .3),
+        0 2px 6px 2px rgba($recommendations, .15);
+    }    
+
+    @include media-breakpoint-up(md) {
+      &:focus,
+      &:hover,
+      &:hover:focus {
+        box-shadow: 0 1px 2px 0 rgba($recommendations, .3),
+          0 1px 3px 1px rgba($recommendations, .15);
+      }
+
+      .anim {
+        background-color: darken($recommendations, 5%);
+      }
+    }
+  } 
+  
+  &--recap {
+    background: $recap;
+    color: $white;
+
+    &:active {
+      box-shadow: 0 1px 2px 0 rgba($recap, .3),
+        0 2px 6px 2px rgba($recap, .15);
+    }    
+
+    @include media-breakpoint-up(md) {
+      &:focus,
+      &:hover,
+      &:hover:focus {
+        box-shadow: 0 1px 2px 0 rgba($recap, .3),
+          0 1px 3px 1px rgba($recap, .15);
+      }
+
+      .anim {
+        background-color: darken($recap, 5%);
+      }
+    }
+  }   
+  
+  &--icon {
+    min-width: 0;
+    width: 48px;
+    border: 1px solid $grey500;
+    color: $grey500;
+
+    .anim {
+      background-color: $grey500;
+    }
+
+    @include media-breakpoint-up(md) {
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
+
+.btn-animation {
+  opacity: 0;
+  transition-duration: 650ms;
+  transition-timing-function: cubic-bezier(.215,.61,.355,1);
+  transform: translateY(30px);
+}
+

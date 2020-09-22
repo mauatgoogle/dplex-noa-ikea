@@ -1,0 +1,36 @@
+.platforms {
+  display: block;
+  padding: 0;
+  list-style: none;
+  user-select: none;
+
+  @include media-breakpoint-up(md) {
+    display: inline-flex;
+  }
+
+  > li {
+    flex-shrink: 0;
+    margin: 8px 0;    
+    
+    @include media-breakpoint-up(md) {
+      margin: 0 8px;
+    }
+  }
+  
+  .platform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 46px;
+    color: $grey700;
+    font-size: .875rem;
+    background-color: rgba($white, .5);
+    border-radius: 23px;
+    padding-right: 25px;
+    padding-left: 25px;
+    
+    img {
+      margin-right: 8px;      
+    }
+  }
+}

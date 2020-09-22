@@ -1,0 +1,136 @@
+.app-global-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 11;
+  font-family: $font-family-base;
+  font-size: 1rem;
+  height: 52px;
+  background: #fff;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  &__title {
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 0;
+    line-height: 1;
+  }
+
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    width: 144px;
+    height: 22px;
+
+    @include media-breakpoint-up(md) {
+      width: 161px;
+      height: 21px;
+    }
+
+    svg {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__cta {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+
+    li {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    > li:not(:first-child) {
+      margin-left: 16px;
+    }
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  &__button {
+    color: #5f6368;
+    text-decoration: none;
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    transition: color 150ms linear;
+
+    @include media-breakpoint-up(md) {
+      &:hover {
+        color: #202124;
+      }
+    }
+  }
+
+  &__share {
+    position: relative;
+    display: block;
+    top: 1px;
+    width: 24px;
+    height: 24px;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__share-options {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: -10px;
+    margin-top: 8px;
+    width: 180px;
+    padding: 18px 24px;
+    font-size: 1rem;
+    background: $white;
+    box-shadow: 0 2px 4px rgba($black, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms linear, visibility 200ms linear;
+
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+      transition-duration: 400ms;
+    }
+
+    li {
+      display: block;
+
+      &:not(:first-child) {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &__share-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}

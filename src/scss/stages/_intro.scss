@@ -1,0 +1,26 @@
+// Stage Intro In
+.stage--intro.stage--in {
+  // Steps in
+  .step--0.step--in,
+  .step--1.step--in,
+  .step--2.step--in {
+    .headline-line-animation .line {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  // Steps out
+  .step--0.step--out,
+  .step--1.step--out,
+  .step--2.step--out {
+    opacity: 0;
+    transition: 450ms ease-out;
+  }     
+}
+
+// Stage Intro Out
+.stage--intro.stage--out {
+  opacity: 0;
+  transition: 450ms ease-out;
+}

@@ -1,0 +1,163 @@
+/// Helper to include custom transition
+/// @param {String} $property - Property/properties to anim
+/// @param {String} $time     - Transition time
+/// @param {String} $easing   - Transition easing
+/// @param {String} $delay    - Transition delay
+@mixin custom-transition(
+  $property: all,
+  $time: 0.35s,
+  $easing: $easing-primary,
+  $delay: 0s
+) {
+  transition: $property $time $easing $delay;
+}
+
+/// Helper to style placeholders of inputs
+/// @param {String} $color - Placeholder color
+@mixin placeholder($color) {
+  ::placeholder {
+    color: $color;
+  }
+}
+
+/// Helper to reset the default styles of a list
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/// Helper to absolute position (by default) element with full size width & height
+/// @param {String} $position - Position of the element
+@mixin full-size($position: absolute) {
+  position: $position;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin absolute-center() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+/// Helper to make use of GPU accelerated graphics
+@mixin gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/// Helper to make a full size background cover and center
+/// @param {String} $url      - Relative url of the image
+/// @param {String} $repeat   - Background-repeat property
+/// @param {String} $position - Background-position property
+/// @param {String} $size     - Background-size property
+/// @param {String} $fixed    - Background-attachment property
+@mixin bg-custom(
+  $url,
+  $repeat: no-repeat,
+  $position: center,
+  $size: cover,
+  $fixed: inherit
+) {
+  background-image: url('#{$url}');
+  background-repeat: $repeat;
+  background-position: $position;
+  background-size: $size;
+  background-attachment: $fixed;
+}
+
+
+/// Helper to style custom browser
+/// @param {String} $browser - Browser abbreviation
+@mixin style-custom-browser($browser) {
+  @if $browser==ff {
+    // Firefox
+    @-moz-document url-prefix('') {
+      @content;
+    }
+  } @else if $browser==sf {
+    // Safari
+    @media not all and (min-resolution: 0.001dpcm) {
+      @supports (-webkit-appearance: none) {
+        @content;
+      }
+    }
+  } @else if $browser==ie8-10 {
+    // IE 8-10
+    @media screen\0 {
+      @content;
+    }
+  } @else if $browser==ie8-11 {
+    // IE 8-11
+    @media screen\0,
+      screen and (-ms-high-contrast: active),
+      (-ms-high-contrast: none) {
+      @content;
+    }
+  } @else if $browser==edge {
+    // IE Edge
+    @supports (-ms-ime-align: auto) {
+      @content;
+    }
+  } @else if $browser==ie {
+    // IE (8-11 & Edge)
+    @media screen\0,
+      screen and (-ms-high-contrast: active),
+      (-ms-high-contrast: none) {
+      @content;
+    }
+
+    @supports (-ms-ime-align: auto) {
+      @content;
+    }
+  }
+}
+
+
+/// Helper to make a fresponsive font-size
+/// @param {String} $fs-map           - Relative url of the image
+/// @param {String} $fs-breakpoints   - Background-repeat property
+@mixin font-size($fs-map, $fs-breakpoints: $grid-breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      @include make-font-size($fs-font-size);
+    }
+    @else {
+      // If $fs-font-size is a key that exists in
+      // $fs-breakpoints, use the value
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media screen and (min-width: $fs-breakpoint) {
+        @include make-font-size($fs-font-size);
+      }
+    }
+  }
+}
+
+// Utility function for mixin font-size
+@mixin make-font-size($fs-font-size) {
+  // If $fs-font-size is a list, include
+  // both font-size and line-height
+  @if type-of($fs-font-size) == "list" {
+    font-size: nth($fs-font-size, 1);
+    @if (length($fs-font-size) > 1) {
+      line-height: nth($fs-font-size, 2);
+    }
+  }
+  @else {
+    font-size: $fs-font-size;
+  }
+}
+
+@mixin initial-state() {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

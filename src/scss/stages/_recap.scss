@@ -1,0 +1,48 @@
+// Stage Recap - Initial States
+.stage--recap {
+  background-image: url('../../assets/fondos/recap_0.jpg');
+
+  .step--0 {
+    background-image: url('../../assets/fondos/recap_0.jpg');
+  }
+}
+
+// Stage Recap In
+.stage--recap.stage--in {
+  // Steps 0 In
+  .step--0.step--in {
+    .card-animation {
+      transform: translateX(0);
+      opacity: 1;
+  
+      .card__step,
+      .card__title,
+      .card__content,
+      .card__actions {
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
+  }  
+  
+  // Steps 0 Out
+  .step--0.step--out {
+    .card-animation {
+      transform: translateX(-30px);
+      opacity: 0;
+
+      .card__step,
+      .card__title,
+      .card__content,
+      .card__actions {
+        opacity: 0;
+      } 
+    }
+  }   
+}  
+
+// Stage Recap Out
+.stage--recap.stage--out {
+  opacity: 0;
+  transition: 450ms ease-out;
+}

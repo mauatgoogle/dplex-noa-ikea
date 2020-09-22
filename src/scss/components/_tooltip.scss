@@ -1,0 +1,107 @@
+.tooltip {
+  position: absolute;
+  display: none;
+  align-items: center;
+
+  &.active {
+    display: flex;
+  }
+
+  &.animate .tooltip__cta {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: scale(1, 1);
+  }
+
+  &__cta {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+
+    // Initial State
+    @include initial-state;
+    transform: scale(.6, .6);
+    transform-origin: center center;   
+    transition: 650ms ease-in; 
+    
+    .pulsar-btn {
+      &__bg {
+        background-color: $white;
+        transition: .45s cubic-bezier(.33, 0, 0, 1);
+      }
+
+      &--geomagical {
+        .pulsar-btn__bg span {
+          color: $geomagical;
+          transition: .45s cubic-bezier(.33, 0, 0, 1);
+        }
+      }
+    }
+  }
+
+  &__box {
+    flex-shrink: 0;
+    background-color: $white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-left: -30px;
+    user-select: none;
+    opacity: 0.01;
+    transform: translateX(20px);
+    transition: 500ms ease-in-out;
+
+    @include media-breakpoint-up(md) {
+      width: 32.43vw;
+      padding: 45px 45px 45px 88px;
+    }
+
+    p {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: 450ms ease-in-out;
+      transition-delay: 510ms;
+
+      + p {
+        margin-top: 16px;
+      }
+    }
+  }
+  
+  // Open detail box
+  &--detail {
+    .tooltip__cta {
+      .pulsar-btn { 
+        &--geomagical {
+          .pulsar-btn__bg {
+            background-color: $geomagical;
+
+            span {
+              color: $white;
+            }
+          }
+        }
+
+        &--recommendations {
+          .pulsar-btn__bg {
+            background-color: $recommendations;
+
+            span {
+              color: $white;
+            }
+          }
+        }        
+      }
+    }
+
+    .tooltip__box {
+      opacity: 1;
+      transform: translateY(0);
+
+      p {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}

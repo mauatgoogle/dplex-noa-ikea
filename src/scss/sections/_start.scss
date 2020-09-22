@@ -1,0 +1,191 @@
+.section--start {
+  .headline-wrap {
+    position: relative;
+  }
+
+  .headline {
+    &--1 {
+      .text-animation {
+        transition-delay: 800ms;
+      }
+    
+      .btn-animation {
+        transition-delay: 1300ms;
+      }
+    }
+
+    &--2 {
+      @include initial-state;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      .platforms {
+        > li {
+          @for $i from 1 to 4 {
+            &:nth-child(#{$i}) .platform { 
+              transition-delay: calc(1000ms + (#{$i} * 250ms))
+            }
+          } 
+        }
+
+        .platform {
+          // Animation
+          opacity: 0;
+          transition-duration: 800ms;
+          transition-timing-function: cubic-bezier(.215,.61,.355,1);
+          // transform: translateX(30px);
+          transform: scale(.75);
+        }
+      }
+
+      .dragger-container {
+        .dragger-area {
+          // Initial State
+          opacity: 0;
+          transition-duration: 800ms;
+          transition-timing-function: cubic-bezier(.215,.61,.355,1);
+          transition-delay: 2000ms;
+        }
+
+        .explore {
+          // Initial State
+          opacity: 0;
+          transition-duration: 800ms;
+          transition-timing-function: cubic-bezier(.215,.61,.355,1);
+          transition-delay: 2250ms;
+        }        
+      }
+    }
+  }
+
+  .legal {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    user-select: none;
+    color: $grey700;
+    font-size: 0.75rem;
+
+    // Initial State
+    transition-duration: 650ms;
+    transition-timing-function: cubic-bezier(.215,.61,.355,1);
+    transition-delay: 500ms;    
+    opacity: 0;
+  }
+
+  .logo-ikea {
+    // Initial State
+    transform: translateY(150%);
+    transition-duration: 800ms;
+    transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+    opacity: 0;
+  }
+
+  &.section--in {
+    .logo-ikea {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .legal {
+      opacity: 1;
+    }
+
+    // headline--1 in
+    .headline--1 {
+      .headline-line-animation .line {
+        transform: translateY(0);
+        opacity: 1;
+      }
+  
+      .text-animation,
+      .btn-animation {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    // Active second subheadline
+    &.subheadline--2 {
+
+      // headline--1 out
+      .headline--1 {
+        .headline-line-animation,
+        .text-animation,
+        .btn-animation {
+          transition: opacity 1000ms cubic-bezier(.215,.61,.355,1);
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      // headline--2 in
+      .headline--2 {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        .headline-line-animation .line {
+          transform: translateY(0);
+          opacity: 1;
+        }
+          
+        .platforms .platform {
+          // transform: translateY(0);
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        .dragger-container {
+          .dragger-area {
+            opacity: 1;
+          }
+
+          .explore {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }          
+      }
+
+    }
+  }
+
+  &.section--out {
+    .logo-ikea,
+    .legal {
+      opacity: 0;
+      transition-delay: 100ms;
+    }
+
+    // headline--2 out
+    &.subheadline--2 .headline--2 {
+      .headline-line-animation .line {
+        transform: translateY(200%);
+        opacity: 0;
+      }
+        
+      .platforms .platform {
+        transition-delay: 1000ms;
+        opacity: 0;
+      }
+
+      .dragger-container {
+        .dragger-area {
+          opacity: 0;
+          transition-delay: 1200ms;
+        }
+
+        .explore {
+          opacity: 0;
+          transform: translateY(30px);
+          transition-delay: 1200ms;
+        }
+      } 
+    }
+  }
+}

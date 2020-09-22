@@ -1,0 +1,27 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  background: url('../img/ui/main-bg.png') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  @include media-breakpoint-down(sm) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $black;
+
+    &::before {
+      content: 'Under construction';
+      font-size: 24px;
+      color: $white;
+      text-align: center;
+    }
+
+    .site-wrap {
+      display: none !important;
+    }
+  }
+}

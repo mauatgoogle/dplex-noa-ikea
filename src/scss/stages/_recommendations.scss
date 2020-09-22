@@ -1,0 +1,115 @@
+// Stage Recommendations - Initial States
+.stage--recommendations {
+  background-image: url('../../assets/fondos/recommendations_0.jpg');
+
+  .step--0 {
+    background-image: url('../../assets/fondos/recommendations_0.jpg');
+
+    .text-animation {
+      transition-delay: 1000ms;
+    }
+
+    .pulsar-btn {
+      // Initial State
+      opacity: 0;
+      transition-duration: 700ms;
+      transition-timing-function: cubic-bezier(.215,.61,.355,1); 
+      transition-delay: 1300ms;   
+    }
+  } 
+
+  .step--1 {
+    background-image: url('../../assets/fondos/recommendations_1.jpg');
+  }
+
+  .step--2 {
+    background-image: url('../../assets/fondos/recommendations_2.jpg');
+  }
+
+  .step--3 {
+    background-image: url('../../assets/fondos/recommendations_3.jpg');
+  }
+}
+
+
+// Stage Recommendations In
+.stage--recommendations.stage--in {
+  // Global
+  .headline-line-animation .line {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  // Step 0
+  .step--0.step--in {
+    .text-animation {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pulsar-btn {
+      opacity: 1;
+    }
+  }
+
+  .step--0.step--out {
+    .headline-line-animation .line {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 0s;
+    }    
+
+    .text-animation {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 200ms;
+    }
+
+    .pulsar-btn {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 400ms;
+    }
+  }
+
+  // Steps 1/2/3 In
+  .step--1.step--in,
+  .step--2.step--in,
+  .step--3.step--in {
+    .card-animation {
+      transform: translateX(0);
+      opacity: 1;
+  
+      .card__step,
+      .card__title,
+      .card__content,
+      .card__actions {
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
+  }  
+  
+  // Steps 1/2/3 Out
+  .step--1.step--out,
+  .step--2.step--out,
+  .step--3.step--out {
+    .card-animation {
+      transform: translateX(-30px);
+      opacity: 0;
+
+      .card__step,
+      .card__title,
+      .card__content,
+      .card__actions {
+        opacity: 0;
+      } 
+    }
+  }   
+}  
+
+// Stage Recommendations Out
+.stage--recommendations.stage--out {
+  opacity: 0;
+  transition: 450ms ease-out;
+}

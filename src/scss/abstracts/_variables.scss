@@ -1,0 +1,116 @@
+// Color system
+$white: #fff;
+
+// $grey50: #f8f9fa;
+// $grey100: #f1f3f4;
+// $grey200: #e8eaed;
+// $grey300: #dadce0;
+$grey400: #bdc1c6;
+$grey500: #9aa0a6;
+// $grey600: #80868b;
+$grey700: #5f6368;
+$grey800: #3c4043;
+$grey900: #202124;
+
+// $blue50: #e8f0fe;
+// $blue100: #d2e3fc;
+// $blue200: #aecbfa;
+// $blue300: #8ab4f8;
+// $blue400: #669df6;
+$blue500: #4285f4;
+$blue600: #1a73e8;
+// $blue700: #1967d2;
+// $blue800: #185abc;
+$blue900: #174ea6;
+
+// $green50: #e6f4ea;
+// $green100: #ceead6;
+// $green200: #a8dab5;
+// $green300: #81c995;
+// $green400: #5bb974;
+// $green500: #34a853;
+// $green600: #1e8e3e;
+// $green700: #188038;
+// $green800: #137333;
+// $green900: #0d652d;
+
+// $red50: #fce8e6;
+// $red100: #fad2cf;
+// $red200: #f6aea9;
+// $red300: #f28b82;
+// $red400: #ee675c;
+// $red500: #ea4335;
+// $red600: #d93025;
+// $red700: #c5221f;
+// $red800: #b31412;
+// $red900: #a50e0e;
+
+// $yellow50: #fef7e0;
+// $yellow100: #feefc3;
+// $yellow200: #fde293;
+// $yellow300: #fdd663;
+// $yellow400: #fcc934;
+// $yellow500: #fbbc04;
+// $yellow600: #f9ab00;
+// $yellow700: #f29900;
+// $yellow800: #ea8600;
+// $yellow900: #e37400;
+
+// $purple900: #681da8;
+
+$black: #000;
+$geomagical: #3cba54;
+$recommendations: #fbbc05;
+$recap: $blue500;
+
+$font-weight-lighter: lighter;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$line-height-base: 1.5;
+
+// Typography
+$font-family-sans-serif: Google Sans, Roboto, sans-serif;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif;
+$font-size-base: 1rem;
+$font-weight-base: $font-weight-normal;
+
+// Links
+$link-color: $blue600;
+$link-hover-color: $blue900;
+$link-decoration: none;
+$link-hover-decoration: none;
+
+
+// Spacer
+$spacer: 4px !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * 1), // 4px
+    2: ($spacer * 2), // 8px
+    3: ($spacer * 3), // 12px
+    4: ($spacer * 4), // 16px
+    5: ($spacer * 5), // 20px
+    6: ($spacer * 6), // 24px
+    7: ($spacer * 7), // 28px
+    8: ($spacer * 8), // 32px
+    9: ($spacer * 9), // 36px
+    10: ($spacer * 10), // 40px
+    11: ($spacer * 11), // 44px
+    12: ($spacer * 12)  // 48px
+  ),
+  $spacers
+);
+
+
+// Animation
+$transition-speed-base: 400ms;
+$transition-in-delay: 400ms;
+$transition-out-delay: 100ms;
+$animation-speed-base: 1200ms;
+

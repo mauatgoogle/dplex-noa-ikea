@@ -1,0 +1,19 @@
+@keyframes circle-button-pulse{
+  0% { 
+    opacity: 1
+  }
+  41%, to { 
+    transform: scale(1.001);
+    opacity: 0
+  }
+}
+
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
