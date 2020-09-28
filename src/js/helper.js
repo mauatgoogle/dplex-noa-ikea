@@ -8,6 +8,7 @@ var sections = [
   'stages.geomagical.1',
   'stages.geomagical.2',
   'stages.geomagical.3',
+  'stages.geomagical.4',
   'stages.recommendations.0',
   'stages.recommendations.1',
   'stages.recommendations.2',

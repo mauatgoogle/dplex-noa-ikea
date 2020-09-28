@@ -1,7 +1,4 @@
 .section--splash {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   width: 100%;
   height: 100%;
@@ -26,19 +23,19 @@
 
   .google-cloud-animated {
     display: block;
-    width: 440px;
-    height: 70px;
+    width: 277px;
+    height: 44px;
     background-image: url('../img/logos/logo_splash.png');
-    animation: google-cloud-splash 2000ms steps(50, end) both;    
-  }
-
-  @keyframes google-cloud-splash {
-    from {
-      background-position: 0;
-    }
-
-    to {
-      background-position: -22000px;
+    background-size: 14127px auto;
+    animation: google-cloud-splash-mobile 2000ms steps(50, end) both;  
+    
+    @include media-breakpoint-up(md) {
+      width: 440px;
+      height: 70px;
+      background-size: 22440px auto;
+      animation: google-cloud-splash 2000ms steps(50, end) both;  
     }
   }
+
 }
+

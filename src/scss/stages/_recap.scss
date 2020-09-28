@@ -1,9 +1,13 @@
 // Stage Recap - Initial States
 .stage--recap {
-  background-image: url('../../assets/fondos/recap_0.jpg');
+  .bg-temporal & {
+    background-image: url('../../assets/fondos/recap_0.jpg');
+  }
 
   .step--0 {
-    background-image: url('../../assets/fondos/recap_0.jpg');
+    .bg-temporal & {
+      background-image: url('../../assets/fondos/recap_0.jpg');
+    }
   }
 }
 

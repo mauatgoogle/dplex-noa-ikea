@@ -1,0 +1,24 @@
+.section--stages-mobile { 
+ 
+  @include media-breakpoint-up(md) {
+    display: none !important;
+  }
+
+  .home-btn {
+    // Initial State
+    opacity: 0;
+    transform: scale(.5);
+    pointer-events: none;
+    transition-duration: 700ms;
+    transition-timing-function: cubic-bezier(.215,.61,.355,1);    
+  }
+
+  // Animations
+  &.section--in {
+    .home-btn {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }  
+  }
+}

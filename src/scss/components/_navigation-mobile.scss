@@ -1,0 +1,28 @@
+.navigation-mobile {
+  position: absolute;
+  bottom: 40px;
+  left: 16px;
+  display: block;
+  width: calc(100% - 32px);
+
+  @include media-breakpoint-up(sm) {
+    width: calc(100% - 60px);
+    left: 30px;
+  }
+
+  @include media-breakpoint-up(md) {
+    display: none !important;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    height: 46px;
+    border-radius: 23px;
+    background-color: #e6e6e6;
+
+    + .btn {
+      margin-top: 18px;
+    }
+  }
+}

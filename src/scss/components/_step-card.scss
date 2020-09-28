@@ -1,0 +1,93 @@
+.step-card {
+  position: relative;
+
+  &:first-child,
+  &:first-child .step-card__header {
+    border-radius: 22px 22px 0 0;
+  }
+
+  &__header {
+    padding: 55px 25px 45px;
+    color: $white;
+  }
+
+  &__step {
+    font-size: 0.75rem;
+
+    svg {
+      width: 24px;   
+      margin-right: 8px;
+      
+      &.icon-capture {
+        position: relative;
+        top: -4px;
+      }       
+    }
+
+    .step-icon {
+      fill-rule: evenodd;
+      clip-rule: evenodd;
+      fill: $white;     
+    }
+  }
+
+
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  &__body {
+    padding: 40px 25px;
+    background-color: $white;
+  }
+
+  &--geomagical {
+    .step-card__header {
+      background-color: $geomagical;
+    }
+
+    .tech {
+      &__title {
+        color: $geomagical;
+      }
+
+      &__icon {
+        background-color: $geomagical;
+      }
+    }
+  }
+
+  &--recommendations {
+    .step-card__header {
+      background-color: $recommendations;
+    }
+
+    .tech {
+      &__title {
+        color: $recommendations;
+      }
+
+      &__icon {
+        background-color: $recommendations;
+      }
+    }
+  }
+  
+  &--recap {
+    .step-card__header {
+      background-color: $recap;
+    }
+
+    .tech {
+      &__title {
+        color: $recap;
+      }
+
+      &__icon {
+        background-color: $recap;
+      }
+    }
+  }  
+}

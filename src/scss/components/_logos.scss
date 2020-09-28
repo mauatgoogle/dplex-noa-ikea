@@ -5,7 +5,11 @@
 
 .logo-ikea {
   img {
-    width: 113px;
+    width: 75px;
     max-width: 100%;
+
+    @include media-breakpoint-up(md) {
+      width: 113px;
+    }
   }
 }

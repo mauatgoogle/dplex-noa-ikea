@@ -37,7 +37,8 @@ GoogleDemoApp.prototype.log = function(data,type){
 };
 
 GoogleDemoApp.prototype.init = function(){
-  this.detectBrowser();
+  Utils.detectBrowser();
+  this.mode = Utils.detectDevice();
   this.addButtonActions();
   this.addWordAnimation();
   this.log('App init')
@@ -173,7 +174,7 @@ GoogleDemoApp.prototype.open = function(slug){
         oldTarget.classList.add(this.pathElements[p]+'--out')
         target.classList.add('active');
         setTimeout(function(target,p,path){
-          target.cleanPartial(p,this.path);
+          target.cleanPartial(p,path);
         },outroTime,this,p,this.path);
         setTimeout(function(target,cls){
           target.classList.add(cls);
@@ -217,33 +218,11 @@ GoogleDemoApp.prototype.dispatchCallback = function(prefix){
     this.callbacks[prefix+this.currentSlug]();
   }
 
-}
-GoogleDemoApp.prototype.detectBrowser = function(){
-  if(navigator.appVersion.indexOf("Win")!=-1) {
-      document.body.classList.add('window-os');
-  }
-  if(navigator.platform.toUpperCase().indexOf('MAC')>=0) {
-      document.body.classList.add('mac-os');
-  }
-  if(navigator.appVersion.indexOf("Linux")!=-1) {
-      document.body.classList.add('linux-os');
-  }
-  var ua = navigator.userAgent.toLowerCase();
-  if (ua.indexOf('safari') != -1) {
-      if (ua.indexOf('chrome') > -1) {
-          document.body.classList.add('chrome');
-      } else {
-          document.body.classList.add('safari');
-      }
-  }
-  var FF = !(window.mozInnerScreenX == null);
-  if(FF) {
-      document.body.classList.add('fire-fox');
-  }
-}
+};
+
 var config = {
   callbacks:SiteCallbacks
-}
+};
 console.log(config.callbacks);
 var GDApp = new GoogleDemoApp(config);
 

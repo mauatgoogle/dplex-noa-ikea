@@ -1,0 +1,32 @@
+// Stage Recap - Initial States
+.stage--recap-mobile {
+  background-image: url('../../assets/fondos/recap_0.jpg');
+
+  .headline-line-animation {
+    padding-top: 80px;
+  }
+
+  .text-animation {
+    transition-delay: 900ms;
+  }
+}
+
+
+// Stage Recap In
+.stage--recap-mobile.stage--in {
+  .headline-line-animation .line {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .text-animation {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}  
+
+// Stage Recap Out
+.stage--recap-mobile.stage--out {
+  opacity: 0;
+  transition: 450ms ease-out;
+}

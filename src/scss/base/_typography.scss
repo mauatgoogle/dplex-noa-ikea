@@ -9,12 +9,12 @@
 
   &--headline-1 {
     @extend %typography-headline;
-    font-size: 1.875rem; // 30px
+    font-size: 1.75rem; // 28px
     line-height: 1.2;
     letter-spacing: 0.03px;
 
     @include media-breakpoint-up(sm) {
-      font-size: 2.25rem; // 36px
+      font-size: 2rem; // 32px
     }
 
     @include media-breakpoint-up(md) {
@@ -28,7 +28,7 @@
 
   &--headline-2 {
     @extend %typography-headline;
-    font-size: 1.5rem; // 24px
+    font-size: 1.75rem; // 28px
     letter-spacing: 0.02px;
     line-height: 1.07;
     

@@ -1,9 +1,13 @@
 // Stage Geomagical - Initial States
 .stage--geomagical {
-  background-image: url('../../assets/fondos/geomagical_0.jpg');
+  .bg-temporal & {
+    background-image: url('../../assets/fondos/geomagical_0.jpg');
+  }
 
   .step--0 {
-    background-image: url('../../assets/fondos/geomagical_0.jpg');
+    .bg-temporal & {
+      background-image: url('../../assets/fondos/geomagical_0.jpg');
+    }
 
     .text-animation {
       transition-delay: 900ms;
@@ -19,15 +23,21 @@
   }
 
   .step--1 {
-    background-image: url('../../assets/fondos/geomagical_0.jpg');
+    .bg-temporal & {
+      background-image: url('../../assets/fondos/geomagical_0.jpg');
+    }
   }
 
   .step--2 {
-    background-image: url('../../assets/fondos/geomagical_2.jpg');
+    .bg-temporal & {
+      background-image: url('../../assets/fondos/geomagical_2.jpg');
+    }
   }
 
   .step--3 {
-    background-image: url('../../assets/fondos/geomagical_3.jpg');
+    .bg-temporal & {
+      background-image: url('../../assets/fondos/geomagical_3.jpg');
+    }
   }  
 }
 
@@ -106,6 +116,23 @@
       } 
     }
   }   
+
+
+  // Step 4 In
+  .step--4.step--in {
+    img {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  // Step 4 Out
+  .step--4.step--out {
+    img {
+      transform: translateX(30%);
+      opacity: 0;
+    }
+  }  
 }  
 
 // Stage Geomagical Out

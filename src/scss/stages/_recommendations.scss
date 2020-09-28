@@ -1,9 +1,13 @@
 // Stage Recommendations - Initial States
 .stage--recommendations {
-  background-image: url('../../assets/fondos/recommendations_0.jpg');
+  .bg-temporal & {
+    background-image: url('../../assets/fondos/recommendations_0.jpg');
+  }  
 
   .step--0 {
-    background-image: url('../../assets/fondos/recommendations_0.jpg');
+    .bg-temporal & {
+      background-image: url('../../assets/fondos/recommendations_0.jpg');
+    }
 
     .text-animation {
       transition-delay: 1000ms;
@@ -14,20 +18,26 @@
       opacity: 0;
       transition-duration: 700ms;
       transition-timing-function: cubic-bezier(.215,.61,.355,1); 
-      transition-delay: 1300ms;   
+      transition-delay: 1300ms;
     }
   } 
 
   .step--1 {
-    background-image: url('../../assets/fondos/recommendations_1.jpg');
+    .bg-temporal & {
+      background-image: url('../../assets/fondos/recommendations_1.jpg');
+    }
   }
 
   .step--2 {
-    background-image: url('../../assets/fondos/recommendations_2.jpg');
+    .bg-temporal & {
+      background-image: url('../../assets/fondos/recommendations_2.jpg');
+    }
   }
 
   .step--3 {
-    background-image: url('../../assets/fondos/recommendations_3.jpg');
+    .bg-temporal & {
+      background-image: url('../../assets/fondos/recommendations_3.jpg');
+    }
   }
 }
 

@@ -1,16 +1,13 @@
 .platforms {
-  display: block;
+  display: inline-flex;
   padding: 0;
   list-style: none;
   user-select: none;
-
-  @include media-breakpoint-up(md) {
-    display: inline-flex;
-  }
-
+  justify-content: center;
+  
   > li {
     flex-shrink: 0;
-    margin: 8px 0;    
+    margin: 0 5px;    
     
     @include media-breakpoint-up(md) {
       margin: 0 8px;
@@ -21,16 +18,64 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 60px;
     height: 46px;
     color: $grey700;
     font-size: .875rem;
     background-color: rgba($white, .5);
     border-radius: 23px;
-    padding-right: 25px;
-    padding-left: 25px;
-    
-    img {
-      margin-right: 8px;      
+
+    @include media-breakpoint-down(sm) {
+      position: relative;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translate(50%, -50%);        
+      }
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50px;
+        transform: translateY(-50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: 500ms ease-in-out;
+        font-size: 0.75rem;
+        white-space: nowrap;
+      }
+      
+      &.active {
+        width: 170px;
+        transition-duration: 450ms !important;
+        transition-delay: 0ms !important;
+
+        &.platform--sm {
+          width: 140px;
+        }
+        
+        // Text
+        span {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      
     }
+    
+    @include media-breakpoint-up(md) {
+      width: auto;
+      padding-right: 25px;
+      padding-left: 25px;
+
+      // Text
+      span {
+        margin-left: 8px;
+      }
+    }
+    
   }
 }

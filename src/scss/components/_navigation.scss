@@ -1,14 +1,16 @@
 .navigation {
-  position: absolute;
-  bottom: 8vh;
-  left: 0;
-  width: 100%;
-  height: 11px;
-  text-align: center;
-  user-select: none;
+  display: none; 
 
   @include media-breakpoint-up(md) {
+    display: block;
+    position: absolute;
+    // bottom: 8vh;
     bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 11px;
+    text-align: center;
+    user-select: none;
   }
 
   .stage-nav-container {
@@ -30,12 +32,6 @@
   position: relative;
   display: flex;
   justify-content: center;
-
-  @include media-breakpoint-up(md) {
-    // &:hover {
-    //   z-index: 5;
-    // }
-  }  
 
   // space reservation
   &__point {
@@ -146,7 +142,6 @@
   // Status
   &.current {
     pointer-events: none;
-    //z-index: 6;
     
     .stage-nav__label {
       width: auto;
@@ -174,7 +169,6 @@
     .stage-nav__point {
       &::before {
         transform: scale(1);
-        //opacity: .3;
         opacity: 1;
       }
 
@@ -195,4 +189,3 @@
     }
   }
 }
-

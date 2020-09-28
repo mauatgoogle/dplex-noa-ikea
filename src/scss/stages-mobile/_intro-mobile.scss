@@ -1,0 +1,17 @@
+// Stage Intro In
+.stage--intro-mobile.stage--in {
+  padding-top: 40px;
+  text-align: center;
+
+  .headline-line-animation .line {
+    transform: translateY(0);
+    opacity: 1;
+  }
+    
+}
+
+// Stage Intro Out
+.stage--intro-mobile.stage--out {
+  opacity: 0;
+  transition: 450ms ease-out;
+}

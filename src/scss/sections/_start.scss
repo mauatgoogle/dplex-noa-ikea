@@ -1,10 +1,51 @@
 .section--start {
+
+  // Mobile
+  @include media-breakpoint-down(sm) {
+    .text-wrap {
+      justify-content: space-between;
+
+      > div {
+        position: relative;
+        height: 100%;
+      }
+    }
+  }
+
   .headline-wrap {
     position: relative;
+
+    @include media-breakpoint-down(sm) {
+      height: 100%;
+
+      .headline {
+        display: flex;
+        width: 100%;
+        height: calc(100% - 50px); // 50px logo ikea
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        &--1 .btn {
+          flex-shrink: 0;
+          flex-grow: 0;
+        }
+      }      
+   
+    }
   }
 
   .headline {
+    .headline-line-animation {
+      @media (max-width: 400px) {
+        .line {
+          display: inline;
+        }
+      }
+    }
+
     &--1 {
+
       .text-animation {
         transition-delay: 800ms;
       }
@@ -61,20 +102,23 @@
   }
 
   .legal {
-    position: absolute;
-    bottom: 30px;
-    left: 0;
-    width: 100%;
     text-align: center;
     user-select: none;
     color: $grey700;
     font-size: 0.75rem;
-
+    
     // Initial State
     transition-duration: 650ms;
     transition-timing-function: cubic-bezier(.215,.61,.355,1);
     transition-delay: 500ms;    
     opacity: 0;
+    
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      width: 100%;      
+    }
   }
 
   .logo-ikea {

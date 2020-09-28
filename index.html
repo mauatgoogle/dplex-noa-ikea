@@ -17,7 +17,7 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','');//GTM-5PZ5JTV</script>
   </head>
-  <body>
+  <body class="bg-temporal"><!-- add/remove 'bg-temporal' -->
     <!-- Google Tag Manager (noscript) GTM-5PZ5JTV -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -132,65 +132,71 @@
           <section id="sectionstart" class="section section--start" data-time-intro="6000" date-time-outro="2000"><!-- -->
             <div class="container-fluid">
               <div class="text-wrap text-wrap--half">
-                <div class="logo-ikea mb-7">
-                  <img src="public/img/logos/ikea-logo.svg" alt="Ikea" />
-                </div>
-                <div class="headline-wrap">
-                  <div class="headline headline--1">
-                    <h1 class="typography typography--headline-1 headline-line-animation mb-8">
-                      <span class="line">A better home creates</span>
-                      <span class="line">a better everyday life</span>
-                    </h1>
-                    <p class="mb-11 text-animation">This is a principle guiding IKEA Retail (Ingka Group). Learn how IKEA uses <br class="d-none d-sm-block">Google Cloud to bring the uniqueness of their brand to life digitally, and <br class="d-none d-sm-block">improve people’s lives at home.</p>
-                    <button class="btn btn--primary btn-animation" data-slug="start:subheadline--2">
-                      Start
-                      <span class="anim"></span>
-                    </button>
+                <div>
+                  <div class="logo-ikea mb-5 mb-md-7">
+                    <img src="public/img/logos/ikea-logo.svg" alt="Ikea" />
                   </div>
-                  <div class="headline headline--2">
-                    <h2 class="typography typography--headline-2 headline-line-animation mb-7">
-                      <span class="line">Every dream home lives</span>
-                      <span class="line">in the cloud</span>
-                    </h2>
-                    <ul class="platforms mb-7">
-                      <li>
-                        <div class="platform">
-                          <img src="public/img/platforms/icon-ai.svg" alt="" />
-                          <span>AI Platforms</span>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="platform">
-                          <img src="public/img/platforms/icon-kubernetes.svg" alt="" />
-                          <span>Kubernetes Engine</span>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="platform">
-                          <img src="public/img/platforms/icon-machine-learning.svg" alt="" />
-                          <span>Machine Learning</span>
-                        </div>
-                      </li>
-                    </ul>
-
-                    <div class="dragger-container">
-                      <div class="dragger-area">
-                        <button id="slideButton" class="pulsar-btn" aria-label="Drag button to explore now"><!-- data-slug="stages.intro.0" -->
-                          <span class="pulsar-btn__container">
-                            <span class="pulsar-btn__bg">
-                              <img src="public/img/ui/arrow-right.svg" alt="" />
-                            </span>
-                          </span>
-                        </button>
-                        <div id='slideButtonEnd' class="btn-holder"></div>
-                        <span class="dragger-area__dots"><span id="sliderDots"></span></span>
+                  <div class="headline-wrap">
+                    <div class="headline headline--1">
+                      <div class="mb-md-11">
+                        <h1 class="typography typography--headline-1 headline-line-animation mb-4 mb-md-8">
+                          <span class="line">A better home creates <br class="d-md-none"></span>
+                          <span class="line">a better everyday life</span>
+                        </h1>
+                        <p class="text-animation">This is a principle guiding IKEA Retail (Ingka Group). Learn how IKEA uses <br class="d-none d-sm-block">Google Cloud to bring the uniqueness of their brand to life digitally, and <br class="d-none d-sm-block">improve people’s lives at home.</p>
                       </div>
-                      <span class="explore">EXPLORE NOW</span>
+                      <button class="btn btn--primary btn-animation" data-slug="start:subheadline--2">
+                        Start
+                        <span class="anim"></span>
+                      </button>
+                    </div>
+                    <div class="headline headline--2">
+                      <div class="mb-md-7">
+                        <h2 class="typography typography--headline-2 headline-line-animation mb-7">
+                          <span class="line">Every dream home <br class="d-md-none">lives</span>
+                          <span class="line">in the cloud</span>
+                        </h2>
+                        <ul class="platforms">
+                          <li>
+                            <div class="platform platform--sm">
+                              <img src="public/img/platforms/icon-ai.svg" alt="" />
+                              <span>AI Platforms</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="platform">
+                              <img src="public/img/platforms/icon-kubernetes.svg" alt="" />
+                              <span>Kubernetes Engine</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="platform">
+                              <img src="public/img/platforms/icon-machine-learning.svg" alt="" />
+                              <span>Machine Learning</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="dragger-container">
+                        <div class="dragger-area">
+                          <button id="slideButton" class="pulsar-btn" aria-label="Drag button to explore now"><!-- data-slug="stages.intro.0" -->
+                            <span class="pulsar-btn__container">
+                              <span class="pulsar-btn__bg">
+                                <img src="public/img/ui/arrow-right.svg" alt="" />
+                              </span>
+                            </span>
+                          </button>
+                          <div id='slideButtonEnd' class="btn-holder"></div>
+                          <span class="dragger-area__dots"><span id="sliderDots"></span></span>
+                        </div>
+                        <span class="explore">EXPLORE NOW</span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <span class="legal">The IKEA logo and the IKEA wordmark are registered trademarks of Inter IKEA Systems B.V.</span>
+                <span class="legal mt-6">The IKEA logo and the IKEA wordmark are registered trademarks of Inter IKEA Systems B.V.</span>
               </div>
             </div>
           </section>
@@ -253,7 +259,7 @@
                         <span class="line">Enabling</span>
                         <span class="line">home customization</span>
                       </h3>
-                      <p class="text-animation mb-10">Ingka Group, the largest IKEA franchisee, recently acquired Geomagical labs who are developing a solution to enable customers to design their favorite spaces in virtual reality. Using computer vision and scene understanding, customers are able to recreate their space and see how IKEA products look like in their room before purchasing them.</p>
+                      <p class="text-animation mb-10">Ingka Group, the largest IKEA franchisee, recently acquired Geomagical labs who are developing a solution to enable customers to design their favorite spaces in a mixed reality experience (real + virtual). Using just a smartphone, customers are able to quickly capture their space and virtually experience IKEA products in their room before purchasing them.</p>
 
                       <button class="pulsar-btn pulsar-btn--geomagical" aria-labelledby="works-label" data-slug="stages.geomagical.1">
                         <span class="pulsar-btn__container">
@@ -281,10 +287,10 @@
                         </div>
                         <div class="card__body">
                           <div class="card__content">
-                            <p class="mb-5">The first step is to capture the space you wish to redesign. The IKEA tool will let users with a regular smartphone camera turn their room into a canvas—creating magazine-like, wide-angle photos by combining 5 individual photo captures.</p>
+                            <p class="mb-5">The first step is to capture the space you wish to redesign. Users with a smartphone will be able to use the IKEA app to take an ultra wide, "magazine quality" photo of their room.</p>
 
                             <div class="deep-dive__content">
-                              <p>A parallax tolerant algorithm enables them to blend the captures without any stitches.</p>
+                              <p>A parallax tolerant algorithm enables them to blend the captures without any stitches into an ultra wide photo.</p>
 
                               <ul class="deep-dive__list mt-5">
                                 <li>
@@ -347,7 +353,7 @@
                         </button>
                       </div>
                       <div class="tooltip__box">
-                        <p>Finding lines is critical to understanding the shape and contents of indoor spaces: wall seams, table edges, and other key lines provide important information.</p>
+                        <p>inding lines is critical to understanding the shape and contents of indoor spaces: wall seams, table edges, and other key lines provide important information.</p>
                         <p>IKEA combines neural networks and computer vision techniques to locate and label key lines in the scene in both 2D and 3D.</p>
                       </div>
                     </div>
@@ -363,7 +369,7 @@
                         </button>
                       </div>
                       <div class="tooltip__box">
-                        <p>Indoor panoramas normally require a special tripod mount or wide-angle lens to stitch images together. This tool uses neural networks, photogrammetry, and world-class stitching algorithms to combine photos into a seamless, beautiful panorama.</p>
+                        <p>Indoor panoramas normally require a special tripod mount or wide-angle lens. This app uses neural networks, photogrammetry, and world-class stitching algorithms to combine photos into a seamless, beautiful panorama.</p>
                       </div>
                     </div>
                   </div>
@@ -383,7 +389,7 @@
                         </div>
                         <div class="card__body">
                           <div class="card__content">
-                            <p class="mb-5">Next, the tool will create a detailed and scale-accurate 3D model of the captured room, and all of its contents, so that users can realistically redecorate.</p>
+                            <p class="mb-5">Next, the app will create a detailed and scale-accurate 3D model of the captured room, and all of its contents, so that users can realistically redecorate.</p>
 
                             <div class="deep-dive__content">
                               <ul class="deep-dive__list mt-5">
@@ -477,7 +483,7 @@
                         </div>
                         <div class="card__body">
                           <div class="card__content">
-                            <p class="mb-5">The last step is to ensure the 3D room to feel like your room, with high quality and accuracy.</p>
+                            <p class="mb-5">The last step is to ensure the 3D room looks and feels like your room, with high quality and accuracy.</p>
 
                             <div class="deep-dive__content">
                               <ul class="deep-dive__list mt-5">
@@ -536,7 +542,7 @@
                         </button>
                       </div>
                       <div class="tooltip__box">
-                        <p>IKEA models are rendered into the room with realistic-looking shadows, illumination, scale, and occlusion.</p>
+                        <p>IKEA models are rendered into the room with realistic-looking shadows, illumination, scale, and occlusions.</p>
                       </div>
                     </div>
 
@@ -554,6 +560,12 @@
                         <p>The software combines classic computer vision algorithms and deep learning techniques to accurately detect light sources in the room.  This enables the technology to render reflections, shadows, and a realistic appearance of the virtual furniture.</p>
                       </div>
                     </div>
+                  </div>
+                </div>
+
+                <div class="step step--4">
+                  <div class="container-fluid">
+                    <img src="public/img/geomagical/googlepixel-min.png" alt="" />
                   </div>
                 </div>
               </div>
@@ -709,6 +721,7 @@
               <!-- end Stage Recap -->
             </div>
 
+            <!-- Navigation Desktop -->
             <div class="navigation">
               <div class="stage-nav-container">
                 <div class="stage-nav current"><!-- add class current | done -->
@@ -734,6 +747,7 @@
                     <span class="stage-nav__step stage-nav__step--1"></span>
                     <span class="stage-nav__step stage-nav__step--2"></span>
                     <span class="stage-nav__step stage-nav__step--3"></span>
+                    <span class="stage-nav__step stage-nav__step--4"></span>
                   </span>
                 </div>
                 <div class="stage-nav"><!-- add class current | done -->
@@ -746,7 +760,7 @@
                     <span class="stage-nav__step stage-nav__step--0"></span><!-- add class current  -->
                     <span class="stage-nav__step stage-nav__step--1"></span>
                     <span class="stage-nav__step stage-nav__step--2"></span>
-                    <span class="stage-nav__step stage-nav__step--3"></span>                    
+                    <span class="stage-nav__step stage-nav__step--3"></span>
                   </span>
                 </div>
                 <div class="stage-nav"><!-- add class current | done -->
@@ -762,6 +776,302 @@
             </div>
           </section>
           <!-- end Section Stages -->
+
+          <!-- begin Section Stages Mobile -->
+          <section id="sectionstagesmobile" class="section section--stages-mobile"><!-- active | section--in -->
+            <button class="home-btn home-btn--intro" aria-label="Home" data-slug="start"><!-- home-btn--intro | home-btn--geomagical | home-btn--recommendations -->
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="19px" height="16px" viewBox="0 0 19 16" xml:space="preserve" focusable="false">
+                <g>
+                  <path class="icon-home" d="M9.3,0L0,8.4h2.8v7.4h5.6v-5.6h1.9v5.6h5.6V8.4h2.8L9.3,0z M9.3,2.5L14,6.7V14h-1.9V8.4
+                    H6.5V14H4.7V6.7L9.3,2.5L9.3,2.5z"/>
+                </g>
+              </svg>
+            </button>
+
+            <div class="stages-mobile">
+              <!-- begin Stage Intro -->
+              <div id='stageintromobile' class="stage-mobile stage--intro-mobile"><!-- active | stage--in -->
+                <div class="container-fluid">
+                  <h2 class="typography typography--headline-2 headline-line-animation mb-7">
+                    <span class="line">Every dream home</span>
+                    <span class="line">lives in the cloud</span>
+                  </h2>
+                </div>
+
+                <!-- Navigation Mobile -->
+                <div class="navigation-mobile">
+                  <button class="btn" data-slug="stagesmobile.geomagicalmobile">Geomagical</button>
+                  <button class="btn" data-slug="stagesmobile.recommendationsmobile">AI recommendations</button>
+                  <!-- <button class="btn" data-slug="stages.geomagicalmobile.1">Vision Product Search</button> -->
+                  <button class="btn" data-slug="stagesmobile.recapmobile">Recap</button>
+                </div>
+              </div>
+              <!-- end Stage Intro -->
+
+              <!-- begin Stage Geomagical -->
+              <div id='stagegeomagicalmobile' class="stage-mobile stage--geomagical-mobile"><!-- active | stage--in -->
+                <!-- Intro -->
+                <div class="container-fluid">
+                  <h1 class="typography typography--headline-2 headline-line-animation mb-4">
+                    <span class="line">Enabling</span>
+                    <span class="line">home customization</span>
+                  </h1>
+                  <p class="text-animation mb-10">Ingka Group, the largest IKEA franchisee, recently acquired Geomagical labs who are developing a solution to enable customers to design their favorite spaces in a mixed reality experience (real + virtual). Using just a smartphone, customers are able to quickly capture their space and virtually experience IKEA products in their room before purchasing them.</p>
+                   <!-- data-slug="stages.geomagicalmobile.0" -->
+                  <button class="pulsar-btn pulsar-btn--geomagical" aria-labelledby="works-label" id="geomagicalBtn">
+                    <span class="pulsar-btn__container">
+                      <span class="pulsar-btn__bg">
+                        <img src="public/img/ui/arrow-right.svg" alt="" />
+                      </span>
+                    </span>
+                    <span id="works-label" class="pulsar-btn__label">How it works</span>
+                  </button>
+                </div>
+
+                <!-- Steps overlay -->
+                <div class="steps-overlay"><!-- add class active -->
+                  <a href="#" class="steps-overlay__back">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="17px" height="16px" viewBox="0 0 17 16">
+                      <g transform="translate(-389 -527) translate(389 527)">
+                        <g>
+                          <g>
+                            <polygon class="arrow" points="7.7,0 9.1,1.4 3.8,6.7 16.4,6.7 16.4,8.7 3.8,8.7 9.1,14 7.7,15.4 0,7.7"/>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                  </a>
+
+                  <!-- Step 1 -->
+                  <div class="step-card step-card--geomagical">
+                    <div class="step-card__header">
+                      <div class="step-card__step mb-2">
+                        <!-- <img src="public/img/geomagical/capture.svg" alt="" /> -->
+                        <svg class="icon-capture" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24">
+                          <path class="step-icon" d="M21,7h-3.2L16,5h-6v2h5.1l1.8,2h4v12h-16v-9h-2v9c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V9
+                          C23,7.9,22.1,7,21,7z M8,15c0,2.8,2.2,5,5,5s5-2.2,5-5s-2.2-5-5-5S8,12.2,8,15z M13,12c1.6,0,3,1.4,3,3s-1.4,3-3,3s-3-1.4-3-3
+                          S11.4,12,13,12z M5,7h3V5H5V2H3v3H0v2h3v3h2V7z"/>
+                        </svg>
+                        <span>Step 1</span>
+                      </div>
+                      <h2 class="step-card__title">How it works: scene capture</h2>
+                    </div>
+                    <div class="step-card__body">
+                      <div class="step-card__wrap">
+                        <p class="mb-5">The first step is to capture the space you wish to redesign. Users with a smartphone will be able to use the IKEA app to take an ultra wide, "magazine quality" photo of their room.</p>
+
+                        <!-- Tech Detail -->
+                        <div class="tech">
+                          <h3 class="tech__title">
+                            <span class="tech__icon"><span class="material-icons">check</span></span>
+                            App Captures
+                          </h3>
+                          <div class="tech__image">
+                            <img src="public/img/mobile/stages/geomagical_step1-1-min.jpg" alt="" />
+                          </div>
+                          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                        </div>
+
+                        <div class="tech">
+                          <h3 class="tech__title">
+                            <span class="tech__icon"><span class="material-icons">check</span></span>
+                            Line detection
+                          </h3>
+                          <div class="tech__image">
+                            <img src="public/img/mobile/stages/geomagical_step1-2-min.jpg" alt="" />
+                          </div>
+                          <p>Finding lines is critical to understanding the shape and contents of indoor spaces: wall seams, table edges, and other key lines provide important information.</p>
+                          <p>IKEA combines neural networks and computer vision techniques to locate and label key lines in the scene in both 2D and 3D.</p>
+                        </div>
+
+                        <div class="tech">
+                          <h3 class="tech__title">
+                            <span class="tech__icon"><span class="material-icons">check</span></span>
+                            Parallax tolerant algorithm
+                          </h3>
+                          <div class="tech__image">
+                            <img src="public/img/mobile/stages/geomagical_step1-3-min.jpg" alt="" />
+                          </div>
+                          <p>Indoor panoramas normally require a special tripod mount or wide-angle lens. This app uses neural networks, photogrammetry, and world-class stitching algorithms to combine photos into a seamless, beautiful panorama.</p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <!-- Step 2 -->
+                  <div class="step-card step-card--geomagical">
+                    <div class="step-card__header">
+                      <div class="step-card__step mb-2">
+                        <!-- <img src="public/img/geomagical/360.svg" alt="" /> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24">
+                          <g>
+                            <path class="step-icon icon-360" d="M12,6C6.5,6,2,8.2,2,11c0,2.2,2.9,4.1,7,4.8V19l4-4l-4-4v2.7c-3.2-0.6-5-1.9-5-2.7
+                              c0-1.1,3-3,8-3s8,1.9,8,3c0,0.7-1.5,1.9-4,2.5v2.1c3.5-0.8,6-2.5,6-4.6C22,8.2,17.5,6,12,6z"/>
+                          </g>
+                        </svg>
+                        <span>Step 2</span>
+                      </div>
+                      <h2 class="step-card__title">How it works: 3D models</h2>
+                    </div>
+                    <div class="step-card__body">
+                      <div class="step-card__wrap">
+                        <p class="mb-5">Next, the app will create a detailed and scale-accurate 3D model of the captured room, and all of its contents, so that users can realistically redecorate.</p>
+
+                        <!-- Tech Detail -->
+                        <div class="tech">
+                          <h3 class="tech__title">
+                            <span class="tech__icon"><span class="material-icons">check</span></span>
+                            Depth estimation
+                          </h3>
+                          <div class="tech__image">
+                            <img src="public/img/mobile/stages/geomagical_step2-1-min.jpg" alt="" />
+                          </div>
+                          <p>Combines photogrammetry and multiple neural networks to recreate the full detailed 3D structure of the room and its contents, achieving world-class accuracy. Photogrammetry uses multiple photos of the room, taken from different angles, to triangulate the distance of walls and other objects.</p>
+                        </div>
+
+                        <div class="tech">
+                          <h3 class="tech__title">
+                            <span class="tech__icon"><span class="material-icons">check</span></span>
+                            Segmentation
+                          </h3>
+                          <div class="tech__image">
+                            <img src="public/img/mobile/stages/geomagical_step2-2-min.jpg" alt="" />
+                          </div>
+                          <p>Neural networks and computer vision techniques enable the software to understand what's in the room, classifying every visible object and creating a semantic model for every single detection within it.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Step 3 -->
+                  <div class="step-card step-card--geomagical">
+                    <div class="step-card__header">
+                      <div class="step-card__step mb-2">
+                        <!-- <img src="public/img/geomagical/design.svg" alt="" /> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24">
+                          <path class="step-icon icon-design" d="M20.8,7.4c0.4-0.4,0.4-1,0-1.4L18,3.2c-0.4-0.4-1-0.4-1.4,0l-4.5,4.5L8.2,3.8
+                       C7.4,3,6.2,3,5.4,3.8L3.5,5.7c-0.8,0.8-0.8,2.1,0,2.8l3.9,3.9l-4.5,4.5v4.2h4.2l4.5-4.5l3.9,3.9c0.9,1,2.2,0.6,2.8,0l1.9-1.9
+                       c0.8-0.8,0.8-2.1,0-2.8l-3.9-3.9C16.4,11.9,20.8,7.4,20.8,7.4z M4.9,7.1l1.9-1.9l1.3,1.3L6.9,7.6L8.3,9l1.2-1.2L10.7,9l-1.9,2
+                       L4.9,7.1z M16.1,14.5l-1.2,1.2l1.4,1.4l1.2-1.2l1.3,1.3l-1.9,1.9L13,15.2l1.9-1.9L16.1,14.5z M6.3,19.1H4.9v-1.4l9.6-9.6l1.3,1.3
+                       l0.1,0.1L6.3,19.1z M15.9,6.7l1.4-1.4l1.4,1.4l-1.4,1.4L15.9,6.7z"/>
+                        </svg>
+                        <span>Step 3</span>
+                      </div>
+                      <h2 class="step-card__title">How it works: designing the space</h2>
+                    </div>
+                    <div class="step-card__body">
+                      <div class="step-card__wrap">
+                        <p class="mb-5">The last step is to ensure the 3D room looks and feels like your room, with high quality and accuracy.</p>
+
+                        <!-- Tech Detail -->
+                        <div class="tech">
+                          <h3 class="tech__title">
+                            <span class="tech__icon"><span class="material-icons">check</span></span>
+                            Realistic rendering
+                          </h3>
+                          <div class="tech__image">
+                            <img src="public/img/mobile/stages/geomagical_step3-1-min.jpg" alt="" />
+                          </div>
+                          <p>IKEA models are rendered into the room with realistic-looking shadows, illumination, scale, and occlusions.</p>
+                        </div>
+
+                        <div class="tech">
+                          <h3 class="tech__title">
+                            <span class="tech__icon"><span class="material-icons">check</span></span>
+                            Light source estimation
+                          </h3>
+                          <div class="tech__image">
+                            <img src="public/img/mobile/stages/geomagical_step3-1-min.jpg" alt="" />
+                          </div>
+                          <p>The software combines classic computer vision algorithms and deep learning techniques to accurately detect light sources in the room.  This enables the technology to render reflections, shadows, and a realistic appearance of the virtual furniture.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end Stage Geomagical -->
+
+              <!-- begin Stage AI Recommendations -->
+              <div id='stagerecommendationsmobile' class="stage-mobile stage--recommendations-mobile"><!-- active | stage--in -->
+                <!-- Intro -->
+                <div class="container-fluid">
+                  <h1 class="typography typography--headline-2 headline-line-animation mb-4">
+                    <span class="line">It's all about leveraging</span>
+                    <span class="line">technology to create</span>
+                    <span class="line">more seamless customer</span>
+                    <span class="line">experiences</span>
+                  </h1>
+                  <p class="text-animation mb-10">IKEA leverages Google Cloud's AI solutions to personalize its digital experiences like never before.</p>
+
+                  <button class="pulsar-btn pulsar-btn--recommendations" aria-labelledby="works-label" id="recomendationsMobile">
+                    <span class="pulsar-btn__container">
+                      <span class="pulsar-btn__bg">
+                        <img src="public/img/ui/arrow-right.svg" alt="" />
+                      </span>
+                    </span>
+                    <span id="works-label" class="pulsar-btn__label">How it works</span>
+                  </button>
+                </div>
+
+                <!-- Steps overlay -->
+                <div class="steps-overlay"><!-- add class active -->
+                  <a href="#" class="steps-overlay__back">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="17px" height="16px" viewBox="0 0 17 16">
+                      <g transform="translate(-389 -527) translate(389 527)">
+                        <g>
+                          <g>
+                            <polygon class="arrow" points="7.7,0 9.1,1.4 3.8,6.7 16.4,6.7 16.4,8.7 3.8,8.7 9.1,14 7.7,15.4 0,7.7"/>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                  </a>
+
+                  <!-- Step 1 -->
+                  <div class="step-card step-card--recommendations">
+                    <div class="step-card__header">
+                      <img src="public/img/platforms/icon-recommendations-white.svg" alt="" />
+                      <h2 class="step-card__title mt-2">Recommendations AI</h2>
+                    </div>
+                    <div class="step-card__body">
+                      <div class="step-card__wrap">
+                        <p class="mb-5">Recommendations AI delivers product recommendations, such as ‘other items you may like’, ‘recommended for you’ and ‘frequently bought together’, enabling users to design their dream homes faster and easier with IKEA. This can be done on a global scale with machine learning models that are constantly being updated to improve the results.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Step 2 -->
+                  <div class="step-card step-card--recommendations">
+                    <div class="step-card__header">
+                      <h2 class="step-card__title">Vision API Product Search</h2>
+                    </div>
+                    <div class="step-card__body">
+                      <div class="step-card__wrap">
+                        <p class="mb-5">Using Vision API Product Search, IKEA simplifies the return process throughout its different platforms. Google Cloud Product Search applies machine learning to compare and find the most similar item of all IKEA products. Employees at the return department at IKEA can quickly identify an item by taking a photo of them.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end Stage AI Recommendations -->
+
+              <!-- begin Stage Recap -->
+              <div id='stagerecapmobile' class="stage-mobile stage--recap-mobile">
+                <!-- Intro -->
+                <div class="container-fluid">
+                  <h1 class="typography typography--headline-2 headline-line-animation mb-4">
+                    <span class="line">Simplifying the</span>
+                    <span class="line">retail experience</span>
+                  </h1>
+                  <p class="text-animation mb-10">Designing your dream home is more personalized and convenient than ever with IKEA enabled by Google Cloud.</p>
+                </div>
+              </div>
+              <!-- end Stage Recap -->
+            </div>
+          </section>
+          <!-- end Section Stages Mobile -->
         </div>
       </main>
     </div>
@@ -783,7 +1093,7 @@
     <script src="src/js/helper.js"></script>
     <script src="src/js/app.js"></script>
 
-    
+
     <script>
       // SANGLES, TE DEJO ESTO PARA QUE LO HAGAS LINDO JAJA
       $(document).ready(function() {

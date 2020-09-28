@@ -15,10 +15,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 300px;
-  height: 12.111vh;
-  max-height: 114px;
+  width: 250px;
+  height: 80px;
   margin: 0 auto;
+
+  @include media-breakpoint-up(md) {
+    width: 300px;
+    height: 12.111vh;
+    max-height: 114px;
+  }
 
   &__dots {
     position: absolute;

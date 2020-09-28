@@ -1,6 +1,8 @@
-.section--stages {
-  // background: url('../img/ui/main-bg.png') no-repeat;
-  
+.section--stages { 
+  @include media-breakpoint-down(sm) {
+    display: none !important;
+  }
+
   .home-btn {
     // Initial State
     opacity: 0;

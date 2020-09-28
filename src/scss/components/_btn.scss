@@ -23,24 +23,6 @@ button:focus {
   user-select: none;
   z-index: 1; // necesario para anim
 
-  // &::before {
-  //   background: $white;
-  //   content: "";
-  //   height: 200%;
-  //   left: 0;
-  //   opacity: 0;
-  //   pointer-events: none;
-  //   position: absolute;
-  //   top: 0;
-  //   width: 200%;
-  //   z-index: 1;
-  //   transition: .35s ease-in-out;
-  // }
-
-  // &:active::before {
-  //   opacity: .32;
-  // }  
-
   .material-icons {
     position: relative;
   }

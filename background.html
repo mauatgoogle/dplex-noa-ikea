@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Google Services</title>
+  </head>
+  <body>
+    <a href="#" onClick="show('intro')">Intro</a>
+    <a href="#" onClick="show('fullhouse')">Full House</a>
+    <a href="#" onClick="show('fullhouseopenpre')">Open House pre</a>
+    <a href="#" onClick="show('fullhouseopen')">Open House</a>
+    <a href="#" onClick="show('centerhouse')">Center House</a>
+    <a href="#" onClick="show('diningroom')">Dining Room</a>
+    <a href="#" onClick="show('toproom')">Top Room</a>
+    <a href="#" onClick="show('leftroom')">Left Room</a>
+    <div class="app-backgorund">
+    <canvas id="backCanvas" width="1920" height="1080" style="width:960px;height:540px;border:1px solid red;"></canvas>
+    </div>
+    <!-- <script src="src/js/components/homehouse.js" charset="utf-8"></script> -->
+    <script src="src/js/data/animation.js" charset="utf-8"></script>
+    <script src="src/js/utils/utils.js" charset="utf-8"></script>
+    <script src="src/js/engine/graphic.js" charset="utf-8"></script>
+    <script src="src/js/app.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      function show(s){
+        APPController.setAnimation("home."+s);
+      }
+    </script>
+  </body>
+</html>

@@ -5,6 +5,7 @@ var APPController;
 function CanvasEngine(canvasid,config){
   CanvasEngine.instance = this;
   this.config = config;
+  this.margin = this.config.margin||0;
   console.log(canvasid);
   this.canvas = document.getElementById(canvasid);
 
@@ -16,14 +17,23 @@ function CanvasEngine(canvasid,config){
   this.logicProcessors = [];
   this.animationData = null;
   this.animationSlug = null;//"sections.home.intro";
+  this.tempFolder = false;
   this.sprites = {};
   //this.setAnimation("home.intro");
   this.resize();
+  this.fitCanvas();
   this.init();
 };
 CanvasEngine.prototype.resize = function(){
   this.canvas.width = window.innerWidth;
   this.canvas.height = window.innerHeight;
+  this.fitCanvas();
+}
+CanvasEngine.prototype.setFolder = function(f){
+  this.tempFolder = f;
+}
+CanvasEngine.prototype.fitCanvas = function(){
+  //this.aspect =
   APPW = this.width = this.canvas.width;
   APPH = this.height = this.canvas.height;
 }
@@ -66,13 +76,16 @@ CanvasEngine.prototype.init = function(){
 CanvasEngine.prototype.addSprite = function(src,props){
   props=props||{};
   var spriteKey = props.key||src.split('/').pop().split('.').shift();
-  var spriteObj = new Graphic( this.config.folder+src, props );//,{pivot:{x:0,y:0}});
+  props.margin = this.margin;
+  var folder = this.tempFolder||this.config.folder;
+  var spriteObj = new Graphic( folder+src, props );//,{pivot:{x:0,y:0}});
   // for(var p in props){
   //   console.log(p);
   //   if(p=='key') continue;
   //   spriteObj[p] = props[p];
   // }
   // console.log(spriteObj);
+  spriteObj.visible = false;
   this.sprites[spriteKey] = spriteObj;
 }
 CanvasEngine.prototype.build = function(){
@@ -127,11 +140,24 @@ CanvasEngine.prototype.internalLogic = function(){
 };
 
 CanvasEngine.prototype.internalRender = function(){
+  this.canvas.width = this.canvas.width;
   this.render();
   for(var l=0;l<this.logicProcessors.length;l++) this.logicProcessors[l].render(this.graphics);
   // this.background.render(this.graphics);// this.graphics.drawImage(this.images.background,0,0);
   // this.house.render(this.graphics);
   // this.housefront.render(this.graphics);
+  if(this.margin>0){
+    var ctx = this.graphics;
+    ctx.strokeStyle = "#ff0000";
+    ctx.beginPath();
+    ctx.moveTo(this.margin,this.margin);
+    ctx.lineTo(this.width-this.margin,this.margin);
+    ctx.lineTo(this.width-this.margin,this.height-this.margin);
+    ctx.lineTo(this.margin,this.height-this.margin);
+    ctx.closePath();
+    ctx.stroke();
+
+  }
 };
 
 //CanvasEngine.instance var GDApp = new CanvasEngine();

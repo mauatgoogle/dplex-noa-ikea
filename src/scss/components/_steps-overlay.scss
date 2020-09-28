@@ -1,0 +1,58 @@
+.steps-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transition: 1s ease-in-out;
+  transform: translateY(100%);
+  z-index: 5;
+
+  &.active {
+    transform: translateY(0);
+  }
+
+  &__back {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: $white;
+    border-radius: 24px;
+    box-shadow: 2px 4px 12px 0 rgba(0, 0, 0, 0.2);
+    z-index: 6;
+  
+    .stage--geomagical-mobile & {
+      .arrow {
+        fill: $geomagical;
+      }
+    }
+    
+    .stage--recommendations-mobile & {
+      .arrow {
+        fill: $recommendations;
+      }
+    }
+
+    .stage--recap-mobile & {
+      .arrow {
+        fill: $recap;
+      }
+    }
+  
+    @include media-breakpoint-up(md) {
+      transition-duration: 700ms;
+      transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      
+      &:hover {
+        transform: scale(1.2) !important;
+      }    
+    }    
+  }
+}

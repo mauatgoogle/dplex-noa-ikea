@@ -1,0 +1,29 @@
+.stages-mobile {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.stage-mobile {
+  @include initial-state;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: auto 120%;
+  background-position: center center;
+
+  &.active {
+    display: block;
+  }    
+
+  &.stage--in {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }  
+}

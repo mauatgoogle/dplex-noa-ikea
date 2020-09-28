@@ -1,0 +1,48 @@
+// Stage Geomagical - Initial States
+.stage--geomagical-mobile {
+  background-image: url('../../assets/fondos/geomagical_0.jpg');
+
+  .headline-line-animation {
+    padding-top: 80px;
+  }
+
+  .text-animation {
+    transition-delay: 900ms;
+  }
+
+  .pulsar-btn {
+    // Initial State
+    opacity: 0;
+    transition-duration: 800ms;
+    transition-timing-function: cubic-bezier(.215,.61,.355,1); 
+    transition-delay: 1600ms;   
+
+    &__bg {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+
+// Stage Geomagical In
+.stage--geomagical-mobile.stage--in {
+  .headline-line-animation .line {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .text-animation {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pulsar-btn {
+    opacity: 1;
+  }
+}  
+
+// Stage Geomagical Out
+.stage--geomagical-mobile.stage--out {
+  opacity: 0;
+  transition: 450ms ease-out;
+}

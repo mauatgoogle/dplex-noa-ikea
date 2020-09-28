@@ -9,11 +9,22 @@
 }
 
 
-@keyframes fade {
+@keyframes google-cloud-splash {
   from {
-    opacity: 0;
+    background-position: 0;
   }
+
   to {
-    opacity: 1;
+    background-position: -22000px;
+  }
+}
+
+@keyframes google-cloud-splash-mobile {
+  from {
+    background-position: 0;
+  }
+
+  to {
+    background-position: -13850px;
   }
 }
