@@ -534,7 +534,6 @@ var AnimationData = {
     diningback:{alpha:0,speed:15},
   },
   'final':{
-
     officeback:{alpha:0,speed:10},
     ocarpet:{alpha:0,speed:10},
     obird:{alpha:0,speed:10},
