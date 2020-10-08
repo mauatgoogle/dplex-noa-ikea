@@ -2,7 +2,7 @@ runtime: python37
 
 handlers:
 - url: /ikea
-  static_files: /ikea/index.html
+  static_files: ikea/index.html
   upload: ikea/index.html
   login: admin
 
