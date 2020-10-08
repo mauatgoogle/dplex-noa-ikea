@@ -1,11 +1,11 @@
 runtime: python37
 
 handlers:
-- url: /ikea
+- url: /ikea/
   static_files: index.html
   upload: index.html
   login: admin
 
-- url: /ikea/(.*)
+- url: /(.*)
   static_files: \1
   upload: (.*)
