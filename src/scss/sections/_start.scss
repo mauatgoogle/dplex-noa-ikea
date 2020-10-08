@@ -1,13 +1,26 @@
 .section--start {
-
   // Mobile
+  /* iPhone 4 / iPhone 5 / iPhone 6, 7, 8 / iPhone 6+, 7+, 8+ / iPhone X / iPhone XS Max, XR / Samsung Galaxy S4 / Samsung Galaxy S5 ----------- */
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2),
+  only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2),
+  only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2),
+  only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3),
+  only screen and (min-device-width: 414px) and (max-device-height: 896px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3),
+  only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2),
+  only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+    body.mobile & {
+      min-height: 640px;
+    }
+  }
+
   @include media-breakpoint-down(sm) {
     .text-wrap {
       justify-content: space-between;
 
       > div {
         position: relative;
-        height: 100%;
+        height: calc(100% - 90px);
       }
     }
   }
@@ -30,28 +43,18 @@
           flex-shrink: 0;
           flex-grow: 0;
         }
-      }      
-   
+      }
     }
   }
 
   .headline {
-    .headline-line-animation {
-      @media (max-width: 400px) {
-        .line {
-          display: inline;
-        }
-      }
-    }
-
     &--1 {
-
       .text-animation {
         transition-delay: 800ms;
       }
-    
+
       .btn-animation {
-        transition-delay: 1300ms;
+        transition-delay: 1000ms;
       }
     }
 
@@ -62,43 +65,91 @@
       left: 0;
       width: 100%;
 
-      .platforms {
-        > li {
-          @for $i from 1 to 4 {
-            &:nth-child(#{$i}) .platform { 
-              transition-delay: calc(1000ms + (#{$i} * 250ms))
-            }
-          } 
-        }
-
-        .platform {
-          // Animation
+      @include media-breakpoint-down(sm) {
+        .platforms > li {
           opacity: 0;
-          transition-duration: 800ms;
-          transition-timing-function: cubic-bezier(.215,.61,.355,1);
-          // transform: translateX(30px);
-          transform: scale(.75);
+          transition-duration: 650ms;
+          transition-timing-function: ease-in-out;
+          transform: scale(.5);
+
+          @for $i from 1 to 4 {
+            &:nth-child(#{$i}) {
+              transition-delay: calc(650ms + (#{$i} * 100ms));
+            }
+          }
+        }       
+      }
+
+      @include media-breakpoint-up(md) {
+        .platforms {
+          > li {
+            @for $i from 1 to 4 {
+              &:nth-child(#{$i}) .platform {
+                transition-delay: calc(650ms + (#{$i} * 100ms));
+              }
+            }
+          }
+
+          .platform {
+            // Animation
+            opacity: 0;
+            transition-duration: 800ms;
+            transition-timing-function: cubic-bezier(.215,.61,.355,1);
+            transform: scale(.5);
+          }
         }
       }
 
+      // Initial State
       .dragger-container {
         .dragger-area {
-          // Initial State
-          opacity: 0;
-          transition-duration: 800ms;
-          transition-timing-function: cubic-bezier(.215,.61,.355,1);
-          transition-delay: 2000ms;
+          .pulsar-btn.animate {
+            opacity: 0;
+            transform: translateX(calc(150px - 29px));
+            transition: 800ms linear;
+            transition-delay: 1000ms;
+
+            @include media-breakpoint-up(md) {
+              transform: translateX(calc(150px - 3.3333333337vh));
+            }
+          }
+
+          .btn-holder.animate {
+            opacity: 0;
+            transform: translateX(calc(-150px + 29px));
+            transition: 800ms linear;
+            transition-delay: 1000ms;
+
+            @include media-breakpoint-up(md) {
+              transform: translateX(calc(-150px + 3.3333333337vh));
+            }
+          }
+
+          &__dots {
+            width: 0;
+            transition: 700ms linear;
+            transition-delay: 1400ms;
+          }
         }
 
         .explore {
           // Initial State
           opacity: 0;
-          transition-duration: 800ms;
+          transition-duration: 650ms;
           transition-timing-function: cubic-bezier(.215,.61,.355,1);
-          transition-delay: 2250ms;
-        }        
+          transition-delay: 1800ms;
+        }
       }
     }
+  }
+
+  .logo-ikea {
+    // Initial State
+    transform: translateY(150%);
+    transition-duration: 450ms;
+    transition-delay: $transition-in-delay;
+    transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+    opacity: 0;
   }
 
   .legal {
@@ -106,26 +157,27 @@
     user-select: none;
     color: $grey700;
     font-size: 0.75rem;
-    
+
     // Initial State
     transition-duration: 650ms;
     transition-timing-function: cubic-bezier(.215,.61,.355,1);
-    transition-delay: 500ms;    
+    transition-delay: $transition-in-delay;
     opacity: 0;
-    
+
     @include media-breakpoint-up(md) {
       position: absolute;
       bottom: 30px;
       left: 0;
-      width: 100%;      
+      width: 100%;
     }
+
   }
 
-  .logo-ikea {
+  .privacy-mobile {
     // Initial State
-    transform: translateY(150%);
-    transition-duration: 800ms;
-    transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+    transition-duration: 650ms;
+    transition-timing-function: cubic-bezier(.215,.61,.355,1);
+    transition-delay: $transition-in-delay;
     opacity: 0;
   }
 
@@ -135,7 +187,8 @@
       opacity: 1;
     }
 
-    .legal {
+    .legal,
+    .privacy-mobile {
       opacity: 1;
     }
 
@@ -145,7 +198,7 @@
         transform: translateY(0);
         opacity: 1;
       }
-  
+
       .text-animation,
       .btn-animation {
         opacity: 1;
@@ -161,7 +214,7 @@
         .headline-line-animation,
         .text-animation,
         .btn-animation {
-          transition: opacity 1000ms cubic-bezier(.215,.61,.355,1);
+          transition: opacity 800ms cubic-bezier(.215,.61,.355,1);
           opacity: 0;
           pointer-events: none;
         }
@@ -177,59 +230,79 @@
           transform: translateY(0);
           opacity: 1;
         }
-          
-        .platforms .platform {
-          // transform: translateY(0);
-          transform: scale(1);
-          opacity: 1;
+
+        .platforms {
+          @include media-breakpoint-down(sm) {
+            > li {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
+
+          @include media-breakpoint-up(md) {
+            .platform {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
         }
 
         .dragger-container {
           .dragger-area {
-            opacity: 1;
+            .pulsar-btn.animate,
+            .btn-holder.animate {
+              transform: translateX(0);
+              opacity: 1;
+            }
+
+            &__dots {
+              width: calc(100% - (58px * 2));
+            }
           }
 
           .explore {
-            transform: translateY(0);
             opacity: 1;
           }
-        }          
+        }
       }
-
     }
   }
 
   &.section--out {
     .logo-ikea,
-    .legal {
+    .legal,
+    .privacy-mobile {
       opacity: 0;
-      transition-delay: 100ms;
+      transition-delay: $transition-out-delay;
     }
 
     // headline--2 out
     &.subheadline--2 .headline--2 {
-      .headline-line-animation .line {
-        transform: translateY(200%);
-        opacity: 0;
-      }
-        
-      .platforms .platform {
-        transition-delay: 1000ms;
-        opacity: 0;
-      }
-
+      .headline-line-animation,
+      .platforms .platform,
       .dragger-container {
-        .dragger-area {
-          opacity: 0;
-          transition-delay: 1200ms;
+        transition: opacity 1000ms cubic-bezier(.215,.61,.355,1);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .headline-line-animation {
+        transition-delay: 200ms
+      }
+
+      .platforms {
+        @include media-breakpoint-down(sm) {
+          > li {
+            transition-delay: 300ms;
+          }
         }
 
-        .explore {
-          opacity: 0;
-          transform: translateY(30px);
-          transition-delay: 1200ms;
+        @include media-breakpoint-up(md) {
+          .platform {
+            transition-delay: 300ms;
+          }
         }
-      } 
+      }
     }
   }
 }

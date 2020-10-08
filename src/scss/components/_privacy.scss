@@ -1,0 +1,41 @@
+.privacy,
+.privacy-mobile {
+  color: $grey700;
+  font-size: 14px;
+
+  &:hover {
+    color: $grey900;
+  }
+
+  &--white {
+    color: $white;
+  }
+}
+
+.privacy {
+  display: none !important;
+
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    right: auto;
+    bottom: 30px;
+    left: 40px;
+    display: inline-block !important;
+    text-align: center;
+    z-index: 11;
+  }
+}
+
+.privacy-mobile {
+  position: relative;
+  margin-top: 10px;
+  text-decoration: underline;
+
+  &:hover {
+    color: $grey700;
+  }
+
+  @include media-breakpoint-up(md) {
+    display: none !important;
+  }
+}

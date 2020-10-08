@@ -1,20 +1,66 @@
 // Stage Recap - Initial States
 .stage--recap {
-  .bg-temporal & {
-    background-image: url('../../assets/fondos/recap_0.jpg');
-  }
-
   .step--0 {
-    .bg-temporal & {
-      background-image: url('../../assets/fondos/recap_0.jpg');
+    .text-animation {
+      transition-delay: 1000ms;
     }
-  }
+
+    .pulsar-btn {
+      // Initial State
+      transform: translateY(30px);
+      opacity: 0;
+      transition-duration: 700ms;
+      transition-timing-function: cubic-bezier(.215,.61,.355,1); 
+      transition-delay: 1300ms;
+    }
+  } 
 }
+
 
 // Stage Recap In
 .stage--recap.stage--in {
-  // Steps 0 In
+  // Global
+  .headline-line-animation .line {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  // Step 0
   .step--0.step--in {
+    background-color: rgba($white, .38);
+    
+    .text-animation,
+    .pulsar-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Steps 0 Out
+  .step--0.step--out {
+    background-color: rgba($white, 0);
+
+    .headline-line-animation .line {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 0s;
+    }    
+
+    .text-animation {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 200ms;
+    }
+
+    .pulsar-btn {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 400ms;
+    }
+  }  
+
+  // Steps 1 In
+  .step--1.step--in {
     .card-animation {
       transform: translateX(0);
       opacity: 1;
@@ -29,18 +75,11 @@
     }
   }  
   
-  // Steps 0 Out
-  .step--0.step--out {
+  // Steps 1 Out
+  .step--1.step--out {
     .card-animation {
       transform: translateX(-30px);
       opacity: 0;
-
-      .card__step,
-      .card__title,
-      .card__content,
-      .card__actions {
-        opacity: 0;
-      } 
     }
   }   
 }  

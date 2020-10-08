@@ -1,10 +1,16 @@
+.tooltip-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .tooltip {
   position: absolute;
   display: none;
-  align-items: center;
 
   &.active {
-    display: flex;
+    // display: flex;
+    display: block;
   }
 
   &.animate .tooltip__cta {
@@ -15,7 +21,7 @@
   }
 
   &__cta {
-    flex-shrink: 0;
+    // flex-shrink: 0;
     position: relative;
     z-index: 2;
 
@@ -23,37 +29,39 @@
     @include initial-state;
     transform: scale(.6, .6);
     transform-origin: center center;   
-    transition: 650ms ease-in; 
+    transition: 650ms ease-in-out; 
     
     .pulsar-btn {
       &__bg {
         background-color: $white;
-        transition: .45s cubic-bezier(.33, 0, 0, 1);
+        transition: 450ms cubic-bezier(.33, 0, 0, 1);
       }
 
       &--geomagical {
         .pulsar-btn__bg span {
           color: $geomagical;
-          transition: .45s cubic-bezier(.33, 0, 0, 1);
+          transition: 450ms cubic-bezier(.33, 0, 0, 1);
         }
       }
     }
   }
 
   &__box {
-    flex-shrink: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 420px;
     background-color: $white;
     border-radius: 10px;
-    padding: 30px;
-    margin-left: -30px;
+    padding: 40px 40px 40px 80px;
     user-select: none;
     opacity: 0.01;
-    transform: translateX(20px);
     transition: 500ms ease-in-out;
+    transform: translate(60px, -50%);
 
-    @include media-breakpoint-up(md) {
-      width: 32.43vw;
-      padding: 45px 45px 45px 88px;
+    .tooltip--right & {
+      padding: 40px 80px 40px 40px;
+      transform: translate(calc(-100% - 30px), -50%);
     }
 
     p {
@@ -61,6 +69,10 @@
       transform: translateY(16px);
       transition: 450ms ease-in-out;
       transition-delay: 510ms;
+
+      // .tooltip--right & { 
+      //   text-align: right; 
+      // }
 
       + p {
         margin-top: 16px;
@@ -96,12 +108,43 @@
 
     .tooltip__box {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate(30px, -50%);
 
       p {
         opacity: 1;
         transform: translateY(0);
       }
     }
+
+    &.tooltip--right .tooltip__box {
+      transform: translate(calc(-100% + 30px), -50%);
+    }
   }
+}
+
+
+// tooltip positions
+#tooltipLine {
+  top: 59%;
+  left: 52%; 
+}
+
+#tooltipParallax {
+  top: 53%;
+  left: 69%;
+}
+
+#tooltipDepth {
+  top: 36%; 
+  left: 66%;
+}
+
+#tooltipSegmentation {
+  top: 36%; 
+  left: 66%;
+}
+
+#tooltipRealistic {
+  top: 32%; 
+  left: 81%;
 }

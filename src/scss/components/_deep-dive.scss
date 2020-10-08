@@ -1,23 +1,19 @@
 .deep-dive {
   &__content {
-    display: none;
+    //display: none;
   }
 
   &__list {
     padding: 0;
+    margin: 0;
     list-style: none;
 
     > li {
       font-size: 1rem;
 
       + li {
-        margin-top: 20px;
+        margin-top: 10px;
       }
     }
   }
-
-  &__actions {
-    display: none;
-  }
-
 }

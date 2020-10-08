@@ -32,16 +32,12 @@
     display: none;
     width: 100%;
     min-height: 100%;
-
+    background-color: rgba($white, 0);
+    transition: background-color 650ms;
+    
     &.active {
       display: block;
     } 
-
-    // begin Temporal
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    // end Temporal
 
     &--in {
       opacity: 1;

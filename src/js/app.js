@@ -4,10 +4,14 @@ function GoogleDemoApp(config){
   this.config = config;
   this.currentSlug='';
   this.callbacks = config.callbacks||{};
+  this.inited = false;
+  this.enableScrolling = false;
   GoogleDemoApp.instance = this;
   this.partialPrefix = 'sub';
   this.wordAnimationClasses = 'headline-animation';
   this.debug = true;
+  this.sectionIndex = 0;
+  this.chairIndex = 0;
   this.path = [];
   this.pathElements = ['section','stage','step'];
   this.sections = ['start','stages','outro']; //'explore'
@@ -15,6 +19,36 @@ function GoogleDemoApp(config){
   //patrial
   // stage - stage--in stage--out 1s
   // steps - step--in step--out 1s
+
+  this.navigationSequence = [
+      'start',
+      'start:subheadline--2',
+      'start:subheadline--2 subopenmode',
+      'stages.intro.0',
+      'stages.intro.1',
+      'stages.intro.2',
+      'stages.geomagical.0',
+      'stages.geomagical.1',
+      'stages.geomagical.1:sublines',
+      'stages.geomagical.1:subparalax',
+      'stages.geomagical.1:subclose',
+      'stages.geomagical.2',
+      'stages.geomagical.2:subdepth',
+      'stages.geomagical.2:subsemantic',
+      'stages.geomagical.2:subclose',
+      'stages.geomagical.3',
+      'stages.geomagical.3:subfurniture',
+      'stages.geomagical.3:subclose',
+      'stages.geomagical.4',
+      'stages.geomagical.4:phoneout',
+      'stages.recommendations.0',
+      'stages.recommendations.1',
+      'stages.recommendations.2',
+      'stages.recommendations.3',
+      'stages.recap.0',
+      'stages.recap.1'
+  ];
+
   this.init();
 };
 
@@ -42,6 +76,21 @@ GoogleDemoApp.prototype.init = function(){
   this.addButtonActions();
   this.addWordAnimation();
   this.log('App init')
+  this.resize();
+}
+
+GoogleDemoApp.prototype.nextSection = function(){
+  if(!this.enableScrolling) return;
+  if(this.changingSection) return;
+  this.changingSection = true;
+  this.open(this.navigationSequence[this.sectionIndex+1])
+}
+GoogleDemoApp.prototype.prevSection = function(){
+  if(!this.enableScrolling) return;
+  if(this.changingSection) return;
+  if(this.sectionIndex==0) return;
+  this.changingSection = true;
+  this.open(this.navigationSequence[this.sectionIndex-1])
 }
 GoogleDemoApp.prototype.addWordAnimation = function(){
   var wordAnimations = document.getElementsByClassName(this.wordAnimationClasses);
@@ -93,6 +142,7 @@ GoogleDemoApp.prototype.attachActions = function(buttons){
 }
 GoogleDemoApp.prototype.addButtonActions = function(){
   this.attachActions( document.getElementsByTagName('button') );
+  this.attachActions( document.getElementsByClassName('slug-deep-dive') );
 }
 GoogleDemoApp.prototype.getStepTarget = function(p,parent,step){
   return document.getElementById(this.pathElements[p-1]+parent).getElementsByClassName(this.pathElements[p]+'--'+step)[0];
@@ -142,9 +192,22 @@ GoogleDemoApp.prototype.cleanPartial = function(p,path){
 GoogleDemoApp.prototype.addPartial = function(p,path){
   var target = this.getTarget(p,path);
   this.removePartial(target);
-  target.classList.add(this.getSlugClass(path[p]));
+  var classes = this.getSlugClass(path[p]).split(' ');
+  for(var c=0;c<classes.length;c++){
+    target.classList.add(classes[c]);
+  }
+};
+GoogleDemoApp.prototype.switchChairs = function(){
+  var chairList = ['dining_option3','dining_option1', 'dining_option2'];
+  this.chairIndex = this.chairIndex==2?0:this.chairIndex+1;
+  Background.play(chairList[this.chairIndex]);
 };
 GoogleDemoApp.prototype.open = function(slug){
+  if(slug=='NEXT'){
+    this.nextSection();
+    return;
+  }
+  this.sectionIndex = this.navigationSequence.indexOf(slug);
   this.currentSlug = slug;
   watchme('slug',this.currentSlug);
   var newPath = slug.split('.');
@@ -158,13 +221,18 @@ GoogleDemoApp.prototype.open = function(slug){
     }else if(this.path[p]!=undefined && this.getSlugComponent(this.path[p])==this.getSlugComponent(newPath[p]) && !isNewSlug){
       this.addPartial(p,newPath);
       //isNewSlug = true;
-      if(finalComponent) GoogleDemoApp.instance.dispatchCallback();
+      if(finalComponent){
+        GoogleDemoApp.instance.dispatchCallback();
+        setTimeout(function(){
+          GoogleDemoApp.instance.dispatchCallback('after');
+        }, 1000);
+      };
       continue;
     }else{
       isNewSlug = true;
       var target = this.getTarget(p,newPath);
       // this.cleanPartial(p,newPath);
-      var introTime = target.dataset.timeIntro||1000;
+      var introTime = target.dataset.timeIntro||2000;
       if(!target) return this.report(newPath[p]+'('+slug+') not found');
       if(this.path[p]!=undefined){
         var oldTarget = this.getTarget(p,this.path);
@@ -213,17 +281,56 @@ GoogleDemoApp.prototype.open = function(slug){
   // target.classList.add(this.pathElements[0]+'--in');
 };
 GoogleDemoApp.prototype.dispatchCallback = function(prefix){
-  prefix = (prefix!=undefined)?prefix+'::':'';
+  if(prefix=='after'){
+    this.changingSection = false;
+  }
+  prefix = (prefix!=undefined)?'['+prefix.toUpperCase()+'] ':'';
   if(this.callbacks[prefix+this.currentSlug]!=undefined){
     this.callbacks[prefix+this.currentSlug]();
   }
 
 };
+GoogleDemoApp.prototype.resize = function(){
+  var width = document.body.offsetWidth;
+  var height = document.body.offsetHeight;
+  var ratio = width/height;
+  var canvasRatio = 1920/1080;
+  if(ratio>canvasRatio){
+    var cWidth = width;
+    var cHeight = Math.ceil(width/canvasRatio);
+    Background.canvas.style.width = cWidth+'px';
+    Background.canvas.style.height = cHeight+'px';
+    Background.canvas.style.left = (-(cWidth-width)/2)+'px';;
+    Background.canvas.style.top = (-(cHeight-height)/2)+'px';
+     $('.fit-canvas').css({
+       position:'absolute',
+       width:cWidth+'px',
+       height:cHeight+'px',
+       left:(-(cWidth-width)/2)+'px',
+       top:(-(cHeight-height)/2)+'px'
+     });
+  }else{
+    var cWidth = Math.ceil(height*canvasRatio);
+    var cHeight = height;
+    Background.canvas.style.width = cWidth+'px';
+    Background.canvas.style.height = cHeight+'px';
+    Background.canvas.style.left = (-(cWidth-width)/2)+'px';;
+    Background.canvas.style.top = (-(cHeight-height)/2)+'px';
+     $('.fit-canvas').css({
+       position:'absolute',
+       width:cWidth+'px',
+       height:cHeight+'px',
+       left:(-(cWidth-width)/2)+'px',
+       top:(-(cHeight-height)/2)+'px'
+     });
+  }
+  this.mode = Utils.detectDevice();
+  Background.disableRender = this.mode=='mobile';
+}
 
 var config = {
   callbacks:SiteCallbacks
 };
-console.log(config.callbacks);
 var GDApp = new GoogleDemoApp(config);
 
 //TEST CODE

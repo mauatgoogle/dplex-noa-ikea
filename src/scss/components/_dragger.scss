@@ -19,20 +19,14 @@
   height: 80px;
   margin: 0 auto;
 
-  @include media-breakpoint-up(md) {
-    width: 300px;
-    height: 12.111vh;
-    max-height: 114px;
-  }
-
   &__dots {
     position: absolute;
     top: 0;
-    left: 6.6666666667vh;
+    left: 58px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: calc(100% - (6.6666666667vh * 2));
+    width: calc(100% - (58px * 2));
     height: 100%;
     pointer-events: none;
     z-index: -1;
@@ -48,22 +42,22 @@
 
       // leaders
       &::before {
-        direction: ltr;
-        margin: 0;
-        content: "· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ";
+        display: block;
         width: 100%;
+        height: 2px;
+        margin: 0;
+        content: '';
+        background: url('../img/ui/dot-bg.svg') repeat-x;
+        background-position: right center;
         overflow: hidden;
-        white-space: nowrap;
         color: $blue600;
-        
       }
     }
-
   }
 
   .btn-holder {
-    width: 6.6666666667vh;
-    height: 6.6666666667vh;
+    width: 58px;
+    height: 58px;   
     border-radius: 100%;
     border: 1px solid $blue600;
   }

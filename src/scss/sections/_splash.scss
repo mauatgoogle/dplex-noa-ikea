@@ -6,10 +6,10 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
-  background-color: #C7C7C7;
+  background-color: $white;
 
   // Para section
-  > div {
+  .logo-animated {
     position: absolute;
     top: 0;
     left: 0;
@@ -21,6 +21,13 @@
     justify-content: center;
   }
 
+  .privacy-mobile {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }  
+
   .google-cloud-animated {
     display: block;
     width: 277px;
@@ -30,10 +37,10 @@
     animation: google-cloud-splash-mobile 2000ms steps(50, end) both;  
     
     @include media-breakpoint-up(md) {
-      width: 440px;
-      height: 70px;
-      background-size: 22440px auto;
-      animation: google-cloud-splash 2000ms steps(50, end) both;  
+      // width: 440px;
+      // height: 70px;
+      // background-size: 22440px auto;
+      // animation: google-cloud-splash 2000ms steps(50, end) both;  
     }
   }
 

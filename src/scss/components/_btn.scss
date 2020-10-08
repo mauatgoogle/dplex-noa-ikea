@@ -33,8 +33,8 @@ button:focus {
 
   @include media-breakpoint-up(md) {
     &:hover .anim {
-      width: 320px;
-      height: 320px;
+      width: 500px;
+      height: 500px;
     } 
 
     .anim {
@@ -98,7 +98,7 @@ button:focus {
       }
 
       .anim {
-        background-color: darken($white, 5%);
+        background-color: darken($white, 25%);
       }
     }
   }

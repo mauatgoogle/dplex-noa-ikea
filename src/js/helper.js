@@ -13,7 +13,8 @@ var sections = [
   'stages.recommendations.1',
   'stages.recommendations.2',
   'stages.recommendations.3',
-  'stages.recap.0'
+  'stages.recap.0',
+  'stages.recap.1'
 ];
 var navHelpStyle = 'position:absolute;left:0;top:0;display:block;z-index:1000;font-size:xx-small;padding:2px;background-color:#fefefe;';
 function showMenu(){
@@ -29,10 +30,10 @@ for(var s=0;s<sections.length;s++){
   NavHelp+='<br/>';
 }
 NavHelp+='</div></div>';
-var child = document.createElement('div');
-child.innerHTML = NavHelp;
-child = child.firstChild;
-document.body.appendChild(child);
+// var child = document.createElement('div');
+// child.innerHTML = NavHelp;
+// child = child.firstChild;
+// document.body.appendChild(child);
 
 var logStyle = 'position:absolute;right:0;top:0;display:block;z-index:1000;font-size:xx-small;padding:2px;background-color:#fefefe;';
 var LogHelp = '<div id="logHelper" style="'+logStyle+'"></div>';
@@ -40,15 +41,15 @@ var LogObject = {};
 function watchme(label,value){
   LogObject[label] = value;
 }
-setInterval(function(){
-  var content = '';
-  for(var i in LogObject){
-    content += '<b>'+i+'</b><br/>';
-    content += LogObject[i]+'<br/>';
-  }
-  document.getElementById('logHelper').innerHTML = content;
-},100);
-var child = document.createElement('div');
-child.innerHTML = LogHelp;
-child = child.firstChild;
-document.body.appendChild(child);
+// setInterval(function(){
+//   var content = '';
+//   for(var i in LogObject){
+//     content += '<b>'+i+'</b><br/>';
+//     content += LogObject[i]+'<br/>';
+//   }
+//   document.getElementById('logHelper').innerHTML = content;
+// },100);
+// var child = document.createElement('div');
+// child.innerHTML = LogHelp;
+// child = child.firstChild;
+// document.body.appendChild(child);

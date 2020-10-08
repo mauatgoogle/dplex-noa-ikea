@@ -1,9 +1,10 @@
 .navigation-mobile {
   position: absolute;
-  bottom: 40px;
+  bottom: 70px;
   left: 16px;
   display: block;
   width: calc(100% - 32px);
+  z-index: 3;
 
   @include media-breakpoint-up(sm) {
     width: calc(100% - 60px);

@@ -6,8 +6,11 @@
     text-align: center;
     display: flex;
     height: 100%;
-    align-items: center;
     flex-direction: column;
+    
+    @include media-breakpoint-down(sm) {
+      align-items: center;
+    }
    
     @include media-breakpoint-up(md) {
       position: absolute;
@@ -19,7 +22,8 @@
 
     @include media-breakpoint-up(lg) {
       right: 12vw;
-      width: calc(50vw - 12vw);
+      width: 50vw;
+      max-width: 600px;
     }   
   }
 
@@ -48,11 +52,12 @@
 
     @include media-breakpoint-up(md) {
       width: 60vw;
+      max-width: 650px;
       margin: 0 auto;
     }
 
     @include media-breakpoint-up(lg) {
       width: 40vw;
-    }    
+    } 
   }
 }

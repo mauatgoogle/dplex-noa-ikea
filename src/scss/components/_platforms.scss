@@ -7,11 +7,7 @@
   
   > li {
     flex-shrink: 0;
-    margin: 0 5px;    
-    
-    @include media-breakpoint-up(md) {
-      margin: 0 8px;
-    }
+    margin: 0 5px;
   }
   
   .platform {
@@ -22,12 +18,13 @@
     height: 46px;
     color: $grey700;
     font-size: .875rem;
-    background-color: rgba($white, .5);
+    background-color: $white;
     border-radius: 23px;
 
     @include media-breakpoint-down(sm) {
       position: relative;
       overflow: hidden;
+      transition: 450ms ease-in-out;
 
       img {
         position: absolute;
@@ -67,15 +64,14 @@
     }
     
     @include media-breakpoint-up(md) {
-      width: auto;
-      padding-right: 25px;
-      padding-left: 25px;
+      width: 190px;
+      padding-right: 5px;
+      padding-left: 5px;
 
       // Text
       span {
         margin-left: 8px;
       }
     }
-    
   }
 }

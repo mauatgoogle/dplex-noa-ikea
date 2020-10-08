@@ -1,10 +1,14 @@
 .section--stages-mobile { 
- 
   @include media-breakpoint-up(md) {
     display: none !important;
   }
 
   .home-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+
     // Initial State
     opacity: 0;
     transform: scale(.5);
@@ -14,11 +18,11 @@
   }
 
   // Animations
-  &.section--in {
+  &.section--in .stage--in {
     .home-btn {
       opacity: 1;
       transform: scale(1);
       pointer-events: auto;
     }  
-  }
+  }  
 }

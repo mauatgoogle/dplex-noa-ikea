@@ -1,44 +1,19 @@
 // Stage Geomagical - Initial States
 .stage--geomagical {
-  .bg-temporal & {
-    background-image: url('../../assets/fondos/geomagical_0.jpg');
-  }
-
   .step--0 {
-    .bg-temporal & {
-      background-image: url('../../assets/fondos/geomagical_0.jpg');
-    }
-
     .text-animation {
-      transition-delay: 900ms;
+      transition-delay: 800ms;
     }
 
     .pulsar-btn {
       // Initial State
+      transform: translateY(30px);
       opacity: 0;
-      transition-duration: 800ms;
+      transition-duration: 650ms;
       transition-timing-function: cubic-bezier(.215,.61,.355,1); 
-      transition-delay: 1600ms;   
+      transition-delay: 1000ms;
     }
   }
-
-  .step--1 {
-    .bg-temporal & {
-      background-image: url('../../assets/fondos/geomagical_0.jpg');
-    }
-  }
-
-  .step--2 {
-    .bg-temporal & {
-      background-image: url('../../assets/fondos/geomagical_2.jpg');
-    }
-  }
-
-  .step--3 {
-    .bg-temporal & {
-      background-image: url('../../assets/fondos/geomagical_3.jpg');
-    }
-  }  
 }
 
 
@@ -52,12 +27,11 @@
 
   // Step 0
   .step--0.step--in {
-    .text-animation {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
+    //background-color: rgba($white, .38);
+    
+    .text-animation,
     .pulsar-btn {
+      transform: translateY(0);
       opacity: 1;
     }
   }
@@ -82,10 +56,11 @@
     }
   }
 
-  // Steps 1/2/3 In
+  // Steps 1/2/3/4 In
   .step--1.step--in,
   .step--2.step--in,
-  .step--3.step--in {
+  .step--3.step--in,
+  .step--4.step--in {
     .card-animation {
       transform: translateX(0);
       opacity: 1;
@@ -100,39 +75,23 @@
     }
   }  
   
-  // Steps 1/2/3 Out
+  // Steps 1/2/3/4 Out
   .step--1.step--out,
   .step--2.step--out,
-  .step--3.step--out {
+  .step--3.step--out,
+  .step--4.step--out {
     .card-animation {
       transform: translateX(-30px);
       opacity: 0;
 
-      .card__step,
-      .card__title,
-      .card__content,
-      .card__actions {
-        opacity: 0;
-      } 
+      // .card__step,
+      // .card__title,
+      // .card__content,
+      // .card__actions {
+      //   opacity: 0;
+      // } 
     }
   }   
-
-
-  // Step 4 In
-  .step--4.step--in {
-    img {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  // Step 4 Out
-  .step--4.step--out {
-    img {
-      transform: translateX(30%);
-      opacity: 0;
-    }
-  }  
 }  
 
 // Stage Geomagical Out

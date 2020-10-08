@@ -49,7 +49,7 @@ var mMove = function(e){
   if(!startDrag) return;
 
   // var touch = event.touches[0];
-  console.log('mouse down');
+
   var clientx = e.clientX || event.touches[0].clientX;
   var newPos = Math.max(Math.min(clientx-mousePosition.startx,mousePosition.max),0);
   var animData = AnimationData.interactive.front;
@@ -99,10 +99,110 @@ function updateStageBtn(index, step){
 
 document.getElementById('geomagicalBtn').addEventListener('click', function(){
   document.getElementById('stagegeomagicalmobile').getElementsByClassName('steps-overlay')[0].classList.add('active');
+  $('body').addClass('scroll-lock');
 });
 document.getElementById('recomendationsMobile').addEventListener('click', function(){
   document.getElementById('stagerecommendationsmobile').getElementsByClassName('steps-overlay')[0].classList.add('active');
+  $('body').addClass('scroll-lock');
+});
+document.getElementById('recapMobile').addEventListener('click', function(){
+  document.getElementById('stagerecapmobile').getElementsByClassName('steps-overlay')[0].classList.add('active');
+  $('body').addClass('scroll-lock');
 });
 window.addEventListener('resize', function(){
-  Background.resize();
+  // Background.resize();
+  GoogleDemoApp.instance.resize();
+});
+
+// document.body.addEventListener('wheel',function(e){
+//   if(e.deltaX>0){
+//     GoogleDemoApp.instance.nextSection();
+//   }else if(e.deltaX<0){
+//     // GoogleDemoApp.instance.prevSection();
+//       GoogleDemoApp.instance.nextSection();
+//   }else if(e.deltaY>0){
+//     GoogleDemoApp.instance.prevSection();
+//   }else if(e.deltaY<0){
+//     GoogleDemoApp.instance.nextSection();
+//   }
+// })
+$('#changeChairs').click(function(e){
+  GoogleDemoApp.instance.switchChairs();
+})
+$('.steps-overlay__back').each(function(index){
+  $(this).click(function(e){
+    $(this).parent().removeClass('active');
+    $('body').removeClass('scroll-lock');
+  })
+});
+// window.addEventListener('resize', () => {
+//   document.querySelector(':root').style
+//     .setProperty('--vh', window.innerHeight/100 + 'px');
+// })
+var scrollingDown = 0;
+var scrollingDownDelta = 0;
+
+$(document).ready(function() {
+  $(document).keydown(function(e){
+    if(e.keyCode==39)  GoogleDemoApp.instance.nextSection();
+  })
+  //// FIXME: Ubicarlo donde corresponda
+  $('.btn').on('mouseenter', function(e) {
+    var parentOffset = $(this).offset(),
+        relX = e.pageX - parentOffset.left,
+        relY = e.pageY - parentOffset.top;
+    $(this).find('.anim').css({top:relY, left:relX})
+  }).on('mouseout', function(e) {
+    var parentOffset = $(this).offset(),
+        relX = e.pageX - parentOffset.left,
+        relY = e.pageY - parentOffset.top;
+    $(this).find('.anim').css({top:relY, left:relX})
+  });
+
+
+  // //// FIXME: Deep Dive
+  $('.btn--deepdive').on('click', function(e) {
+    GoogleDemoApp.instance.nextSection();
+  });
+
+  $('.steps-scroll').on('touchstart',function(e){
+    if($(".steps-overlay.active").scrollTop()==0){
+      scrollingDown=e.originalEvent.touches[0].clientY;
+    }else{
+      scrollingDown=0;
+    }
+  });
+  $('.steps-scroll').on('touchmove',function(e){
+    scrollingDownDelta=e.originalEvent.touches[0].clientY-scrollingDown;
+  });
+  $('.steps-scroll').on('touchend',function(e){
+    if( $('.steps-overlay.active').length>0 ){
+      if(scrollingDown!=0 && scrollingDownDelta>200 && $(".steps-overlay.active").scrollTop()==0){
+        scrollingDownDelta = 0;
+        scrollingDown = 0;
+        $('.steps-overlay.active').removeClass('active');
+        $('body').removeClass('scroll-lock');
+      }
+    }
+  });
+  // };
+  //   e.preventDefault();
+  //   var $this = $(this);
+  //
+  //   // Activo botones deep-nav
+  //   $this.closest('.card__actions').addClass('deep-dive--active');
+  //
+  //   // Activo listado deep-nav
+  //   $this.closest('.card__body').find('.deep-dive__content').slideDown('slow');
+  // });
+  //
+  // $('.btn--close-deepdive').on('click', function(e) {
+  //   e.preventDefault();
+  //   var $this = $(this);
+  //   $this.closest('.card__actions').removeClass('deep-dive--active');
+  //   $this.closest('.card__body').find('.deep-dive__content').slideUp('slow');
+  // });
+
+
+
 });

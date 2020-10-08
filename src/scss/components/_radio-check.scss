@@ -1,8 +1,10 @@
 .radio-check {
   display: flex;
-  align-items: center;
+  align-items: flex-start; // 2lines
   
   &__check {
+    position: relative;
+    top: 3px;
     width: 20px;
     height: 20px;
     flex-shrink: 0;
@@ -13,15 +15,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: .35s ease-in-out;
+    transition: 250ms ease-in-out;
     
     .material-icons {
+      opacity: 0;
       font-size: 10px;
+      transition: 250ms ease-in-out;
     }
   }
   
   &__label {
-    flex-shrink: 0;
+    //flex-shrink: 0;
     color: $grey500;
     transition: .35s ease-in-out;
   }
@@ -30,6 +34,10 @@
     .radio-check__check {
       background-color: $geomagical;
       color: $white;
+
+      .material-icons {
+        opacity: 1;
+      }
     }
 
     .radio-check__label {

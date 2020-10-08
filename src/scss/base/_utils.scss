@@ -4,3 +4,11 @@
   &.md-36 { font-size: 36px; }
   &.md-48 { font-size: 48px; }
 }
+
+.inactive {
+  pointer-events: none !important;
+}
+
+.scroll-lock {
+  overflow: hidden;
+}

@@ -1,6 +1,11 @@
 // Stage Intro In
 .stage--intro.stage--in {
+  
   // Steps in
+  .step--0.step--in .headline-line-animation .line {
+    transition-delay: 2000ms;
+  }
+  
   .step--0.step--in,
   .step--1.step--in,
   .step--2.step--in {

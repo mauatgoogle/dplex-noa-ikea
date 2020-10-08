@@ -1,3 +1,21 @@
+html, body {
+  height: 100%;
+
+  @include media-breakpoint-down(sm) {
+    height: calc(100vh - calc(100vh - 100%));
+  }
+
+  @include media-breakpoint-up(md) {
+    overflow: hidden;
+  }
+}
+
+body {
+  background: url('../img/ui/main-bg.png') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .site-wrap {
   display: flex;
   flex-direction: column;
