@@ -6,6 +6,12 @@ handlers:
   upload: index.html
   login: admin
 
+- url: /ikea/
+  static_files: index.html
+  upload: index.html
+  login: admin
+
 - url: /ikea/(.*)
   static_files: \1
   upload: (.*)
+  login: admin
