@@ -21,11 +21,17 @@
     justify-content: center;
   }
 
-  .privacy-mobile {
+  .privacy {
     position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
+
+    @include media-breakpoint-up(md) {
+      bottom: 25px;
+      left: 25px;
+      transform: none;
+    }
   }  
 
   .google-cloud-animated {

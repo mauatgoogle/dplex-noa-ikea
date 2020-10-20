@@ -1,5 +1,6 @@
 
-  const SHARE_URL = '#';
+  const SHARE_URL = 'https://showcase.withgoogle.com/ikea';
+  const SHARE_TEXT = 'https://showcase.withgoogle.com/ikea';
   const toggleElement = document.querySelector('.js-share-toggle');
   const shareOptionsElement = document.querySelector('.js-share-options');
   const shareLinks = [];
@@ -36,13 +37,14 @@
     switch (type) {
       default:
       case 'twitter':
-        openShare('https://twitter.com/intent/tweet?url=' + encodeURIComponent(SHARE_URL));
+        openShare('https://twitter.com/intent/tweet?text=Learn how IKEA uses Google Cloud to bring the uniqueness of their brand to life digitally, and improve people’s lives at home. @IngkaGroup @googlecloud &url=' + encodeURIComponent(SHARE_URL));
         break;
+
       case 'facebook':
-        openShare('https://www.facebook.com/sharer.php?display=popup&u=' + encodeURIComponent(SHARE_URL));
+        openShare('https://www.facebook.com/sharer.php?display=popup&quote=Learn how IKEA uses Google Cloud to bring the uniqueness of their brand to life digitally, and improve people’s lives at home.&u=' + encodeURIComponent(SHARE_URL));
         break;
       case 'linkedin':
-        openShare('https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(SHARE_URL));
+        openShare('https://www.linkedin.com/shareArticle?mini=true&title=Learn how IKEA uses Google Cloud to bring the uniqueness of their brand to life digitally, and improve people’s lives at home. @&url=' + encodeURIComponent(SHARE_URL));
         break;
       case 'copy':
         copyToClipboard(SHARE_URL);
@@ -60,7 +62,7 @@
     document.execCommand('copy');
     document.body.removeChild(el);
   }
-  toggleElement.addEventListener('click', toggleShare);
+  if(toggleElement) toggleElement.addEventListener('click', toggleShare);
   Array.prototype.forEach.call(shareLinks, function (link) {
     link.addEventListener('click', function(event) {
       event.preventDefault();

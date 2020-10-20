@@ -23,6 +23,8 @@
   }
 
   .privacy-mobile {
+    // display: inline-block;
+    // margin-bottom: 15px;
     position: absolute;
     bottom: 30px;
     left: 50%;
@@ -38,6 +40,8 @@
   }
 
   .pulsar-btn {
+    margin-bottom: 30px;
+    
     &__container {
       // Initial State
       opacity: 0;

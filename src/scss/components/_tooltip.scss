@@ -9,19 +9,32 @@
   display: none;
 
   &.active {
-    // display: flex;
     display: block;
   }
 
-  &.animate .tooltip__cta {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: scale(1, 1);
+  &.animate {
+    transition: 450ms;
+
+    .tooltip__cta {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: scale(1, 1);
+    }
+
+    .tooltip__box {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .tooltip-products {
+      transform: rotate(0deg);
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   &__cta {
-    // flex-shrink: 0;
     position: relative;
     z-index: 2;
 
@@ -43,108 +56,399 @@
           transition: 450ms cubic-bezier(.33, 0, 0, 1);
         }
       }
+
+      &--recommendations {
+        .pulsar-btn__bg span {
+          color: $recommendations;
+          transition: 450ms cubic-bezier(.33, 0, 0, 1);
+        }
+      }      
     }
   }
 
   &__box {
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 0;
-    width: 420px;
-    background-color: $white;
+    background-color: rgba($white, .8);
     border-radius: 10px;
-    padding: 40px 40px 40px 80px;
     user-select: none;
-    opacity: 0.01;
     transition: 500ms ease-in-out;
-    transform: translate(60px, -50%);
+    transform: translate(30px, -50%);
+    width: 200px;
+    height: 46px;
+    transition: 650ms ease-in-out;
+
+    // Initial State
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 100ms;
 
     .tooltip--right & {
-      padding: 40px 80px 40px 40px;
-      transform: translate(calc(-100% - 30px), -50%);
+      transform: translate(calc(-100% + 30px), -50%);
+    }
+
+    .tooltip__label {
+      position: absolute;
+      top: 0;
+      right: 24px;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      font-size: 1rem;
+      line-height: 1.2;
+      pointer-events: none;
+      user-select: none;
+      transition: 150ms ease-in-out;
+
+      &--geomagical {
+        color: $geomagical;
+      }
+
+      &--recommendations {
+        color: $black;
+      }      
+
+      .tooltip--right & {
+        right: auto;
+        left: 24px;
+      }
+    }
+
+    .tooltip__content {
+      width: 420px !important;
+      padding: 30px 30px 30px 56px;
+
+      @media (max-height: 730px) {
+        padding: 20px 20px 20px 56px;
+      }
+
+      .tooltip--right & {
+        padding: 30px 56px 30px 30px; 
+
+        @media (max-height: 730px) {
+          padding: 20px 56px 20px 20px; 
+        }
+      }
+
+      // Initial State
+      opacity: 0;
+      transition: 350ms ease-in-out;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+
+    .tooltip__title {
+      line-height: 1.25;
+    }
+
+    .products-list {
+      position: relative;
+      bottom: auto;
+      text-align: left;
+      margin-top: 16px;
     }
 
     p {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: 450ms ease-in-out;
-      transition-delay: 510ms;
+      margin-top: 16px;   
 
-      // .tooltip--right & { 
-      //   text-align: right; 
-      // }
-
-      + p {
-        margin-top: 16px;
-      }
+      @media (max-height: 650px) {
+        margin-top: 10px;   
+        line-height: 1.2;
+        font-size: 0.9375rem;
+      }      
     }
   }
   
   // Open detail box
   &--detail {
     .tooltip__cta {
-      .pulsar-btn { 
-        &--geomagical {
-          .pulsar-btn__bg {
-            background-color: $geomagical;
+      .pulsar-btn--geomagical {
+        .pulsar-btn__bg {
+          background-color: $geomagical;
 
-            span {
-              color: $white;
-            }
+          span {
+            color: $white;
           }
         }
-
-        &--recommendations {
-          .pulsar-btn__bg {
-            background-color: $recommendations;
-
-            span {
-              color: $white;
-            }
-          }
-        }        
       }
+
+      .pulsar-btn--recommendations {
+        .pulsar-btn__bg {
+          background-color: $recommendations;
+
+          span {
+            color: $white;
+          }
+        }
+      }      
     }
 
     .tooltip__box {
-      opacity: 1;
-      transform: translate(30px, -50%);
+      width: 420px !important;
 
-      p {
-        opacity: 1;
-        transform: translateY(0);
+      .tooltip__label {
+        opacity: 0;
+      }
+    }
+  }
+
+  // Hover State
+  &.hover {
+    .tooltip-products {
+      &__item {
+        transform: translate(0, 0) !important;
+      }
+    }
+  }
+}
+
+.tooltip-products {
+  width: 58px;
+  height: 58px;
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  margin: -29px 0 0 -29px;
+  list-style: none;
+  z-index: 1;
+  transition: 650ms ease-in-out;
+  transition-delay: 450ms;
+  
+  // Initial State
+  opacity: 0;
+  transform: rotate(75deg);
+  visibility: hidden;
+
+  &__item {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-items: center;    
+    max-width: 46px;
+    height: 46px;
+    margin: -23px 0 0 -23px;
+    border-radius: 23px;
+    background-color: $white;
+    overflow: hidden;
+    transform: translate(0, 0);
+    transition: 500ms cubic-bezier(0.680,-0.550,0.265,1.550);; 
+    z-index: -2;
+    cursor: pointer;
+
+    &:hover {
+      transition: 350ms ease-in-out;
+      transition-delay: 0ms !important;
+      box-shadow: 2px 4px 12px 0 rgba($black, 0.2);
+      max-width: 190px;
+    }
+    
+    &:nth-child(1) {
+      transform: rotate(0deg) translateY(-80px);
+      transition-delay: 0s;
+      right: auto;
+      left: 25px;
+
+      .tooltip--right & {
+        right: 10px;
+        left: auto;
+      }
+    }
+    
+    &:nth-child(2) {
+      transform: rotate(-45deg) translateY(-80px) rotate(45deg);
+      transition-delay: 100ms;
+
+      .tooltip--right & {
+        transform: rotate(45deg) translateY(-80px) rotate(-45deg);
+        right: auto;
+        left: 25px;
+      }
+    }    
+
+    &:nth-child(3) {
+      transform: rotate(-90deg) translateY(-80px) rotate(90deg);
+      transition-delay: 200ms;
+
+      .tooltip--right & {
+        transform: rotate(90deg) translateY(-80px) rotate(-90deg);
+        right: auto;
+        left: 25px;
+      }      
+    }  
+    
+    &:nth-child(4) {
+      transform: rotate(-135deg) translateY(-80px) rotate(135deg);
+      transition-delay: 300ms;
+
+      .tooltip--right & {
+        transform: rotate(135deg) translateY(-80px) rotate(-135deg);
+        right: auto;
+        left: 25px;
       }
     }
 
-    &.tooltip--right .tooltip__box {
-      transform: translate(calc(-100% + 30px), -50%);
+    &:nth-child(5) {
+      transform: rotate(-180deg) translateY(-80px) rotate(180deg);
+      transition-delay: 400ms;    
+      right: auto;
+      left: 25px;
+
+      .tooltip--right & {
+        transform: rotate(180deg) translateY(-80px) rotate(-180deg);
+        right: 10px;
+        left: auto;        
+      }
     }
   }
+
+  &__icon {
+    flex-shrink: 0;
+    position: relative;
+    display: block;
+    width: 46px;
+    height: 24px;
+
+    img {
+      display: block;
+      width: 24px;
+      margin: 0 auto;
+    }
+  }
+  
+  &__name {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    padding-right: 15px;
+    color: $grey900;
+  }  
 }
 
 
 // tooltip positions
 #tooltipLine {
-  top: 59%;
+  top: 52%;
   left: 52%; 
+
+  &.tooltip--detail .tooltip__box {
+    height: 384px;
+
+    @media (max-height: 730px) {
+      height: 358px
+    }
+
+    @media (max-height: 650px) {
+      height: 304px
+    }
+  }
 }
 
 #tooltipParallax {
   top: 53%;
   left: 69%;
+
+  .tooltip__box {
+    width: 200px;
+  }
+
+  &.tooltip--detail .tooltip__box {
+    height: 320px;
+
+    @media (max-height: 730px) {
+      height: 295px
+    }
+
+    @media (max-height: 650px) {
+      height: 258px
+    }    
+  }
 }
 
 #tooltipDepth {
   top: 36%; 
   left: 66%;
+
+  .tooltip__box {
+    width: 200px;
+  }  
+
+  &.tooltip--detail .tooltip__box {
+    height: 296px;
+
+    @media (max-height: 730px) {
+      height: 270px
+    }
+
+    @media (max-height: 650px) {
+      height: 240px
+    }       
+  }
 }
 
 #tooltipSegmentation {
   top: 36%; 
   left: 66%;
+
+  .tooltip__box {
+    width: 180px;
+  }    
+
+  &.tooltip--detail .tooltip__box {
+    height: 320px;
+
+    @media (max-height: 730px) {
+      height: 294px
+    }
+
+    @media (max-height: 650px) {
+      height: 258px
+    }      
+  }
 }
 
 #tooltipRealistic {
   top: 32%; 
-  left: 81%;
+  left: 72%;
+
+  .tooltip__box {
+    width: 250px;
+  }  
+
+  &.tooltip--detail .tooltip__box {
+    height: 457px;
+
+    @media (max-height: 730px) {
+      height: 428px
+    }
+
+    @media (max-height: 650px) {
+      height: 362px
+    }      
+  }
+}
+
+#tooltipVisionSearch {
+  top: 49%; 
+  left: 60%;
+
+  .tooltip__box {
+    width: 200px;
+  }  
+
+  &.tooltip--detail .tooltip__box {
+    height: 293px;
+
+    @media (max-height: 730px) {
+      height: 273px
+    }
+
+    @media (max-height: 650px) {
+      height: 201px
+    }      
+  }
 }

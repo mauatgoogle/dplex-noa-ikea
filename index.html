@@ -4,20 +4,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="/ikea/public/css/main.css">
+    <link rel="stylesheet" href="public/css/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <title>IKEA x Google Cloud</title>
+      <!-- Social meta tags - Facebook -->
+  	<meta property="og:title" content="IKEA x Google Cloud">
+  	<meta property="og:description" content="Learn how IKEA uses Google Cloud to bring the uniqueness of their brand to life digitally, and improve people’s lives at home.">
+  	<meta property="og:type" content="website" />
+  	<meta property="og:image" content="https://showcase.withgoogle.com/ikea/public/share/share.jpg">
+  	<meta property="og:image:width" content="1200" />
+  	<meta property="og:image:height" content="630" />
+  	<meta property="og:url" content="https://showcase.withgoogle.com/ikea">
+  	<!-- Meta tags twitter cards - Twitter -->
+  	<meta name="twitter:title" content="IKEA x Google Cloud">
+  	<meta name="twitter:description" content="Learn how IKEA uses Google Cloud to bring the uniqueness of their brand to life digitally, and improve people’s lives at home.">
+  	<meta name="twitter:card" content="">
+  	<meta name="twitter:image:src" content="https://showcase.withgoogle.com/ikea/public/share/share.jpg">
+
 
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id=GTM-5PZ5JTV'+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','');</script>
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5PZ5JTV');</script>
   </head>
-  <body class=""><!-- add/remove 'bg-temporal' -->
+  <body>
     <!-- Google Tag Manager (noscript)  -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PZ5JTV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -115,8 +129,12 @@
 
       <main role="main" tabindex="-1" class="site-content" aria-hidden="false">
         <div class="house">
-          <canvas id="backgroundCanvas" width="1920" height="1080"></canvas>
+          <canvas id="backgroundCanvas" class="fit-canvas" width="1920" height="1080"></canvas>
         </div>
+        <!-- autoplay loop -->
+        <video id="geomagicalVideo" class="fit-canvas" muted ><!-- active | animate -->
+          <source src="public/video/geomagical1080p.mp4" type="video/mp4">
+        </video>
 
         <div class="section-wrap">
           <!--- begin Splash Section -->
@@ -125,7 +143,7 @@
             <div class="logo-animated">
               <span class="google-cloud-animated"></span>
             </div>
-            <a href="https://policies.google.com/privacy?hl=en" target="_blank" class="privacy-mobile">Privacy</a>
+            <a href="https://policies.google.com/privacy?hl=en" target="_blank" class="privacy">Privacy</a>
           </div>
           <!--- end Splash Section -->
 
@@ -134,49 +152,75 @@
             <div class="container-fluid">
               <div class="text-wrap text-wrap--half">
                 <div>
-                  <div class="logo-ikea mb-5 mb-md-7">
-                    <img src="/ikea/public/img/logos/ikea-logo.svg" alt="Ikea" />
+                  <div class="logo-ikea mb-3 mb-sm-5 mb-md-7">
+                    <img src="public/img/logos/ikea-logo.svg" alt="Ikea" />
                   </div>
                   <div class="headline-wrap">
                     <div class="headline headline--1">
                       <div class="mb-md-11">
-                        <h1 class="typography typography--headline-1 headline-line-animation mb-4 mb-md-8">
+                        <h1 class="typography typography--headline-1 headline-line-animation mb-3 mb-sm-4 mb-md-8">
                           <span class="line">A better home creates <br class="d-md-none"></span>
                           <span class="line">a better everyday life</span>
                         </h1>
-                        <p class="text-animation">This is a principle guiding IKEA Retail (Ingka Group). Learn how IKEA uses <br class="d-none d-sm-block">Google Cloud to bring the uniqueness of their brand to life digitally, and <br class="d-none d-sm-block">improve people’s lives at home.</p>
+                        <p class="text-animation">This is a principle guiding IKEA Retail (Ingka Group). Learn how IKEA uses Google Cloud to bring the uniqueness of their brand to life digitally, and improve people’s lives at home.</p>
                       </div>
-                      <button class="btn btn--primary btn-animation" data-slug="start:subheadline--2">
-                        Start
-                        <span class="anim"></span>
-                      </button>
+
+                      <span>
+                        <button class="btn btn--primary btn-animation" data-slug="start:subheadline--2">
+                          Start
+                          <span class="anim"></span>
+                        </button>
+                        <p class="best-experience d-md-none mt-3">Best experienced on Chrome for Desktop</p>
+                      </span>
                     </div>
                     <div class="headline headline--2">
                       <div class="mb-md-7">
-                        <h2 class="typography typography--headline-2 headline-line-animation mb-7">
+                        <h2 class="typography typography--headline-2 headline-line-animation mb-6 mb-sm-8">
                           <span class="line">Every dream home</span>
                           <span class="line">lives in the cloud</span>
                         </h2>
-                        <ul class="platforms">
-                          <li>
-                            <div class="platform platform--sm">
-                              <img src="/ikea/public/img/platforms/icon-ai.svg" alt="" />
-                              <span>AI Platforms</span>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="platform">
-                              <img src="/ikea/public/img/platforms/icon-kubernetes.svg" alt="" />
-                              <span>Kubernetes Engine</span>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="platform">
-                              <img src="/ikea/public/img/platforms/icon-machine-learning.svg" alt="" />
-                              <span>Machine Learning</span>
-                            </div>
-                          </li>
-                        </ul>
+                        <div class="products-list mb-6 mb-sm-8">
+                          <p>GOOGLE CLOUD PRODUCTS FEATURED IN THIS DEMO:</p>
+                          <ul class="products-list__learn">
+                            <li>
+                              <a href="https://cloud.google.com/cdn?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=cdn" target="_blank">
+                                <img src="public/img/technology/cloud_cdn.svg" alt="Cloud CDN" />
+                                <span>Cloud<br>CDN</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="https://cloud.google.com/sql?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=sql" target="_blank">
+                                <img src="public/img/technology/cloud_sql.svg" alt="Cloud SQL" />
+                                <span>Cloud<br>SQL</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="https://cloud.google.com/storage?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=storage" target="_blank">
+                                <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                <span>Cloud<br>Storage</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="https://cloud.google.com/compute?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=comp
+                              ute" target="_blank">
+                                <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                <span>Compute<br>Engine</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="https://cloud.google.com/container-registry?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=container-registry" target="_blank">
+                                <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                <span>Container<br>Registry</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="https://cloud.google.com/gpu?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=gpu" target="_blank">
+                                <img src="public/img/technology/gpu.svg" alt="GPU" />
+                                <span>GPU</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
 
                       <div class="dragger-container">
@@ -184,7 +228,7 @@
                           <button id="slideButton" class="pulsar-btn animate" aria-label="Drag button to explore now"><!-- data-slug="stages.intro.0" -->
                             <span class="pulsar-btn__container">
                               <span class="pulsar-btn__bg">
-                                <img src="/ikea/public/img/ui/arrow-right.svg" alt="" />
+                                <img src="public/img/ui/arrow-right.svg" alt="" />
                               </span>
                             </span>
                           </button>
@@ -197,10 +241,11 @@
                   </div>
                 </div>
 
-                <span class="legal mt-6">The IKEA logo and the IKEA wordmark are registered trademarks of Inter IKEA Systems B.V.</span>
+                <span class="legal mt-3 mt-sm-4 mt-md-6">The IKEA logo and the IKEA wordmark are registered trademarks of Inter IKEA Systems B.V.</span>
                 <a href="https://policies.google.com/privacy?hl=en" target="_blank" class="privacy-mobile">Privacy</a>
               </div>
             </div>
+            <a href="https://policies.google.com/privacy?hl=en" target="_blank" class="privacy-desktop">Privacy</a>
           </section>
           <!-- end Start Section -->
 
@@ -220,9 +265,9 @@
               <div id='stageintro' class="stage stage--intro">
                 <div class="step step--0">
                   <div class="container-fluid">
-                    <div class="text-wrap text-wrap--full">
+                    <div class="text-wrap text-wrap--half"><!-- text-wrap--half -->
                       <h3 class="typography typography--headline-3 headline-line-animation">
-                        <span class="line">Welcome to a home in the cloud.</span>
+                        <span class="line" style="padding-left: 20%;">Welcome to a home in the cloud.</span>
                       </h3>
                     </div>
                   </div>
@@ -258,15 +303,15 @@
                   <div class="container-fluid">
                     <div class="text-wrap text-wrap--center">
                       <h3 class="typography typography--headline-2 headline-line-animation mb-4">
-                        <span class="line">Enabling customization</span>
-                        <span class="line">through Machine Learning</span>
+                        <span class="line">Enabling 3D visualization</span>
+                        <span class="line">with machine learning</span>
                       </h3>
-                      <p class="text-animation mb-10">Ingka Group, the largest IKEA franchisee, recently acquired Geomagical labs who are developing a solution to enable customers to design their favorite spaces in a mixed reality experience (real + virtual). Using just a smartphone, customers are able to quickly capture their space and virtually experience IKEA products in their room before purchasing them.</p>
+                      <p class="text-animation mb-10">Ingka Group, the largest IKEA franchisee, recently acquired Geomagical Labs, a spatial computing company, developing mixed reality (real + virtual) experiences to support consumer needs. Using an ordinary smartphone, consumers will be able to quickly capture their spaces and virtually play with IKEA products in their rooms before purchasing them.</p>
 
                       <button class="pulsar-btn pulsar-btn--geomagical" aria-labelledby="works-label" data-slug="stages.geomagical.1">
                         <span class="pulsar-btn__container">
                           <span class="pulsar-btn__bg">
-                            <img src="/ikea/public/img/ui/arrow-right.svg" alt="" />
+                            <img src="public/img/ui/arrow-right.svg" alt="" />
                           </span>
                         </span>
                         <span id="works-label" class="pulsar-btn__label">See how it works</span>
@@ -276,7 +321,7 @@
                 </div>
                 <div class="step step--1">
                   <div class="tooltip-container fit-canvas">
-                    <div id="tooltipLine" class="tooltip"><!-- add class 'active' to active + 'animate' to show + 'tooltip--detail' to show detail -->
+                    <div id="tooltipLine" class="tooltip">
                       <div class="tooltip__cta">
                         <button class="pulsar-btn pulsar-btn--geomagical" aria-label="Open info">
                           <span class="pulsar-btn__container">
@@ -287,8 +332,49 @@
                         </button>
                       </div>
                       <div class="tooltip__box">
-                        <p>Finding lines is critical to understanding the shape and contents of indoor spaces: wall seams, table edges, and other key lines provide important information.</p>
-                        <p>IKEA combines neural networks and computer vision techniques to locate and label key lines in the scene in both 2D and 3D.</p>
+                        <div class="tooltip__label tooltip__label--geomagical">Line detection</div>
+                        <div class="tooltip__content">
+                          <div class="tooltip__title typography typography--headline-4">Line detection</div>
+                          <p>Finding lines is critical to understand the shapes and contents of indoor spaces: wall seams, table edges and other key lines provide important information.</p>
+                          <p>The software combines neural networks and computer vision techniques to locate and label key lines in the scene in both 2D & 3D.</p>
+                          <div class="products-list">
+                            <div class="products-list__title typography typography--headline-5">Google Cloud Products:</div>
+                            <ul class="products-list__items">
+                              <li>
+                                <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                <span>Compute Engine</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                <span>Container Registry</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                <span>Cloud Storage</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tooltip-products">
+                        <a href="https://cloud.google.com/compute?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=compute" target="_blank" role="button" class="tooltip-products__item"><!-- menu-item -->
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                          </span>
+                          <span class="tooltip-products__name">Compute Engine</span>
+                        </a>
+                        <a href="https://cloud.google.com/container-registry?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=container-registry" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                          </span>
+                          <span class="tooltip-products__name">Container Registry</span>
+                        </a>
+                        <a href="https://cloud.google.com/storage?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=storage" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                          </span>
+                          <span class="tooltip-products__name">Cloud Storage</span>
+                        </a>
                       </div>
                     </div>
                     <div id="tooltipParallax" class="tooltip tooltip--right">
@@ -302,7 +388,48 @@
                         </button>
                       </div>
                       <div class="tooltip__box">
-                        <p>Indoor panoramas normally require a special tripod mount or wide-angle lens. This app uses neural networks, photogrammetry, and world-class stitching algorithms to combine photos into a seamless, beautiful panorama.</p>
+                        <div class="tooltip__label tooltip__label--geomagical">Parallax tolerant<br>algorithm</div>
+                        <div class="tooltip__content">
+                          <div class="tooltip__title typography typography--headline-4">Parallax tolerant algorithm</div>
+                          <p>Indoor panoramas normally require a special tripod mount or wide-angle lens. This app uses neural networks, photogrammetry, and world-class stitching algorithms to combine photos into a seamless, beautiful panorama.</p>
+                          <div class="products-list">
+                            <div class="products-list__title typography typography--headline-5">Google Cloud Products:</div>
+                            <ul class="products-list__items">
+                              <li>
+                                <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                <span>Compute Engine</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                <span>Container Registry</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                <span>Cloud Storage</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tooltip-products">
+                        <a href="https://cloud.google.com/compute?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=compute" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                          </span>
+                          <span class="tooltip-products__name">Compute Engine</span>
+                        </a>
+                        <a href="https://cloud.google.com/container-registry?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=container-registry" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                          </span>
+                          <span class="tooltip-products__name">Container Registry</span>
+                        </a>
+                        <a href="https://cloud.google.com/storage?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=storage" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                          </span>
+                          <span class="tooltip-products__name">Cloud Storage</span>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -312,16 +439,15 @@
                       <div class="card card-animation card--geomagical">
                         <div class="card__header">
                           <div class="card__step card__step--capture mb-2">
-                            <img src="/ikea/public/img/geomagical/capture.svg" alt="" />
+                            <img src="public/img/geomagical/capture.svg" alt="" />
                             <span>Step 1</span>
                           </div>
-                          <div class="card__title">How it works:<br>Scene capture</div>
+                          <div class="card__title">How it works:<br>Room capture</div>
                         </div>
                         <div class="card__body">
                           <div class="card__content">
-                            <p class="pb-5">The first step is to capture the space you wish to redesign. Users with a smartphone will be able to use the IKEA app to take an ultra wide, "magazine quality" photo of their room.</p>
+                            <p class="pb-5">You’ll start by capturing the space you wish to design. With any ordinary smartphone, an app will guide you to take an ultra-wide, "magazine quality", photo of your room. A parallax tolerant algorithm seamlessly stitches multiple images into an ultra-wide photo</p>
                             <div class="deep-dive__content">
-                              <p class="pb-5">A parallax tolerant algorithm enables them to blend the captures without any stitches into an ultra wide photo.</p>
                               <ul class="deep-dive__list">
                                 <li>
                                   <span class="radio-check slug-deep-dive"><!-- add class 'checked' -->
@@ -352,7 +478,6 @@
                     <!-- end Step Cards-->
                   </div>
                 </div>
-
                 <div class="step step--2">
                   <div class="tooltip-container fit-canvas">
                     <div id="tooltipDepth" class="tooltip tooltip--right">
@@ -366,7 +491,58 @@
                         </button>
                       </div>
                       <div class="tooltip__box">
-                        <p>Combines photogrammetry and multiple neural networks to recreate the full detailed 3D structure of the room and its contents, achieving world-class accuracy. Photogrammetry uses multiple photos of the room, taken from different angles, to triangulate the distance of walls and other objects.</p>
+                        <div class="tooltip__label tooltip__label--geomagical">Depth estimation</div>
+                        <div class="tooltip__content">
+                          <div class="tooltip__title typography typography--headline-4">Depth estimation</div>
+                          <p>Combines photogrammetry and multiple neural networks to recreate the full detailed 3D structure of the room and its contents, achieving world-class accuracy.</p>
+                          <div class="products-list">
+                            <div class="products-list__title typography typography--headline-5">Google Cloud Products:</div>
+                            <ul class="products-list__items">
+                              <li>
+                                <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                <span>Compute Engine</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                <span>Container Registry</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                <span>Cloud Storage</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/gpu.svg" alt="GPU" />
+                                <span>GPU</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tooltip-products">
+                        <a href="https://cloud.google.com/compute?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=compute" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                          </span>
+                          <span class="tooltip-products__name">Compute Engine</span>
+                        </a>
+                        <a href="https://cloud.google.com/container-registry?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=container-registry" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                          </span>
+                          <span class="tooltip-products__name">Container Registry</span>
+                        </a>
+                        <a href="https://cloud.google.com/storage?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=storage" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                          </span>
+                          <span class="tooltip-products__name">Cloud Storage</span>
+                        </a>
+                        <a href="https://cloud.google.com/gpu?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=gpu" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/gpu.svg" alt="GPU" />
+                          </span>
+                          <span class="tooltip-products__name">GPU</span>
+                        </a>
                       </div>
                     </div>
                     <div id="tooltipSegmentation" class="tooltip tooltip--right">
@@ -380,7 +556,58 @@
                         </button>
                       </div>
                       <div class="tooltip__box">
-                        <p>Neural networks and computer vision techniques enable the software to understand what's in the room, classifying every visible object and creating a semantic model for every single detection within it.</p>
+                        <div class="tooltip__label tooltip__label--geomagical">Segmentation</div>
+                        <div class="tooltip__content">
+                          <div class="tooltip__title typography typography--headline-4">Segmentation</div>
+                          <p>Neural networks and computer vision techniques enable the software to understand what's in the room, classifying every visible object and creating a semantic model for every single detection within it.</p>
+                          <div class="products-list">
+                            <div class="products-list__title typography typography--headline-5">Google Cloud Products:</div>
+                            <ul class="products-list__items">
+                              <li>
+                                <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                <span>Compute Engine</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                <span>Container Registry</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                <span>Cloud Storage</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/gpu.svg" alt="GPU" />
+                                <span>GPU</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tooltip-products">
+                        <a href="https://cloud.google.com/compute?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=compute" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                          </span>
+                          <span class="tooltip-products__name">Compute Engine</span>
+                        </a>
+                        <a href="https://cloud.google.com/container-registry?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=container-registry" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                          </span>
+                          <span class="tooltip-products__name">Container Registry</span>
+                        </a>
+                        <a href="https://cloud.google.com/storage?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=storage" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                          </span>
+                          <span class="tooltip-products__name">Cloud Storage</span>
+                        </a>
+                        <a href="https://cloud.google.com/gpu?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=gpu" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/gpu.svg" alt="GPU" />
+                          </span>
+                          <span class="tooltip-products__name">GPU</span>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -390,14 +617,14 @@
                       <div class="card card-animation card--geomagical">
                         <div class="card__header">
                           <div class="card__step mb-2">
-                            <img src="/ikea/public/img/geomagical/360.svg" alt="" />
+                            <img src="public/img/geomagical/360.svg" alt="" />
                             <span>Step 2</span>
                           </div>
-                          <div class="card__title">How it works:<br>3D models</div>
+                          <div class="card__title">How it works:<br>3D reconstruction</div>
                         </div>
                         <div class="card__body">
                           <div class="card__content">
-                            <p class="pb-5">Next, the app will create a detailed and scale-accurate 3D model of the captured room, and all of its contents, so that users can realistically redecorate.</p>
+                            <p class="pb-5">Next, the software will create a detailed and scale-accurate 3D model of the captured room, and all of its contents, so that users can realistically redesign the space.</p>
                             <div class="deep-dive__content">
                               <ul class="deep-dive__list">
                                 <li>
@@ -429,7 +656,6 @@
                     <!-- end Step Cards-->
                   </div>
                 </div>
-
                 <div class="step step--3">
                   <div class="tooltip-container fit-canvas">
                     <div id="tooltipRealistic" class="tooltip tooltip--right">
@@ -443,8 +669,69 @@
                         </button>
                       </div>
                       <div class="tooltip__box">
-                        <p>IKEA models are rendered into the room with realistic-looking shadows, illumination, scale, and occlusions.</p>
-                        <p>The software combines classic computer vision algorithms and deep learning techniques to accurately detect light sources in the room. This enables the technology to render reflections, shadows, and a realistic appearance of the virtual furniture.</p>
+                        <div class="tooltip__label tooltip__label--geomagical">Realistic rendering and<br>light source estimation</div>
+                        <div class="tooltip__content">
+                          <div class="tooltip__title typography typography--headline-4">Realistic rendering and light source estimation</div>
+                          <p>IKEA models are rendered into the room with realistic-looking shadows, illumination, scale, and occlusions.</p>
+                          <p>The software combines classic computer vision algorithms and deep learning techniques to accurately detect light sources in the room. This enables the technology to render reflections, shadows, and a realistic appearance of the virtual furniture.</p>
+                          <div class="products-list">
+                            <div class="products-list__title typography typography--headline-5">Google Cloud Products:</div>
+                            <ul class="products-list__items">
+                              <li>
+                                <img src="public/img/technology/cloud_sql.svg" alt="Cloud SQL" />
+                                <span>Cloud SQL</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                <span>Compute Engine</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                <span>Container Registry</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                <span>Cloud Storage</span>
+                              </li>
+                              <li>
+                                <img src="public/img/technology/cloud_cdn.svg" alt="Cloud CDN" />
+                                <span>Cloud CDN</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tooltip-products">
+                        <a href="https://cloud.google.com/sql?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=sql" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/cloud_sql.svg" alt="Cloud SQL" />
+                          </span>
+                          <span class="tooltip-products__name">Cloud SQL</span>
+                        </a>
+                        <a href="https://cloud.google.com/compute?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=compute" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                          </span>
+                          <span class="tooltip-products__name">Compute Engine</span>
+                        </a>
+                        <a href="https://cloud.google.com/container-registry?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=container-registry" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                          </span>
+                          <span class="tooltip-products__name">Container Registry</span>
+                        </a>
+                        <a href="https://cloud.google.com/storage?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=storage" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                          </span>
+                          <span class="tooltip-products__name">Cloud Storage</span>
+                        </a>
+                        <a href="https://cloud.google.com/cdn?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=cdn" target="_blank" role="button" class="tooltip-products__item">
+                          <span class="tooltip-products__icon">
+                            <img src="public/img/technology/cloud_cdn.svg" alt="Cloud CDN" />
+                          </span>
+                          <span class="tooltip-products__name">Cloud CDN</span>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -454,7 +741,7 @@
                       <div class="card card-animation card--geomagical">
                         <div class="card__header">
                           <div class="card__step mb-2">
-                            <img src="/ikea/public/img/geomagical/design.svg" alt="" />
+                            <img src="public/img/geomagical/design.svg" alt="" />
                             <span>Step 3</span>
                           </div>
                           <div class="card__title">How it works:<br>Designing the space</div>
@@ -487,11 +774,10 @@
                     <!-- end Step Cards-->
                   </div>
                 </div>
-
                 <div class="step step--4">
                   <div class="container-fluid">
                     <!-- begin Step Cards -->
-                    <div class="card-wrap">
+                    <div class="card-wrap card-wrap--centered">
                       <div class="card card-animation card--simple card--geomagical">
                         <div class="card__body">
                           <div class="card__content">
@@ -518,12 +804,12 @@
                         <span class="line">experiences</span>
                       </h3>
 
-                      <p class="text-animation mb-10">IKEA leverages Google Cloud's AI solutions to personalize its digital experiences like never before.</p>
+                      <p class="text-animation mb-10">IKEA leverages Google Cloud's AI solutions to personalize its digital experiences<br>like never before.</p>
 
                       <button class="pulsar-btn pulsar-btn--recommendations" aria-labelledby="works-label2" data-slug="stages.recommendations.1">
                         <span class="pulsar-btn__container">
                           <span class="pulsar-btn__bg">
-                            <img src="/ikea/public/img/ui/arrow-right.svg" alt="" />
+                            <img src="public/img/ui/arrow-right.svg" alt="" />
                           </span>
                         </span>
                         <span id="works-label2" class="pulsar-btn__label">How it works</span>
@@ -531,7 +817,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="step step--1">
                   <div class="container-fluid">
                     <!-- begin Step Cards -->
@@ -539,7 +824,7 @@
                       <div class="card card-animation card--recommendations">
                         <div class="card__header">
                           <div class="card__step mb-2">
-                            <img src="/ikea/public/img/platforms/icon-recommendations.svg" alt="" />
+                            <img src="public/img/platforms/icon-recommendations.svg" alt="" />
                           </div>
                           <div class="card__title">Recommendations AI</div>
                         </div>
@@ -553,14 +838,6 @@
                                 Try the technology
                                 <span class="anim"></span>
                               </button>
-                              <!-- <button class="btn btn--icon" data-slug="stages.recommendations.0">
-                                <span class="material-icons">keyboard_arrow_left</span>
-                                <span class="anim"></span>
-                              </button> -->
-                              <!-- <button class="btn btn--icon" data-slug="stages.recommendations.2">
-                                <span class="material-icons">keyboard_arrow_right</span>
-                                <span class="anim"></span>
-                              </button> -->
                             </div>
                           </div>
                         </div>
@@ -569,22 +846,42 @@
                     <!-- end Step Cards-->
                   </div>
                 </div>
-
                 <div class="step step--2">
+                  <div class="tooltip-container fit-canvas">
+                    <div id="tooltipVisionSearch" class="tooltip">
+                      <div class="tooltip__cta">
+                        <button class="pulsar-btn pulsar-btn--recommendations" aria-label="Open info">
+                          <span class="pulsar-btn__container">
+                            <span class="pulsar-btn__bg">
+                              <span class="material-icons md-18">add</span><!-- add | remove -->
+                            </span>
+                          </span>
+                        </button>
+                      </div>
+                      <div class="tooltip__box">
+                        <div class="tooltip__label tooltip__label--recommendations">Simplified returns</div>
+                        <div class="tooltip__content">
+                          <div class="tooltip__title typography typography--headline-4">Vision Search Product</div>
+                          <p>Using Vision API Product Search, IKEA simplifies the return process throughout its different platforms. Google Cloud Product Search applies machine learning to compare and find the most similar item of all IKEA products. Employees at the return department at IKEA can quickly identify an item by taking a photo of them.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="container-fluid">
                     <!-- begin Step Cards -->
                     <div class="card-wrap">
                       <div class="card card-animation card--recommendations">
                         <div class="card__header">
                           <div class="card__step mb-2">
-                            <img src="/ikea/public/img/platforms/icon-recommendations.svg" alt="" />
+                            <img src="public/img/platforms/icon-recommendations.svg" alt="" />
                           </div>
                           <div class="card__title">Recommendations AI</div>
                         </div>
                         <div class="card__body">
                           <div class="card__content">
                             <p class="mb-10">What do you think about these chairs?</p>
-                            <button class="btn btn--block btn--recommendations" data-slug="stages.recommendations.3">
+                            <button class="btn btn--block btn--recommendations" data-slug="stages.recap.0">
                               I like them!
                               <span class="anim"></span>
                             </button>
@@ -599,15 +896,14 @@
                     <!-- end Step Cards-->
                   </div>
                 </div>
-
+                <!--
                 <div class="step step--3">
                   <div class="container-fluid">
-                    <!-- begin Step Cards -->
                     <div class="card-wrap">
                       <div class="card card-animation card--recommendations">
                         <div class="card__header">
                           <div class="card__step mb-2">
-                            <img src="/ikea/public/img/platforms/icon-vps.svg" alt="" />
+                            <img src="public/img/platforms/icon-vps.svg" alt="" />
                           </div>
                           <div class="card__title">Vision API Product Search</div>
                         </div>
@@ -617,14 +913,6 @@
                           </div>
                           <div class="card__actions">
                             <div class="card__actions-default">
-                              <!-- <button class="btn btn--icon" data-slug="stages.recommendations.2">
-                                <span class="material-icons">keyboard_arrow_left</span>
-                                <span class="anim"></span>
-                              </button> -->
-                              <!-- <button class="btn btn--icon" data-slug="stages.recap.0">
-                                <span class="material-icons">keyboard_arrow_right</span>
-                                <span class="anim"></span>
-                              </button> -->
                               <button class="btn btn--recommendations" data-slug="stages.recap.0">
                                 Next
                                 <span class="anim"></span>
@@ -634,64 +922,151 @@
                         </div>
                       </div>
                     </div>
-                    <!-- end Step Cards-->
                   </div>
                 </div>
+                -->
               </div>
               <!-- end Stage AI Recommendations -->
 
               <!-- begin Stage Recap -->
               <div id='stagerecap' class="stage stage--recap">
-                <div class="step step--0">
+                <div class="step step--0"><!-- add class easteregg--in -->
+                  <div class="fit-canvas" >
+                    <div class="googleHomeButton" style="display: block; width: 8%; height: 8%; left: 72%; top: 49%; position: absolute; cursor: pointer;"></div>
+                  </div>
                   <div class="container-fluid">
                     <div class="text-wrap text-wrap--center">
                       <h3 class="typography typography--headline-2 headline-line-animation mb-4">
-                        <span class="line">Simplifying the retail</span>
-                        <span class="line">experience</span>
+                        <span class="line">Designing your dream</span>
+                        <span class="line">is now more convenient</span>
+                        <span class="line">than ever</span>
                       </h3>
-
-                      <p class="text-animation mb-10">Designing your dream home is more personalized and convenient than ever with IKEA enabled by Google Cloud.</p>
-
+                      <ul class="text-list text-animation mb-5">
+                        <li>Capture spaces and virtually experience IKEA products before purchasing them.</li>
+                        <li>Find the right products faster and easier with Recommendations AI.</li>
+                      </ul>
+                      <p class="text-animation mb-10">Build your better home with IKEA enabled by Google Cloud.</p>
                       <button class="pulsar-btn pulsar-btn--recap" data-slug="stages.recap.1"><!-- aria-labelledby="works-label3" -->
                         <span class="pulsar-btn__container">
                           <span class="pulsar-btn__bg">
-                            <img src="/ikea/public/img/ui/arrow-right.svg" alt="" />
+                            <img src="public/img/ui/arrow-right.svg" alt="" />
                           </span>
                         </span>
-                        <!-- <span id="works-label3" class="pulsar-btn__label">How it works</span> -->
                       </button>
                     </div>
-                  </div>
-                </div>
+                    <div class="easteregg">
+                      <div class="bubbles fit-canvas "><!-- active -->
+                        <div class="bubble-wrap" style="bottom: 41%; right: 30%;">
+                          <div class="bubble-scroll">
+                            <!-- #4 -->
+                            <div class="bubble bubble--right">
+                              <div>
+                                <span class="bubble__from">Google Nest Mini:</span>
+                                <span class="bubble__msg">Sure, turning the office light off</span>
+                                <span class="bubble__date">Today</span>
+                              </div>
+                            </div>
 
-                <div class="step step--1">
-                  <div class="container-fluid">
-                    <!-- begin Step Cards -->
-                    <div class="card-wrap">
-                      <div class="card card-animation card--recap">
-                        <div class="card__header">
-                          <div class="card__title">Together, we can create a better everyday life for the many people</div>
-                        </div>
-                        <div class="card__body">
-                          <div class="card__content">
-                            <p>We’re one big we at IKEA. A place where anyone can chip in an idea or bring their unique talent or experience to work. We don’t just settle for the way things are. We question them, and even rebel against them for the better. So we’re always looking for people who think differently.</p>
-                          </div>
-                          <div class="card__actions">
-                            <div class="card__actions-default">
-                              <!-- <button class="btn btn--icon" data-slug="stages.recommendations.0">
-                                <span class="material-icons">keyboard_arrow_left</span>
-                                <span class="anim"></span>
-                              </button> -->
-                              <button class="btn btn--recap">
-                                Join us
-                                <span class="anim"></span>
-                              </button>
+                            <!-- #3 -->
+                            <div class="bubble bubble--left">
+                              <div>
+                                <span class="bubble__from">You:</span>
+                                <span class="bubble__msg">Hey Google, turn off the office light</span>
+                                <span class="bubble__date">Today</span>
+                              </div>
+                            </div>
+
+                            <!-- #2 -->
+                            <div class="bubble bubble--right">
+                              <div>
+                                <span class="bubble__from">Google Nest Mini:</span>
+                                <span class="bubble__msg">IKEA was founded by Ingvar Kamprad</span>
+                                <span class="bubble__date">Today</span>
+                              </div>
+                            </div>
+
+                            <!-- #1 -->
+                            <div class="bubble bubble--left"><!-- active | animate -->
+                              <div>
+                                <span class="bubble__from">You:</span>
+                                <span class="bubble__msg">Hey Google, who is the founder of IKEA?</span>
+                                <span class="bubble__date">Today</span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
+                      <div class="cta-lights"><!-- active -->
+                        <button class="btn btn--primary">Turn the lights on</button>
+                      </div>
                     </div>
-                    <!-- end Step Cards-->
+                  </div>
+                </div>
+                <div class="step step--1">
+                  <div class="container-fluid">
+                    <div class="text-wrap text-wrap--left">
+                      <h3 class="typography typography--headline-2 headline-line-animation mb-4">
+                        <span class="line">Together, we can create</span>
+                        <span class="line">a better everyday for</span>
+                        <span class="line">many people</span>
+                      </h3>
+                      <p class="text-animation mb-10">IKEA is a place where anyone can chip in an idea or bring their unique talent or experience to work. We don’t just settle for the way things are so we’re always looking for people who think differently.</p>
+
+                      <div class="button-wrap">
+                        <a href="https://en-global-jobs.about.ikea.com/search-jobs/ALL?orgIds=22908&ac=59685&alp=ALL&alt=0&ascf=%5B%7B%22Key%22%3A%22ALL%22%2C%22Value%22%3Anull%7D%5D&=&utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=IKEA_Careers" class="btn btn--ikea btn-animation" target="_blank" role="button">
+                          Join us at IKEA
+                          <span class="anim"></span>
+                        </a>
+                        <button class="btn btn--outline-primary btn-animation">
+                          Share
+                          <span class="anim"></span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="products-list">
+                      <p>GOOGLE CLOUD PRODUCTS FEATURED IN THIS DEMO:</p>
+                      <ul class="products-list__learn">
+                        <li>
+                          <a href="https://cloud.google.com/cdn?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=cdn" target="_blank">
+                            <img src="public/img/technology/cloud_cdn.svg" alt="Cloud CDN" />
+                            <span>Cloud CDN</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://cloud.google.com/sql?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=sql" target="_blank">
+                            <img src="public/img/technology/cloud_sql.svg" alt="Cloud SQL" />
+                            <span>Cloud SQL</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://cloud.google.com/storage?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=storage" target="_blank">
+                            <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                            <span>Cloud Storage</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://cloud.google.com/compute?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=comp
+                          ute" target="_blank">
+                            <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                            <span>Compute Engine</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://cloud.google.com/container-registry?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=container-registry" target="_blank">
+                            <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                            <span>Container Registry</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://cloud.google.com/gpu?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=gpu" target="_blank">
+                            <img src="public/img/technology/gpu.svg" alt="GPU" />
+                            <span>GPU</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -700,15 +1075,15 @@
 
             <!-- Navigation Desktop -->
             <div id="stageNavigation" class="navigation">
-              <span id="scrollText" class="scroll"><!-- add/remove class active -->
-                <img src="/ikea/public/img/ui/scroll.svg" alt="" />
-                <span>USE RIGHT ARROW OR SCROLL TO MOVE FORWARD</span>
+              <span id="scrollText" class="scroll"><!-- add/remove class active | scroll--only-text | scroll--white -->
+                <img src="public/img/ui/scroll.svg" alt="" />
+                <span>USE RIGHT ARROW KEY OR SCROLL TO ADVANCE</span>
               </span>
               <div class="stage-nav-container">
                 <div class="stage-nav"><!-- add class current | done -->
-                  <div class="stage-btn stage-nav__point">
+                  <button class="stage-btn stage-nav__point" data-slug="stages.intro.0">
                     <span class="stage-nav__label">Introduction</span>
-                  </div>
+                  </button>
                   <span class="stage-nav__steps">
                     <span class="stage-nav__step stage-nav-nav__step--0"></span><!-- add class current  -->
                     <span class="stage-nav__step stage-nav-nav__step--1"></span>
@@ -716,9 +1091,9 @@
                   </span>
                 </div>
                 <div class="stage-nav"><!-- add class current | done -->
-                  <div class="stage-btn stage-nav__point">
+                  <button class="stage-btn stage-nav__point" data-slug="stages.geomagical.0">
                     <span class="stage-nav__label">Customization</span>
-                  </div>
+                  </button>
                   <span class="stage-nav__steps">
                     <span class="stage-nav__step stage-nav__step--0"></span><!-- add class current  -->
                     <span class="stage-nav__step stage-nav__step--1"></span>
@@ -728,9 +1103,9 @@
                   </span>
                 </div>
                 <div class="stage-nav"><!-- add class current | done -->
-                  <div class="stage-btn stage-nav__point">
+                  <button class="stage-btn stage-nav__point" data-slug="stages.recommendations0">
                     <span class="stage-nav__label">AI Recommendations</span>
-                  </div>
+                  </button>
                   <span class="stage-nav__steps">
                     <span class="stage-nav__step stage-nav__step--0"></span><!-- add class current  -->
                     <span class="stage-nav__step stage-nav__step--1"></span>
@@ -739,12 +1114,14 @@
                   </span>
                 </div>
                 <div class="stage-nav"><!-- add class current | done -->
-                  <div class="stage-btn stage-nav__point">
+                  <button class="stage-btn stage-nav__point" data-slug="stages.recap.0">
                     <span class="stage-nav__label">Recap</span>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
+
+            <a href="https://policies.google.com/privacy?hl=en" target="_blank" class="privacy-desktop">Privacy</a>
           </section>
           <!-- end Section Stages -->
 
@@ -786,14 +1163,14 @@
                     </svg>
                   </button>
                   <h1 class="typography typography--headline-2 headline-line-animation mb-4">
-                    <span class="line">Enabling customization</span>
-                    <span class="line">through Machine Learning</span>
+                    <span class="line">Enabling 3D visualization</span>
+                    <span class="line">with machine learning</span>
                   </h1>
-                  <p class="text-animation mb-10">Ingka Group, the largest IKEA franchisee, recently acquired Geomagical labs who are developing a solution to enable customers to design their favorite spaces in a mixed reality experience (real + virtual). Using just a smartphone, customers are able to quickly capture their space and virtually experience IKEA products in their room before purchasing them.</p>
+                  <p class="text-animation mb-10">Ingka Group, the largest IKEA franchisee, recently acquired Geomagical Labs, a spatial computing company, developing mixed reality (real + virtual) experiences to support consumer needs. Using an ordinary smartphone, consumers will be able to quickly capture their spaces and virtually play with IKEA products in their rooms before purchasing them.</p>
                   <button class="pulsar-btn pulsar-btn--geomagical" aria-labelledby="works-label-mobile" id="geomagicalBtn">
                     <span class="pulsar-btn__container">
                       <span class="pulsar-btn__bg">
-                        <img src="/ikea/public/img/ui/arrow-right.svg" alt="" />
+                        <img src="public/img/ui/arrow-right.svg" alt="" />
                       </span>
                     </span>
                     <span id="works-label-mobile" class="pulsar-btn__label">See how it works</span>
@@ -820,11 +1197,11 @@
                           </svg>
                           <span>Step 1</span>
                         </div>
-                        <h2 class="step-card__title">How it works:<br>Scene capture</h2>
+                        <h2 class="step-card__title">How it works:<br>Room capture</h2>
                       </div>
                       <div class="step-card__body">
                         <div class="step-card__wrap">
-                          <p class="mb-5">The first step is to capture the space you wish to redesign. Users with a smartphone will be able to use the IKEA app to take an ultra wide, "magazine quality" photo of their room.</p>
+                          <p class="mb-5">You’ll start by capturing the space you wish to design. With any ordinary smartphone, an app will guide you to take an ultra-wide, "magazine quality", photo of your room. A parallax tolerant algorithm seamlessly stitches multiple images into an ultra-wide photo.</p>
 
                           <div class="tech">
                             <h3 class="tech__title">
@@ -832,9 +1209,27 @@
                               Line detection
                             </h3>
                             <div class="tech__image">
-                              <img src="/ikea/public/img/mobile/stages/geomagical_step1-2-min.jpg" alt="" />
+                              <img src="public/img/mobile/stages/geomagical_step1-2-min.jpg" alt="" />
                             </div>
-                            <p>Finding lines is critical to understanding the shape and contents of indoor spaces. IKEA combines neural networks and computer vision techniques to locate and label key lines in the scene in both 2D and 3D.</p>
+                            <p class="mb-3">Finding lines is critical to understand the shapes and contents of indoor spaces: wall seams, table edges and other key lines provide important information.</p>
+                            <p>The software combines neural networks and computer vision techniques to locate and label key lines in the scene in both 2D & 3D.</p>
+                            <div class="products-list">
+                              <div class="products-list__title typography typography--headline-5">Google Cloud Products:</div>
+                              <ul class="products-list__items">
+                                <li>
+                                  <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                  <span>Compute Engine</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                  <span>Container Registry</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                  <span>Cloud Storage</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
 
                           <div class="tech">
@@ -843,12 +1238,28 @@
                               Parallax tolerant algorithm
                             </h3>
                             <div class="tech__image">
-                              <img src="/ikea/public/img/mobile/stages/geomagical_step1-3-min.jpg" alt="" />
+                              <img src="public/img/mobile/stages/geomagical_step1-3-min.jpg" alt="" />
                             </div>
-                            <p>This app uses neural networks, photogrammetry, and world-class stitching algorithms to combine photos into a seamless, beautiful panorama.</p>
+                            <p>Indoor panoramas normally require a special tripod mount or wide-angle lens. This app uses neural networks, photogrammetry, and world-class stitching algorithms to combine photos into a seamless, beautiful panorama.</p>
+                            <div class="products-list">
+                              <div class="products-list__title typography typography--headline-5">Google Cloud Products:</div>
+                              <ul class="products-list__items">
+                                <li>
+                                  <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                  <span>Compute Engine</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                  <span>Container Registry</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                  <span>Cloud Storage</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
-
                       </div>
                     </div>
 
@@ -856,7 +1267,6 @@
                     <div class="step-card step-card--geomagical">
                       <div class="step-card__header">
                         <div class="step-card__step mb-2">
-                          <!-- <img src="/ikea/public/img/geomagical/360.svg" alt="" /> -->
                           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24">
                             <g>
                               <path class="step-icon icon-360" d="M12,6C6.5,6,2,8.2,2,11c0,2.2,2.9,4.1,7,4.8V19l4-4l-4-4v2.7c-3.2-0.6-5-1.9-5-2.7
@@ -865,11 +1275,11 @@
                           </svg>
                           <span>Step 2</span>
                         </div>
-                        <h2 class="step-card__title">How it works:<br>3D models</h2>
+                        <h2 class="step-card__title">How it works:<br>3D reconstruction</h2>
                       </div>
                       <div class="step-card__body">
                         <div class="step-card__wrap">
-                          <p class="mb-5">Next, the app will create a detailed and scale-accurate 3D model of the captured room, and all of its contents, so that users can realistically redecorate.</p>
+                          <p class="mb-5">Next, the software will create a detailed and scale-accurate 3D model of the captured room, and all of its contents, so that users can realistically redesign the space.</p>
 
                           <!-- Tech Detail -->
                           <div class="tech">
@@ -878,9 +1288,30 @@
                               Depth estimation
                             </h3>
                             <div class="tech__image">
-                              <img src="/ikea/public/img/mobile/stages/geomagical_step2-1-min.jpg" alt="" />
+                              <img src="public/img/mobile/stages/geomagical_step2-1-min.jpg" alt="" />
                             </div>
                             <p>The app combines photogrammetry and multiple neural networks to recreate the full detailed 3D structure of the room and its contents, achieving world-class accuracy.</p>
+                            <div class="products-list">
+                              <div class="products-list__title typography typography--headline-5">Google Cloud Products:</div>
+                              <ul class="products-list__items">
+                                <li>
+                                  <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                  <span>Compute Engine</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                  <span>Container Registry</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                  <span>Cloud Storage</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/gpu.svg" alt="GPU" />
+                                  <span>GPU</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
 
                           <div class="tech">
@@ -889,9 +1320,30 @@
                               Segmentation
                             </h3>
                             <div class="tech__image">
-                              <img src="/ikea/public/img/mobile/stages/geomagical_step2-2-min.jpg" alt="" />
+                              <img src="public/img/mobile/stages/geomagical_step2-2-min.jpg" alt="" />
                             </div>
                             <p>Neural networks and computer vision techniques enable the software to understand what's in the room, classifying every visible object and creating a semantic model for every single detection within it.</p>
+                            <div class="products-list">
+                              <div class="products-list__title typography typography--headline-5">Google Cloud Products:</div>
+                              <ul class="products-list__items">
+                                <li>
+                                  <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                  <span>Compute Engine</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                  <span>Container Registry</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                  <span>Cloud Storage</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/gpu.svg" alt="GPU" />
+                                  <span>GPU</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -901,7 +1353,6 @@
                     <div class="step-card step-card--geomagical">
                       <div class="step-card__header">
                         <div class="step-card__step mb-2">
-                          <!-- <img src="/ikea/public/img/geomagical/design.svg" alt="" /> -->
                           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24">
                             <path class="step-icon icon-design" d="M20.8,7.4c0.4-0.4,0.4-1,0-1.4L18,3.2c-0.4-0.4-1-0.4-1.4,0l-4.5,4.5L8.2,3.8
                         C7.4,3,6.2,3,5.4,3.8L3.5,5.7c-0.8,0.8-0.8,2.1,0,2.8l3.9,3.9l-4.5,4.5v4.2h4.2l4.5-4.5l3.9,3.9c0.9,1,2.2,0.6,2.8,0l1.9-1.9
@@ -924,10 +1375,35 @@
                               Realistic rendering and light source estimation
                             </h3>
                             <div class="tech__image">
-                              <img src="/ikea/public/img/mobile/stages/geomagical_step3-1-min.jpg" alt="" />
+                              <img src="public/img/mobile/stages/geomagical_step3-1-min.jpg" alt="" />
                             </div>
-                            <p>IKEA models are rendered into the room with realistic-looking shadows, illumination, scale, and occlusions.</p>
-                            <p>The software combines classic computer vision algorithms and deep learning techniques to accurately detect light sources in the room.  This enables the technology to render reflections, shadows, and a realistic appearance of the virtual furniture. </p>
+                            <p class="mb-3">IKEA models are rendered into the room with realistic-looking shadows, illumination, scale, and occlusions.</p>
+                            <p>The software combines classic computer vision algorithms and deep learning techniques to accurately detect light sources in the room.  This enables the technology to render reflections, shadows, and a realistic appearance of the virtual furniture.</p>
+                            <div class="products-list">
+                              <div class="products-list__title typography typography--headline-5">Google Cloud Products:</div>
+                              <ul class="products-list__items">
+                                <li>
+                                  <img src="public/img/technology/cloud_sql.svg" alt="Cloud SQL" />
+                                  <span>Cloud SQL</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                  <span>Compute Engine</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                  <span>Container Registry</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                  <span>Cloud Storage</span>
+                                </li>
+                                <li>
+                                  <img src="public/img/technology/cloud_cdn.svg" alt="Cloud CDN" />
+                                  <span>Cloud CDN</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -961,7 +1437,7 @@
                   <button class="pulsar-btn pulsar-btn--recommendations" aria-labelledby="works-label-mobile-2" id="recomendationsMobile">
                     <span class="pulsar-btn__container">
                       <span class="pulsar-btn__bg">
-                        <img src="/ikea/public/img/ui/arrow-right.svg" alt="" />
+                        <img src="public/img/ui/arrow-right.svg" alt="" />
                       </span>
                     </span>
                     <span id="works-label-mobile-2" class="pulsar-btn__label">How it works</span>
@@ -981,7 +1457,7 @@
                     <!-- Step 1 -->
                     <div class="step-card step-card--recommendations">
                       <div class="step-card__header">
-                        <img src="/ikea/public/img/platforms/icon-recommendations-white.svg" alt="" />
+                        <img src="public/img/platforms/icon-recommendations-white.svg" alt="" />
                         <h2 class="step-card__title mt-2">Recommendations AI</h2>
                       </div>
                       <div class="step-card__body">
@@ -1021,17 +1497,21 @@
                     </svg>
                   </button>
                   <h1 class="typography typography--headline-2 headline-line-animation mb-4">
-                    <span class="line">Simplifying the</span>
-                    <span class="line">retail experience</span>
+                    <span class="line">Designing your dream</span>
+                    <span class="line">is now more convenient</span>
+                    <span class="line">than ever</span>
                   </h1>
-                  <p class="text-animation mb-10">Designing your dream home is more personalized and convenient than ever with IKEA enabled by Google Cloud. We’re one big we at IKEA. A place where anyone can chip in an idea or bring their unique talent or experience to work. We don’t just settle for the way things are. We question them, and even rebel against them for the better. So we’re always looking for people who think differently.</p>
+                  <ul class="text-list text-animation mb-5">
+                    <li>Capture spaces and virtually experience IKEA products before purchasing them.</li>
+                    <li>Find the right products faster and easier with Recommendations AI.</li>
+                  </ul>
+                  <p class="text-animation mb-10">Build your better home with IKEA enabled by Google Cloud.</p>
                   <button class="pulsar-btn pulsar-btn--recap" id="recapMobile"><!-- aria-labelledby="works-label-mobile-3" -->
                     <span class="pulsar-btn__container">
                       <span class="pulsar-btn__bg">
-                        <img src="/ikea/public/img/ui/arrow-right.svg" alt="" />
+                        <img src="public/img/ui/arrow-right.svg" alt="" />
                       </span>
                     </span>
-                    <!-- <span id="works-label-mobile-3" class="pulsar-btn__label">How it works</span> -->
                   </button>
                 </div>
 
@@ -1045,11 +1525,55 @@
                   <div class="steps-scroll">
                     <div class="step-card step-card--recap">
                       <div class="step-card__header">
-                        <h2 class="step-card__title mt-2">Together, we can create a better everyday life for the many people</h2>
+                        <h2 class="step-card__title mt-2">Together, we can create a better everyday for many people</h2>
                       </div>
                       <div class="step-card__body">
                         <div class="step-card__wrap">
-                          <p class="mb-5">We’re one big we at IKEA. A place where anyone can chip in an idea or bring their unique talent or experience to work. We don’t just settle for the way things are. We question them, and even rebel against them for the better. So we’re always looking for people who think differently.</p>
+                          <p class="mb-10">IKEA is a place where anyone can chip in an idea or bring their unique talent or experience to work. We don’t just settle for the way things are so we’re always looking for people who think differently.</p>
+                          <a href="https://en-global-jobs.about.ikea.com/search-jobs/ALL?orgIds=22908&ac=59685&alp=ALL&alt=0&ascf=%5B%7B%22Key%22%3A%22ALL%22%2C%22Value%22%3Anull%7D%5D&=&utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=IKEA_Careers" target="_blank" class="btn btn--block btn--ikea mb-3" role="button">Join us at IKEA</a>
+
+                          <div class="products-list mt-10">
+                            <p>GOOGLE CLOUD PRODUCTS FEATURED IN THIS DEMO:</p>
+                            <ul class="products-list__learn">
+                              <li>
+                                <a href="https://cloud.google.com/cdn?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=cdn" target="_blank">
+                                  <img src="public/img/technology/cloud_cdn.svg" alt="Cloud CDN" />
+                                  <span>Cloud CDN</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="https://cloud.google.com/sql?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=sql" target="_blank">
+                                  <img src="public/img/technology/cloud_sql.svg" alt="Cloud SQL" />
+                                  <span>Cloud SQL</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="https://cloud.google.com/storage?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=storage" target="_blank">
+                                  <img src="public/img/technology/cloud_storage.svg" alt="Cloud Storage" />
+                                  <span>Cloud Storage</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="https://cloud.google.com/compute?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=comp
+                                ute" target="_blank">
+                                  <img src="public/img/technology/compute_engine.svg" alt="Compute Engine" />
+                                  <span>Compute Engine</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="https://cloud.google.com/container-registry?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=container-registry" target="_blank">
+                                  <img src="public/img/technology/container_registry.svg" alt="Container Registry" />
+                                  <span>Container Registry</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="https://cloud.google.com/gpu?utm_source=demo&utm_medium=tooltip&utm_campaign=noa_emea&utm_content=gpu" target="_blank">
+                                  <img src="public/img/technology/gpu.svg" alt="GPU" />
+                                  <span>GPU</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1061,31 +1585,14 @@
           </section>
           <!-- end Section Stages Mobile -->
 
-          <span id="mobileHouse" class="mobile-house fade"><img src="/ikea/public/img/mobile/start.png" alt="" /></span>
-
-          <a href="https://policies.google.com/privacy?hl=en" target="_blank" class="privacy">Privacy</a>
+          <span id="mobileHouse" class="mobile-house fade"><img src="public/img/mobile/start.png" alt="" /></span>
         </div>
       </main>
     </div>
-    <div id='datas' style="position:absolute;right:0;bottom:0;display:block;margin:5px;padding:3px">
-      <!-- <div id='animnames'style="display:block;margin:5px;padding:3px"></div> -->
-      <div id='renders'style="display:block;margin:5px;padding:3px;font-size:xx-small"></div>
-    </div>
-    <script src="/ikea/public/js/lib/jquery/jquery-3.5.1.min.js"></script>
 
-    <script src="/ikea/src/js/helper.js"></script>
-    <script src="/ikea/src/js/utils/utils.js"></script>
-    <script src="/ikea/src/js/canvasengine/graphic.js"></script>
-    <script src="/ikea/src/js/canvasengine/canvas.js"></script>
-    <script src="/ikea/src/js/data/animation.js"></script>
-    <script src="/ikea/src/js/background.js"></script>
+    <script src="public/js/site.min.js?v=1.0.1"></script>
 
-    <script src="/ikea/src/js/addons/uiaddons.js"></script>
-    <script src="/ikea/src/js/addons/share.js"></script>
-    <script src="/ikea/src/js/callbacks.js"></script>
 
-    <script src="/ikea/src/js/helper.js"></script>
-    <script src="/ikea/src/js/app.js"></script>
 
   </body>
 </html>

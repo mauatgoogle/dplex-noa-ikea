@@ -14,22 +14,39 @@
     }
   }
 
-  @include media-breakpoint-down(sm) {
-    .text-wrap {
+  .text-wrap {
+    @include media-breakpoint-down(sm) {
       justify-content: space-between;
+
+      .typography,
+      p {
+        text-align: left;
+      }
 
       > div {
         position: relative;
         height: calc(100% - 90px);
       }
     }
+
+    @include media-breakpoint-down(xs) {
+      p {
+        font-size: 15px;
+        line-height: 1.3;
+      }    
+
+      > div {
+        height: calc(100% - 60px);
+      }      
+    }
   }
+
 
   .headline-wrap {
     position: relative;
 
     @include media-breakpoint-down(sm) {
-      height: 100%;
+      height: 100%; 
 
       .headline {
         display: flex;
@@ -37,7 +54,7 @@
         height: calc(100% - 50px); // 50px logo ikea
         flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        //align-items: center;
 
         &--1 .btn {
           flex-shrink: 0;
@@ -56,6 +73,17 @@
       .btn-animation {
         transition-delay: 1000ms;
       }
+
+      .best-experience {
+        text-align: center !important;
+        font-size: 14px;
+    
+        // Initial State
+        transition-duration: 350ms;
+        transition-timing-function: cubic-bezier(.215,.61,.355,1);
+        transition-delay: 1200ms;
+        opacity: 0;    
+      }      
     }
 
     &--2 {
@@ -65,38 +93,52 @@
       left: 0;
       width: 100%;
 
-      @include media-breakpoint-down(sm) {
-        .platforms > li {
+      .products-list {
+        position: relative;
+        bottom: 0;
+        text-align: left;
+
+        @include media-breakpoint-down(sm) {
+          display: none !important; 
+        }
+
+        p {
+          margin-bottom: 15px;
+
+          // Initial State
           opacity: 0;
           transition-duration: 650ms;
           transition-timing-function: ease-in-out;
-          transform: scale(.5);
+          transition-delay: 900ms;
+        }
 
-          @for $i from 1 to 4 {
-            &:nth-child(#{$i}) {
-              transition-delay: calc(650ms + (#{$i} * 100ms));
-            }
-          }
-        }       
-      }
+        ul.products-list__learn {
+          
+          align-items: flex-start;
 
-      @include media-breakpoint-up(md) {
-        .platforms {
-          > li {
-            @for $i from 1 to 4 {
-              &:nth-child(#{$i}) .platform {
-                transition-delay: calc(650ms + (#{$i} * 100ms));
+          @include media-breakpoint-up(md) {
+            justify-content: flex-start;
+          }          
+
+          >li {
+            // Initial State
+            opacity: 0;
+            transition-duration:  650ms;
+            transition-timing-function: ease-in-out;
+            transform: translateY(10px);
+
+            @for $i from 1 to 7 {
+              &:nth-child(#{$i}) {
+                transition-delay: calc(900ms + (#{$i} * 100ms));
               }
             }
           }
+        }
+      }
 
-          .platform {
-            // Animation
-            opacity: 0;
-            transition-duration: 800ms;
-            transition-timing-function: cubic-bezier(.215,.61,.355,1);
-            transform: scale(.5);
-          }
+      @include media-breakpoint-down(sm) {
+        .typography {
+          display: inline-block;
         }
       }
 
@@ -150,6 +192,10 @@
     transition-delay: $transition-in-delay;
     transition-timing-function: cubic-bezier(.215, .61, .355, 1);
     opacity: 0;
+
+    @include media-breakpoint-down(sm) {
+      text-align: center;
+    }
   }
 
   .legal {
@@ -164,21 +210,32 @@
     transition-delay: $transition-in-delay;
     opacity: 0;
 
+    @include media-breakpoint-down(xs) {
+      line-height: 1.3;
+    }
+
     @include media-breakpoint-up(md) {
       position: absolute;
       bottom: 30px;
       left: 0;
       width: 100%;
+      text-align: left;
     }
-
   }
 
+  .privacy-desktop {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+  }   
+
+  .privacy-desktop,
   .privacy-mobile {
     // Initial State
     transition-duration: 650ms;
     transition-timing-function: cubic-bezier(.215,.61,.355,1);
     transition-delay: $transition-in-delay;
-    opacity: 0;
+    opacity: 0;  
   }
 
   &.section--in {
@@ -188,6 +245,7 @@
     }
 
     .legal,
+    .privacy-desktop,
     .privacy-mobile {
       opacity: 1;
     }
@@ -200,7 +258,8 @@
       }
 
       .text-animation,
-      .btn-animation {
+      .btn-animation,
+      .best-experience {
         opacity: 1;
         transform: translateY(0);
       }
@@ -213,7 +272,8 @@
       .headline--1 {
         .headline-line-animation,
         .text-animation,
-        .btn-animation {
+        .btn-animation,
+        .best-experience {
           transition: opacity 800ms cubic-bezier(.215,.61,.355,1);
           opacity: 0;
           pointer-events: none;
@@ -231,20 +291,13 @@
           opacity: 1;
         }
 
-        .platforms {
-          @include media-breakpoint-down(sm) {
-            > li {
-              transform: scale(1);
-              opacity: 1;
-            }
-          }
+        .products-list p {
+          opacity: 1;
+        }
 
-          @include media-breakpoint-up(md) {
-            .platform {
-              transform: scale(1);
-              opacity: 1;
-            }
-          }
+        .products-list ul > li {
+          opacity: 1;
+          transform: translateY(0);
         }
 
         .dragger-container {
@@ -279,7 +332,8 @@
     // headline--2 out
     &.subheadline--2 .headline--2 {
       .headline-line-animation,
-      .platforms .platform,
+      .products-list p,
+      .products-list ul > li,
       .dragger-container {
         transition: opacity 1000ms cubic-bezier(.215,.61,.355,1);
         opacity: 0;
@@ -288,20 +342,6 @@
 
       .headline-line-animation {
         transition-delay: 200ms
-      }
-
-      .platforms {
-        @include media-breakpoint-down(sm) {
-          > li {
-            transition-delay: 300ms;
-          }
-        }
-
-        @include media-breakpoint-up(md) {
-          .platform {
-            transition-delay: 300ms;
-          }
-        }
       }
     }
   }

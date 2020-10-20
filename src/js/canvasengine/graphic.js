@@ -1,18 +1,18 @@
 var tweenSpeed = 30;
+
 function Graphic(img,props){
   this.src = img;
   props = props||{}
   if(props.position=="center"){
-
-      this.x = 0.5;
-      this.y = 0.5;
+    this.x = 0.5;
+    this.y = 0.5;
   }else{
     this.x = props.x||0;
     this.y = props.y||0;
-
   }
-  this.final = {};
+  this.final = {alpha:0};
   this.initial = {};
+  this.isPart = false;
   this.gcinitial = {};
   this.sequence = null;
   this.isSequence = false;
@@ -26,6 +26,7 @@ function Graphic(img,props){
   this.startTime = 0;
   this.isMask = false;
   this.maskReset = props.maskReset||false;
+  this.whiten = props.whiten||0;
   this.darken = props.darken||0;
   this.margin = props.margin||0;
   this.visible = true;
@@ -49,14 +50,34 @@ function Graphic(img,props){
     var y = props.crop[1]*tilesetSize;
     var w = props.crop[2]*tilesetSize;
     var h = props.crop[3]*tilesetSize;
-    // console.log(x,y,w,h);
     this.cropData = {x:x,y:y,width:w,height:h};
     this.width = this.cropData.width/APPW;
     this.aspect = this.cropData.height/this.cropData.width;
     this.height = this.width*this.aspect;
-    // console.log(this.cropData);
   }
-  //
+
+    if(!AnimationData.initial) AnimationData.initial = {};
+    AnimationData.initial[this.name] = {
+      alpha:0,
+      x:this.x,
+      y:this.y,
+      // scale:this.scale,
+      // width:this.width,
+      darken:0,
+      whiten:0,
+      // height:this.height,
+      rotation:0,
+      visible:false
+    }
+
+    if(this.isPart){
+      AnimationData.initial[this.name].width = this.width;
+      AnimationData.initial[this.name].height = this.height;
+    }else{
+      AnimationData.initial[this.name].scale = this.scale;
+
+    }
+
   if(img) this.load();
   this.logic();
 };
@@ -93,14 +114,21 @@ Graphic.prototype.linkToSequence = function(sequence){
   this.isSequence = true;
   this.frame = 0;
   this.linkToImg(this.sequence[this.frame]);
-    this.aspect = 1080/1920;
-    this.height = this.width*this.aspect;
-
+  this.aspect = 1080/1920;
+  this.height = this.width*this.aspect;
+  if(this.isPart){
+    AnimationData.initial[this.name].width = this.width;
+    AnimationData.initial[this.name].height = this.height;
+  }
   this.frameTime = (this.playTime*1000)/(this.sequence.length);
 }
 Graphic.prototype.onLoad = function(){
   this.aspect = this.image.height/this.image.width;
   this.height = this.width*this.aspect;
+  if(this.isPart){
+    AnimationData.initial[this.name].width = this.width;
+    AnimationData.initial[this.name].height = this.height;
+  }
 };
 
 Graphic.prototype.__defineGetter__("scale", function() {
@@ -125,34 +153,35 @@ Graphic.prototype.rewind = function(){
   this.frame = 0;
   this.startTime = getTimer();
 }
-
+Graphic.prototype.resetDelay = function(){
+  this.delay = 0;
+  this.startTimeDelay = 0;
+  delete this.final.delay;
+}
 Graphic.prototype.logic = function() {
   var distance = 0.001;
   var needsUpdate = false;
   if(this.final.delay && this.startTimeDelay==0){
      this.delay = this.final.delay*1000;
      this.startTimeDelay = getTimer();
-  }
+  };
   if(this.startTimeDelay>0){
     if(getTimer()-this.startTimeDelay>this.delay){
       this.startTimeDelay = -1;
       this.delay=0;
+      delete this.final.delay;
     }else{
       return;
-    }
-  }
+    };
+  };
   for(var key in this.initial){
     if(this.initial[key]!=undefined){
       this.final[key]=this[key];
       this[key]=this[key]+this.initial[key];
       this.gcinitial[key] = this.initial[key];
       delete this.initial[key];
-      // console.log(key,this.final,this.initial);
-      // deltaKey = (this.final[key]-this[key]);
-    }else{
-
-    }
-  }
+    };
+  };
   for(var key in this.final){
       if(key=='pivot'){
 
@@ -163,29 +192,25 @@ Graphic.prototype.logic = function() {
         deltaKey = (this.final.pivot.y-this.pivot.y);
         if(Math.abs(deltaKey)>distance) needsUpdate = true;
         this.pivot.y += deltaKey/tweenSpeed;
-        // console.log(this.pivot);
 
       }else{
-        // if(this.name=='table') console.log(key,this.final,this.initial,this);
         var deltaKey = (this.final[key]-this[key]);
         if(Math.abs(deltaKey)>distance) needsUpdate = true;
         this[key] += deltaKey/(this.final.speed?this.final.speed:tweenSpeed);
 
-      }
-      // console.log(key);
-  }
+      };
+  };
   if(this.isMask) needsUpdate = true;
-  // console.log(this.final);
   if(this.isSequence && this.isPlaying){
     var currentTime = (getTimer()-this.startTime);
     var currentFrame = Math.floor(currentTime/this.frameTime);
     this.frame=Math.min(this.sequence.length-1,currentFrame);
     this.linkToImg(this.sequence[this.frame]);
     needsUpdate = true;
-  }
+  };
   this.needsUpdate = needsUpdate;
   if(this.isGroup) this.needsUpdate = true;
-  if(this.group && this.group.needsUpdate) this.needsUpdate = true;
+  if(this.group)/* && this.group.needsUpdate)*/ this.needsUpdate = true;
   if(!this.needsUpdate) return false;
   if(!this.visible && !this.isGroup) return false;
   var _appW = APPW;
@@ -196,21 +221,18 @@ Graphic.prototype.logic = function() {
   if(this.group){
     _appW*=this.group.width;
     _appH*=this.group.width;
-    _appX = (APPW-_appW)/2;
-    _appY = (APPH-_appH)/2;
-  }
+    _appX = (APPW-_appW)/2+this.group.x*APPW;
+    _appY = (APPH-_appH)/2+this.group.x*APPH;
+  };
   if(this.size=='fill'){
     this.renderData.width = _appW;
     this.renderData.height = _appH;
   }else{
     this.renderData.width = this.width*_appW;
     this.renderData.height = this.renderData.width*this.aspect;
-
-  }
-
+  };
   this.renderData.x = this.x*_appW-this.pivot.x*this.renderData.width+_appX;
   this.renderData.y = this.y*_appH-this.pivot.y*this.renderData.height+_appY;
-
   return this.needsUpdate;
 };
 
@@ -219,21 +241,26 @@ Graphic.prototype.render = function(ctx){
     if(!this.visible) return;
     if(this.alpha<0.01) return;
     ctx.globalAlpha = this.alpha;
-    // if(this.group) ctx.globalAlpha*=this.group.alpha;
-    // var x = this.renderData.x;
-    // var y = this.renderData.y;
-    // var width = this.renderData.width;
-    // var height = this.renderData.height;
+
+    var _appW = APPW;
+    var _appH = APPH;
+
+    var _appX = 0;
+    var _appY = 0;
+    if(this.group){
+      _appW*=this.group.width;
+      _appH*=this.group.width;
+      _appX = (APPW-_appW)/2+this.group.x*APPW;
+      _appY = (APPH-_appH)/2+this.group.x*APPH;
+
+    }
+
     if(this.renderData.x+this.renderData.width<=0||this.renderData.x>=APPW) return;
     if(this.renderData.y+this.renderData.height<=0||this.renderData.y>=APPH) return;
-    var doRotation = false;
-    if(CHECKSCALES){
-      ctx.save();
-      ctx.translate(300,300);
-    }
+    var doRotation = false
     if(Math.abs(this.rotation)>0){
       ctx.save();
-      ctx.translate(this.x*APPW,this.y*APPH);
+      ctx.translate(this.x*_appW+_appX,this.y*_appH+_appY);
       ctx.rotate(D2R(this.rotation));
       this.renderData.x = -this.pivot.x*this.renderData.width;
       this.renderData.y = -this.pivot.y*this.renderData.height;
@@ -280,20 +307,17 @@ Graphic.prototype.render = function(ctx){
       ctx.fillRect(this.renderData.x, this.renderData.y, this.renderData.width, this.renderData.height);
       ctx.globalAlpha = this.alpha;
     }
+        if(this.whiten>0){
+          ctx.fillStyle = "#FFFFFF";
+          ctx.globalAlpha = this.whiten*this.alpha;
+          ctx.fillRect(this.renderData.x, this.renderData.y, this.renderData.width, this.renderData.height);
+          ctx.globalAlpha = this.alpha;
+        }
     if(doRotation) ctx.restore();
-    if(CHECKSCALES) ctx.restore();
     var pivot = {
       x: this.x*APPW,
       y: this.y*APPH,
     }
-    // ctx.strokeStyle = "#ff0000";
-    // ctx.beginPath();
-    // ctx.moveTo( pivot.x-5, pivot.y   );
-    // ctx.lineTo( pivot.x+5, pivot.y   );
-    // ctx.moveTo( pivot.x  , pivot.y-5 );
-    // ctx.lineTo( pivot.x  , pivot.y+5 );
-    // ctx.closePath();
-    // ctx.stroke();
     ctx.globalAlpha = 1;
     // this.renderPivot(ctx,pivot);
     return this.name;
@@ -322,9 +346,7 @@ Graphic.prototype.renderPivot = function(ctx,pivot){
 }
 
 
-
-
-
+/*
 
 Graphic.prototype.prologic = function(){
 
@@ -382,4 +404,4 @@ Graphic.prototype.prorender = function(ctx){
     ctx.closePath();
     ctx.stroke();
     ctx.globalAlpha = 1;
-};
+};*/

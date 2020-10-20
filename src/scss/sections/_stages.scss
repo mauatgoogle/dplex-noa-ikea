@@ -28,6 +28,7 @@
       opacity: 0;
       transition-duration: 450ms;
       transition-timing-function: ease-in-out;
+      pointer-events: none;
 
       img {
         transition-duration: 450ms;
@@ -39,6 +40,12 @@
         
         img {
           transform: scale(1);
+        }
+      }
+
+      &--only-text {
+        img {
+          opacity: 0;
         }
       }
     }

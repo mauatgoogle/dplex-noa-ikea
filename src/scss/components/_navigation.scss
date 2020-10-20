@@ -1,6 +1,14 @@
 .navigation {
   display: none; 
 
+  &.fadeOut {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition-delay: 0ms !important; 
+    transition: 250ms ease-in-out !important;
+    pointer-events: none !important;
+  }  
+
   @include media-breakpoint-up(md) {
     display: block;
     position: absolute;
@@ -11,6 +19,10 @@
     user-select: none;
   }
 
+  @media (max-height: 730px) {
+    bottom: 30px;
+  }
+
   .stage-nav-container {
     display: flex;
     align-items: center;
@@ -19,20 +31,26 @@
   }
 
   .scroll {
+    position: relative;
     display: block;
     font-size: 0.75rem;
     letter-spacing: 2px;
     transition: 250ms;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    pointer-events: none;
 
     img {
       display: block;
-      margin: 0 auto 12px;
+      margin: 0 auto; 
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -90px; 
     }
 
-    // &.lighten {
-    //   color: $white;
-    // }
+    &--white {
+      color: $white; 
+    }
   }  
 }
 
@@ -53,15 +71,16 @@
     padding-left: 20px;       
     border-radius: 15px;
     border: 1px solid #c5c5c5;    
-    font-size: 14px;
+    font-size: 0.875rem;
     color: $grey800;
     transition: 450ms ease-in-out;  
+    pointer-events: none;
   }
 
   &__label {
     // Optical Adjustment
     position: relative;
-    top: 3px;
+    //top: 3px; --> button type: disabled
   }
 
   &__steps {
@@ -131,13 +150,12 @@
   }
 
   // Status
-  &.current {
-    pointer-events: none;
-      
+  &.current {      
     .stage-nav__point {
       background-color: $blue600;
       border-color: $blue600;
       box-shadow: 10px 10px 15px rgba($blue600, .3);
+      pointer-events: auto;
       
       span {
         color: $white;
@@ -150,6 +168,7 @@
       background-color: $blue600;
       border-color: $blue600;
       box-shadow: 10px 10px 15px rgba($blue600, .3);
+      pointer-events: auto;
       
       span {
         color: $white;

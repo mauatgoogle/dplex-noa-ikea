@@ -1,13 +1,8 @@
 // Color system
 $white: #fff;
 
-// $grey50: #f8f9fa;
-// $grey100: #f1f3f4;
-// $grey200: #e8eaed;
-// $grey300: #dadce0;
 $grey400: #bdc1c6;
 $grey500: #9aa0a6;
-// $grey600: #80868b;
 $grey700: #5f6368;
 $grey800: #3c4043;
 $grey900: #202124;
@@ -16,10 +11,16 @@ $blue500: #4285f4;
 $blue600: #1a73e8;
 $blue900: #174ea6;
 
+$ikea-yellow: #FFDA1A;
+$ikea-blue: #0051BA;
+
+$yellow: #fbbc05;
+$green: #3cba54;
+
 $black: #000;
-$geomagical: #3cba54;
-$recommendations: #fbbc05;
-$recap: #ea4335;
+$geomagical: $green;
+$recommendations: $yellow;
+$recap: $blue500;
 $border-color: #ccc;
 
 $font-weight-lighter: lighter;

@@ -26,9 +26,9 @@
   }
 
   // Step 0
-  .step--0.step--in {
-    //background-color: rgba($white, .38);
-    
+  .step--0.step--in {   
+    background-color: rgba($white, .45);
+
     .text-animation,
     .pulsar-btn {
       transform: translateY(0);
@@ -83,19 +83,28 @@
     .card-animation {
       transform: translateX(-30px);
       opacity: 0;
+    }
 
-      // .card__step,
-      // .card__title,
-      // .card__content,
-      // .card__actions {
-      //   opacity: 0;
-      // } 
+    .tooltip {
+      opacity: 0;
     }
   }   
+
+  // Step 4 exception
+  .step--4.phoneout {
+    .card-animation {
+      transform: translateX(-30px);
+      opacity: 0;
+    }
+  }
 }  
 
 // Stage Geomagical Out
 .stage--geomagical.stage--out {
   opacity: 0;
   transition: 450ms ease-out;
+
+  .tooltip {
+    opacity: 0;
+  }
 }

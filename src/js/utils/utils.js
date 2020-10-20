@@ -3,23 +3,6 @@ function getTimer() { return new Date().getTime(); }
 
 function D2R(deg) { return (deg / 180) * Math.PI; }
 
-function loadJson(src,callback){
-  var jsonLoader = new XMLHttpRequest();
-  jsonLoader.open('GET', src, true);
-  jsonLoader.onload = function() {
-    if (this.status >= 200 && this.status < 400) {
-      var data = JSON.parse(this.response);
-      callback(data);
-    } else {
-      console.log("ERROR PARSING JSON");
-    }
-  };
-  jsonLoader.onerror = function() {
-    console.log("ERROR LOADING JSON: "+src);
-  };
-  jsonLoader.send();
-}
-
 function loadImage(src,callback){
   var img = new Image();
   img.onload = function(){
@@ -34,27 +17,19 @@ function loadImage(src,callback){
 var Utils = {};
 
 Utils.detectBrowser = function(){
-  if(navigator.appVersion.indexOf("Win")!=-1) {
-      document.body.classList.add('window-os');
-  }
-  if(navigator.platform.toUpperCase().indexOf('MAC')>=0) {
-      document.body.classList.add('mac-os');
-  }
-  if(navigator.appVersion.indexOf("Linux")!=-1) {
-      document.body.classList.add('linux-os');
-  }
+  if(navigator.appVersion.indexOf("Win")!=-1) $('body').addClass('window-os');
+  if(navigator.platform.toUpperCase().indexOf('MAC')>=0) $('body').addClass('mac-os');
+  if(navigator.appVersion.indexOf("Linux")!=-1) $('body').addClass('linux-os');
   var ua = navigator.userAgent.toLowerCase();
   if (ua.indexOf('safari') != -1) {
       if (ua.indexOf('chrome') > -1) {
-          document.body.classList.add('chrome');
+          $('body').addClass('chrome');
       } else {
-          document.body.classList.add('safari');
-      }
-  }
+          $('body').addClass('safari');
+      };
+  };
   var FF = !(window.mozInnerScreenX == null);
-  if(FF) {
-      document.body.classList.add('fire-fox');
-  }
+  if(FF) $('body').addClass('fire-fox');
 };
 
 Utils.detectDevice = function(){

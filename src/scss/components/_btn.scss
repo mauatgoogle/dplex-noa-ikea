@@ -31,6 +31,24 @@ button:focus {
     width: 100%;
   }
 
+  &--outline-primary {
+    background-color: transparent;
+    border: 2px solid $blue600;
+
+    @include media-breakpoint-up(md) {
+      transition: 250ms;
+      
+      &:hover {
+        background-color: $blue600;
+        color: $white;
+
+        .anim {
+          background-color: darken($blue600, 5%);
+        }
+      }
+    }
+  }
+
   @include media-breakpoint-up(md) {
     &:hover .anim {
       width: 500px;
@@ -43,7 +61,6 @@ button:focus {
       width: 0;
       height: 0;
       border-radius: 50%;
-      //background-color: darken($white, 5%);
       transition: width 800ms ease-in-out, height 800ms ease-in-out;
       transform: translate(-50%, -50%);
       z-index: -2;    
@@ -59,7 +76,7 @@ button:focus {
 
   &--primary {
     background: $blue600;
-    color: $white;
+    color: $white !important;
 
     &:active {
       box-shadow: 0 1px 2px 0 rgba(66, 133, 244, .3),
@@ -82,7 +99,7 @@ button:focus {
 
   &--secondary {
     background: $white;
-    color: $grey800;
+    color: $grey800 !important;
 
     &:active {
       box-shadow: 0 1px 2px 0 rgba($white, .3),
@@ -105,7 +122,7 @@ button:focus {
 
   &--geomagical {
     background: $geomagical;
-    color: $white;
+    color: $white !important;
 
     &:active {
       box-shadow: 0 1px 2px 0 rgba($geomagical, .3),
@@ -128,7 +145,7 @@ button:focus {
   
   &--recommendations {
     background: $recommendations;
-    color: $white;
+    color: $white !important;
 
     &:active {
       box-shadow: 0 1px 2px 0 rgba($recommendations, .3),
@@ -151,7 +168,7 @@ button:focus {
   
   &--recap {
     background: $recap;
-    color: $white;
+    color: $white !important;
 
     &:active {
       box-shadow: 0 1px 2px 0 rgba($recap, .3),
@@ -172,6 +189,30 @@ button:focus {
     }
   }   
   
+  &--ikea {
+    background: $blue600;
+    color: $white !important;
+    padding: 0 40px;
+
+    &:active {
+      box-shadow: 0 1px 2px 0 rgba(66, 133, 244, .3),
+        0 2px 6px 2px rgba(66, 133, 244, .15);
+    }    
+
+    @include media-breakpoint-up(md) {
+      &:focus, 
+      &:hover,
+      &:hover:focus {
+        box-shadow: 0 1px 2px 0 rgba(66, 133, 244, .3),
+          0 1px 3px 1px rgba(66, 133, 244, .15);
+      }
+
+      .anim {
+        background-color: darken($blue600, 5%);
+      }
+    }
+  }
+
   &--icon {
     min-width: 0;
     width: 48px;

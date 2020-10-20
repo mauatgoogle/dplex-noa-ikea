@@ -13,7 +13,39 @@
       transition-timing-function: cubic-bezier(.215,.61,.355,1); 
       transition-delay: 1300ms;
     }
-  } 
+  }
+
+  .step--1 {
+    .text-animation {
+      transition-delay: 1000ms;
+    }
+    
+    .button-wrap {
+      display: flex;
+
+      // Initial State
+      transform: translateY(30px);
+      opacity: 0;
+      transition-duration: 700ms;
+      transition-timing-function: cubic-bezier(.215,.61,.355,1); 
+      transition-delay: 1300ms;
+
+      .btn {
+        transform: translateY(0);
+      }
+
+      .btn + .btn {
+        margin-left: 15px;
+      }    
+    }
+
+    .products-list {
+      transform: translateY(30px);
+      opacity: 0;
+      transition: 450ms ease-in-out;
+      transition-delay: 1500ms;
+    }
+  }   
 }
 
 
@@ -34,6 +66,29 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  // Easter Egg
+  .step--0.easteregg--in {
+    background-color: rgba($white, 0);
+    
+    .headline-line-animation .line {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 0s;
+    }    
+
+    .text-animation {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 200ms;
+    }
+
+    .pulsar-btn {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 400ms;
+    }    
   }
 
   // Steps 0 Out
@@ -61,25 +116,42 @@
 
   // Steps 1 In
   .step--1.step--in {
-    .card-animation {
-      transform: translateX(0);
+    .text-animation,
+    .button-wrap,
+    .products-list {
       opacity: 1;
-  
-      .card__step,
-      .card__title,
-      .card__content,
-      .card__actions {
-        opacity: 1;
-        transform: translate(0);
-      }
+      transform: translateY(0);
+    }
+    
+    .btn {
+      opacity: 1;
     }
   }  
   
   // Steps 1 Out
   .step--1.step--out {
-    .card-animation {
-      transform: translateX(-30px);
+    .headline-line-animation .line {
       opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 0s;
+    }    
+
+    .text-animation {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 200ms;
+    }
+
+    .button-wrap {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 400ms;
+    }
+
+    .products-list {
+      opacity: 0;
+      transition: opacity 400ms ease-out;
+      transition-delay: 600ms;
     }
   }   
 }  

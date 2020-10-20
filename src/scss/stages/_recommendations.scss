@@ -83,13 +83,10 @@
     .card-animation {
       transform: translateX(-30px);
       opacity: 0;
+    }
 
-      // .card__step,
-      // .card__title,
-      // .card__content,
-      // .card__actions {
-      //   opacity: 0;
-      // } 
+    .tooltip {
+      opacity: 0;
     }
   }   
 }  
@@ -98,4 +95,8 @@
 .stage--recommendations.stage--out {
   opacity: 0;
   transition: 450ms ease-out;
+
+  .tooltip {
+    opacity: 0;
+  }
 }
