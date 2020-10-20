@@ -5,8 +5,8 @@ const del = require('del');
 const minify = require('gulp-minify');
 const sourcemaps = require('gulp-sourcemaps');
 
-var srcPath='src/';
-var destPath='public/';
+var srcPath='ikea/src/';
+var destPath='ikea/public/';
 
 var paths={
     scss:{
@@ -23,16 +23,16 @@ gulp.task('minify', function() {
       destPath+'js/site.min.js'
   ]);
   return gulp.src([
-      'src/js/utils/*.js',
-      'src/js/canvasengine/*.js',
-      'src/js/data/*.js',
-      'src/js/addons/*.js',
-      'src/js/background.js',
-      'src/js/app.js'
+      srcPath+'js/utils/*.js',
+      srcPath+'js/canvasengine/*.js',
+      srcPath+'js/data/*.js',
+      srcPath+'js/addons/*.js',
+      srcPath+'js/background.js',
+      srcPath+'js/app.js'
     ])
     .pipe(concat('site.js'))
     .pipe(minify({ noSource:true, ext: { min: '.min.js' }}))
-    .pipe(gulp.dest('public/js/'))
+    .pipe(gulp.dest(destPath+'js/'))
 });
 
 gulp.task('minifydev', function() {
@@ -43,18 +43,18 @@ gulp.task('minifydev', function() {
     destPath+'js/site.min.js'
   ]);
   return gulp.src([
-      'src/js/utils/*.js',
-      'src/js/canvasengine/*.js',
-      'src/js/data/*.js',
-      'src/js/addons/*.js',
-      'src/js/background.js',
-      'src/js/app.js'
+      srcPath+'js/utils/*.js',
+      srcPath+'js/canvasengine/*.js',
+      srcPath+'js/data/*.js',
+      srcPath+'js/addons/*.js',
+      srcPath+'js/background.js',
+      srcPath+'js/app.js'
     ])
     .pipe(sourcemaps.init())
     .pipe(concat('site.min.js'))
     // .pipe(minify({ext: { min: '.min.js' }}))
     .pipe(sourcemaps.write('maps'))
-    .pipe(gulp.dest('public/js/'))
+    .pipe(gulp.dest(destPath+'js/'))
 });
 
 gulp.task('styles', () => {
@@ -78,12 +78,12 @@ gulp.task('watchjs', () => {
     });
 });
 gulp.task('watch', () => {
-    gulp.watch(['src/js',paths.scss.src], (done) => {
+    gulp.watch([srcPath+'js',paths.scss.src], (done) => {
         gulp.series(['build'])(done);
     });
 });
 gulp.task('watchdev', () => {
-    gulp.watch(['src/js',paths.scss.src], (done) => {
+    gulp.watch([srcPath+'js',paths.scss.src], (done) => {
         gulp.series(['styles','minifydev'])(done);
     });
 });
