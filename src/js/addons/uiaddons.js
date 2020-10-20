@@ -135,6 +135,9 @@ window.addEventListener('resize', function(){
   // Background.resize();
   GoogleDemoApp.instance.resize();
 });
+$('#shareFinal').click(function(){
+  share('linkedin');
+})
 $(document).on('wheel',function(e){
 
   if ($('body').hasClass('mobile')) return;
