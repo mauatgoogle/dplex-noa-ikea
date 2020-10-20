@@ -58,9 +58,9 @@ function GoogleDemoApp(config){
     data.page = eventData[0];
     if(eventData.length>1){
       data.event = eventData[1];
-      trackerEvent(eventData.page,data.event);
+      trackerEvent(data.page,data.event);
     }else{
-      trackerEvent(eventData.page);
+      trackerEvent(data.page);
     }
   }
   this.navigationSequence = [
