@@ -34,6 +34,7 @@
     }
   }
   function share(type) {
+    trackerEvent('Share',type)
     switch (type) {
       default:
       case 'twitter':

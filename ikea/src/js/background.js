@@ -153,7 +153,7 @@ Background.addSpriteSheet('dining/chairsglow.png',[
 ]);
 Background.addSprite('office/lightsoff.png',{key:'lightsoff',pivot:'center',position:'center',width:0.72});
 
-Background.addMask({key:'phonemask',pivot:'center',position:'center',width:0.8,height:0.38,aspect:0.38/0.8});
+Background.addMask({key:'phonemask',pivot:'center',position:'center',width:1.6*0.8,height:1.6*0.38/*width:0.8,height:0.38*/,aspect:0.38/0.8});
 // Background.addMask({key:'housemask',pivot:'center',position:'center',width:0.8,height:0.38,aspect:0.38/0.8});
 Background.addSprite('geomagical/background.png',{key:'geoback',pivot:'center',//scale: 0.17,x: 0.16,y: 0.56,
 scale: 0.5*0.34/*0.17*/,x: 0.15,y: 0.57
@@ -208,7 +208,7 @@ Background.addSprite('geomagical/furniture.jpg',{key:'furniturecomplete',pivot:'
   // ]);
 Background.closeGroup();
 Background.addMask({key:'phonemaskend',maskReset:true});
-Background.addSprite('geomagical/googlepixel.png',{key:'phone',pivot:'center',position:'center'});
+Background.addSprite('geomagical/googlepixel.png',{key:'phone',pivot:'center',position:'center',scale:1.6});
 Background.addSprite('house/backholetransition.png',{key:'transition',pivot:'center',/*position:'center'*/ x: 0.07, scale: 4, y: 0});
 Background.addSprite('house/color.png',{key:'color',pivot:'center',position:'center',alpha:0});
 

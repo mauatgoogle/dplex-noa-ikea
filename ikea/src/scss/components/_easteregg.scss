@@ -48,7 +48,7 @@
 .bubble-wrap {
   position: absolute;
   height: 478px;
-  overflow: hidden;
+  //overflow: hidden;
   padding: 0 15px; // arrows
 }
 
@@ -64,12 +64,13 @@
 .bubble {
   position: relative;
   display: none;
-  transition: opacity 350ms ease-in-out;
+  transition: 450ms linear;
   pointer-events: none;
   margin: 9px 0;
 
   // Initial State
   opacity: 0;
+  max-height: 0;
 
   &.active {
     display: block;
@@ -77,6 +78,7 @@
 
   &.animate {
     opacity: 1;
+    max-height: 100px;
   }
 
   &::before {

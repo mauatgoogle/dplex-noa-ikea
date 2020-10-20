@@ -21,7 +21,14 @@ function resetButtonPos(){
 }
 function fireMouseUp(e){
   startDrag = false;
-  if(slideButtonEnd.element.offsetLeft-slideButton.element.offsetLeft<50){
+  if(Math.abs(getTimer()-startPressTime)<500){
+    $(document).off('mouseup',fireMouseUp);
+    $(document).off('touchend',fireMouseUp);
+    slideButton.off('mouseout',fireMouseUp);
+    GoogleDemoApp.instance.open("start:subheadline--2 subopenmode");
+    return;
+  }
+  if(Math.abs(slideButtonEnd.element.offsetLeft-slideButton.element.offsetLeft)<30){
     slideButton.css({left:slideButtonEnd.element.offsetLeft+'px'});
     if(GoogleDemoApp.instance.mode=="mobile"){
       GoogleDemoApp.instance.open('stagesmobile.intromobile');
@@ -39,11 +46,15 @@ function fireMouseUp(e){
   };
   $(document).off('mouseup',fireMouseUp);
   $(document).off('touchend',fireMouseUp);
+  slideButton.off('mouseout',fireMouseUp);
 };
+var startPressTime = 0;
 var mDown = function (e){
     $(document).on('mouseup',fireMouseUp);
     $(document).on('touchend',fireMouseUp);
+    slideButton.on('mouseout',fireMouseUp);
     startDrag = true;
+    startPressTime=getTimer();
     mousePosition.startx = e.clientX || event.touches[0].clientX;
     mousePosition.max = slideButtonEnd.element.offsetLeft;//-document.getElementById('slideButton').offsetLeft;
     var newPos = Math.max(Math.min(e.clientX-mousePosition.startx,mousePosition.max),0);
@@ -54,9 +65,9 @@ var mDown = function (e){
 };
 slideButton.on('touchstart',mDown);
 slideButton.on('mousedown',mDown);
-slideButton.on('click',function(){
-  GoogleDemoApp.instance.open("start:subheadline--2 subopenmode");
-});
+// slideButton.on('click',function(){
+//   GoogleDemoApp.instance.open("start:subheadline--2 subopenmode");
+// });
 var mMove = function(e){
   if(!startDrag) return;
 
@@ -85,58 +96,53 @@ $('.googleHomeButton').click(function(){
   GoogleDemoApp.instance.showEasterEgg();
 });
 function updateStageBtn(index, step){
-  var buttons = document.getElementsByClassName('stage-btn');
+  var buttons = $('.stage-btn');
   for(var b=0;b<buttons.length;b++){
-    var steps = buttons[b].parentNode.getElementsByClassName('stage-nav__step');
+    var steps = buttons.get(b).parent().find('.stage-nav__step');
 
     if(b<index){
-      buttons[b].parentNode.classList.remove('current');
-      buttons[b].parentNode.classList.add('done');
+      buttons.get(b).parent().removeClass('current').addClass('done');
       for(var s=0;s<steps.length;s++){
-        steps[s].classList.add('done');
-        steps[s].classList.remove('current');
+        steps.get(s).addClass('done').removeClass('current');
       }
     }else if(b==index){
-      buttons[b].parentNode.classList.add('current');
-      buttons[b].parentNode.classList.remove('done');
+      buttons.get(b).parent().addClass('current').removeClass('done');
       for(var s=0;s<steps.length;s++){
         if(s<step){
-          steps[s].classList.remove('current');
-          steps[s].classList.add('done');
+          steps.get(s).removeClass('current').addClass('done');
         }else if(s==step){
-          steps[s].classList.add('current');
-          steps[s].classList.remove('done');
+          steps.get(s).addClass('current').removeClass('done');
         }else{
-          steps[s].classList.remove('current','done');
+          steps.get(s).removeClass('current done');
         }
       }
     }else{
-      buttons[b].parentNode.classList.remove('current','done');
+      buttons.get(b).parent().removeClass('current done');
       for(var s=0;s<steps.length;s++){
-        steps[s].classList.remove('done','current');
+        steps.get(s).removeClass('done current');
       }
     }
   }
 };
 
-document.getElementById('geomagicalBtn').addEventListener('click', function(){
-  document.getElementById('stagegeomagicalmobile').getElementsByClassName('steps-overlay')[0].classList.add('active');
+$('#geomagicalBtn').click(function(){
+  $('#stagegeomagicalmobile').find('.steps-overlay').first().addClass('active');
   $('body').addClass('scroll-lock');
 });
-document.getElementById('recomendationsMobile').addEventListener('click', function(){
-  document.getElementById('stagerecommendationsmobile').getElementsByClassName('steps-overlay')[0].classList.add('active');
+$('#recomendationsMobile').click(function(){
+  $('#stagerecommendationsmobile').find('.steps-overlay').first().addClass('active');
   $('body').addClass('scroll-lock');
 });
-document.getElementById('recapMobile').addEventListener('click', function(){
-  document.getElementById('stagerecapmobile').getElementsByClassName('steps-overlay')[0].classList.add('active');
+$('#recapMobile').click(function(){
+  $('#stagerecapmobile').find('.steps-overlay').first().addClass('active');
   $('body').addClass('scroll-lock');
 });
 window.addEventListener('resize', function(){
-  // Background.resize();
   GoogleDemoApp.instance.resize();
 });
 $('#shareFinal').click(function(){
   share('linkedin');
+
 })
 $(document).on('wheel',function(e){
 
@@ -177,6 +183,14 @@ $('.platform').on('click', function () {
     }
   }
 });
+var TooltipEvents = {
+  line:'Geomagical.LineDetection_Tooltip',
+  parallax:'Geomagical.Parallax_Tooltip',
+  depth:'Geomagical.DepthEstimation_Tooltip',
+  segmentation:'Geomagical.Segmentation_Tooltip',
+  realistic:'Geomagical.Realistic_Tooltip',
+  visionsearch:'Recommendations.VisionSearch_Tooltip',
+}
     var tooltips_selector = '#tooltipLine .pulsar-btn';
     tooltips_selector += ', #tooltipParallax .pulsar-btn';
     tooltips_selector += ', #tooltipDepth .pulsar-btn';
@@ -188,7 +202,9 @@ $('.platform').on('click', function () {
       var me = $(this);
       var parent = me.parent().parent();
       if (!parent.hasClass('hover')) {
+        GoogleDemoApp.instance.trackEvent(TooltipEvents[parent.element.id.substring(7).toLowerCase()])
         parent.addClass('hover');
+        setTimeout(function(p){ p.addClass('enabledOut'); },2000, parent);
         clearTimeout(timers.ttdetail);
         timers.ttdetail = setTimeout(function(target) {
           target.addClass('tooltip--detail');
@@ -204,8 +220,10 @@ $('.platform').on('click', function () {
     $(tooltips_selector).on('click', function() {
       var me = $(this);
       var parent = me.parent().parent();
-      if (parent.hasClass('hover')) {
+      if(!parent.hasClass('enabledOut')) return;
+      if (parent.hasClass('hover') && parent.hasClass('enabledOut')) {
         parent.find('.tooltip__content').removeClass('active');
+        parent.removeClass('enabledOut');
         clearTimeout(timers.ttdetail);
         timers.ttdetail = setTimeout(function(target) {
           target.removeClass('tooltip--detail');
@@ -216,7 +234,27 @@ $('.platform').on('click', function () {
           target.find('.material-icons').html('add');
         }, 850,parent);
       };
+      //  else {
+      //   parent.addClass('hover');
+      //   setTimeout(function(p){
+      //     p.addClass('enabledOut');
+      //   },15000,parent);
+      //
+      //   clearTimeout(timers.ttdetail);
+      //   timers.ttdetail = setTimeout(function(target) {
+      //     target.addClass('tooltip--detail');
+      //   }, 500,parent);
+      //
+      //   clearTimeout(timers.ttcontent);
+      //   timers.ttcontent = setTimeout(function(target) {
+      //     target.find('.tooltip__content').addClass('active');
+      //     target.find('.material-icons').html('remove');
+      //   }, 1000,parent);
+      // };
     });
+    $('#joinUsButton').click(function(){
+      trackerEvent('Recap','JoinUs');
+    })
 function resetTooltip(tooltipClass,show){
   if(show===undefined) show=true;
   var parent = $(tooltipClass);

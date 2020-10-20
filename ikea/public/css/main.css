@@ -3715,7 +3715,8 @@ button:focus {
       padding-left: 20px; } }
 
 .card {
-  width: 360px; }
+  width: 360px;
+  user-select: none; }
   .card.card--simple {
     width: 300px; }
   .card__header {
@@ -3932,7 +3933,6 @@ button:focus {
 .bubble-wrap {
   position: absolute;
   height: 478px;
-  overflow: hidden;
   padding: 0 15px; }
 
 .bubble-scroll {
@@ -3946,14 +3946,16 @@ button:focus {
 .bubble {
   position: relative;
   display: none;
-  transition: opacity 350ms ease-in-out;
+  transition: 450ms linear;
   pointer-events: none;
   margin: 9px 0;
-  opacity: 0; }
+  opacity: 0;
+  max-height: 0; }
   .bubble.active {
     display: block; }
   .bubble.animate {
-    opacity: 1; }
+    opacity: 1;
+    max-height: 100px; }
   .bubble::before {
     position: absolute;
     top: 0;
@@ -5019,6 +5021,8 @@ button:focus {
       top: -90px; }
     .navigation .scroll--white {
       color: #fff; }
+    .navigation .scroll--only-text img {
+      opacity: 0; }
 
 .stage-nav {
   position: relative;
@@ -5608,8 +5612,8 @@ body {
       opacity: 1; }
       .section--stages .navigation .scroll.active img {
         transform: scale(1); }
-    .section--stages .navigation .scroll--only-text img {
-      opacity: 0; }
+    .section--stages .navigation .scroll--only-text {
+      transform: translateY(70px); }
 
 .section--stages.section--in .home-btn {
   opacity: 1;

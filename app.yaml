@@ -2,13 +2,13 @@ runtime: python37
 
 handlers:
 - url: /ikea
-  static_files: index.html
-  upload: index.html
+  static_files: ikea/index.html
+  upload: ikea/index.html
 
 - url: /ikea/
-  static_files: index.html
-  upload: index.html
+  static_files: ikea/index.html
+  upload: ikea/index.html
 
 - url: /ikea/(.*)
   static_files: \1
-  upload: (.*)
+  upload: ikea/(.*)

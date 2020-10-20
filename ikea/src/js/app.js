@@ -19,12 +19,50 @@ function GoogleDemoApp(config){
   this.path = [];
   this.showingEasterEgg = false;
   this.pathElements = ['section','stage','step'];
-  this.sections = ['start','stages','outro']; //'explore'
-  // section - section--in section--out 1s
-  //patrial
-  // stage - stage--in stage--out 1s
-  // steps - step--in step--out 1s
+  this.sections = ['start','stages','outro'];
 
+    this.trackingSequence = [
+          'Home',
+          'Home.Start',
+          'Home.Explore',
+          'Intro',
+          'Intro.Slide1',
+          'Intro.Slide2',
+          'Geomagical.Home',
+          'Geomagical.RoomCapture',
+          'Geomagical.LineDetection',
+          'Geomagical.Parallax',
+          null,
+          'Geomagical.Reconstruction3D',
+          'Geomagical.DepthEstimation',
+          'Geomagical.Segmentation',
+          null,
+          'Geomagical.DesignSpace',
+          'Geomagical.Realistic',
+          null,
+          'Geomagical.Phone',
+          null,
+          null,
+          'Recommendations',
+          'Recommendations.Try',
+          'Recommendations.Like',
+          'Office',
+          'Recap'
+    ];
+  this.trackEvent = function(ix){
+    if(ix<0||ix==null) return;
+    var eventTracked = (typeof ix=='string')?ix:this.trackingSequence[ix];
+    if(eventTracked==null) return;
+    var eventData = eventTracked.split('.');
+    var data={};
+    data.page = eventData[0];
+    if(eventData.length>1){
+      data.event = eventData[1];
+      trackerEvent(eventData.page,data.event);
+    }else{
+      trackerEvent(eventData.page);
+    }
+  }
   this.navigationSequence = [
       'start',
       'start:subheadline--2',
@@ -50,7 +88,6 @@ function GoogleDemoApp(config){
       'stages.recommendations.0',
       'stages.recommendations.1',
       'stages.recommendations.2',
-      //'stages.recommendations.3',
       'stages.recap.0',
       'stages.recap.1'
   ];
@@ -62,19 +99,17 @@ function GoogleDemoApp(config){
         'stages.geomagical.1',
         'stages.geomagical.2',
         'stages.geomagical.3',
-        // 'stages.geomagical.4',
         'stages.recommendations.0',
         'stages.recap.0',
     ];
 
       this.backBckgrounds = [
           'zoomout',
-          'zoomin',
+          'center',
           'zoomfade',
           'geostart',
           'geostart',
           'geostart',
-          // 'geofurniture',
           'geofade',
           'office',
       ];
@@ -247,8 +282,9 @@ GoogleDemoApp.prototype.switchChairs = function(){
   this.chairIndex = this.chairIndex==2?0:this.chairIndex+1;
   var chairAnimation = chairList[this.chairIndex];
   Background.play(chairAnimation);
+  this.trackEvent('Recommendations.SwitchChairs');
   setTimeout(function(anim){
-    Background.play(anim)
+    Background.playDelay(anim)
   },1.8*1000,chairAnimation+'_glow');
 };
 GoogleDemoApp.prototype.unGlow = function(){
@@ -269,15 +305,28 @@ GoogleDemoApp.prototype.nextSectionProxy = function(){
 GoogleDemoApp.prototype.prevSectionProxy = function(){
   if(!this._blockKeysAndScroll && !this.changingSection) this.prevSection();
 }
+GoogleDemoApp.prototype.openBack = function(slug){
+  var ix = this.backNavigationSequence.indexOf(slug);
+  if(ix>-1){
+    Background.set(this.backBckgrounds[ix]);
+    this.open(this.backNavigationSequence[ix],true);
+  }
+}
 GoogleDemoApp.prototype.open = function(slug,force){
   // if(this.blockKeysAndScroll) return;
   if(slug=='NEXT'){
     this.nextSection();
     return;
   }
+
+  if(slug.substring(0,5)=="BACK:"){
+    this.openBack(slug.split(":")[1]);
+    return;
+  }
   this.changingSection = true;
   // if(this.changingSection) return;
   this.sectionIndex = this.navigationSequence.indexOf(slug);
+  this.trackEvent(this.sectionIndex);
   var backIndex = 0;
   for(var si=0;si<this.sectionIndex;si++){
     if(this.backNavigationSequence.indexOf(this.navigationSequence[si])>0){

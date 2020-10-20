@@ -33,6 +33,7 @@
 
 .card {
   width: 360px;
+  user-select: none;
 
   &.card--simple {
     width: 300px;

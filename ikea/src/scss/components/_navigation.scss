@@ -51,6 +51,12 @@
     &--white {
       color: $white; 
     }
+
+    &--only-text {
+      img {
+        opacity: 0;
+      }
+    }    
   }  
 }
 

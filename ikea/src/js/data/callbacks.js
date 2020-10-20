@@ -42,7 +42,10 @@ var SiteCallbacks = {
   /*** STAGES INTRO SECTION ***/
   /* -------------- Intro 0 -------------- */
   "stages.intro.0": function () {
-    setTimeout(function(){GoogleDemoApp.instance.blockKeysAndScroll(false);},2000);
+    // setTimeout(function(){GoogleDemoApp.instance.blockKeysAndScroll(false);},2000);
+
+    // GoogleDemoApp.instance.blockKeysAndScroll(true);
+    GoogleDemoApp.instance.timeNextSection(5);
     updateStageBtn(0, 0);
     $('#scrollText').addClass('active');
   },
@@ -53,7 +56,6 @@ var SiteCallbacks = {
 
   /* -------------- Intro 1 -------------- */
   "[BEFORE] stages.intro.1": function () {
-  GoogleDemoApp.instance.blockKeysAndScroll(true);
     Background.play('zoomin');
 
   },

@@ -12,7 +12,25 @@ function loadImage(src,callback){
   //img.src = src;
   return img;
 }
-
+var gaKey;
+var gaCache = [];
+function trackerEvent(eventCategory, eventAction, eventLabel, eventValue){
+	if(!gaKey && typeof gaData=='object'){
+		gaKey=Object.keys(gaData)[0];
+		ga('create', gaKey, 'auto');
+	}
+	if(!gaKey){
+		gaCache.push({'eventCategory': eventCategory, 'eventAction': eventAction, 'eventLabel': eventLabel, 'eventValue': eventValue});
+		// console.log(eventCategory, eventAction, eventLabel, eventValue);
+	}else{
+		if(gaCache.length>0){
+			for(i in gaCache){
+				ga('send', 'event', gaCache[i].eventCategory, gaCache[i].eventAction, gaCache[i].eventLabel, gaCache[i].eventValue);
+			}
+		}
+		ga('send', 'event', eventCategory, eventAction, eventLabel, eventValue);
+	}
+}
 
 var Utils = {};
 

@@ -254,8 +254,8 @@ var AnimationData = {
     depth:{alpha:0.8}
   },
 
-    'geofurniture':{
-    panorama:{whiten:0,speed:15},
+  'geofurniture':{
+      panorama:{whiten:0,speed:15},
       depth:{alpha:0,speed:15},
       furniture:{alpha:0.3},
       gpic1:{alpha:1,_y:-0.02,delay:1.1},
@@ -270,7 +270,8 @@ var AnimationData = {
       gpic10:{alpha:1,_y:-0.02,delay:1},
       gbigpic:{alpha:1,_x:0.01,delay:1.3},
       geocomplete:{alpha:0,x:0.5,y:0.57,scale:1.4},
-
+      phone:{alpha:1},
+      // phonemask:{alpha:1,scale:1.6*0.8},
       glibrary:{alpha:1,_x:0.02,_y:0.02,delay:0.5},
       gcarpet:{alpha:1,_y:0.02,delay:0.7},
       gtable:{alpha:1},

@@ -44,9 +44,7 @@
       }
 
       &--only-text {
-        img {
-          opacity: 0;
-        }
+        transform: translateY(70px);
       }
     }
   }
