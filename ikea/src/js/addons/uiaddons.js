@@ -25,7 +25,11 @@ function fireMouseUp(e){
     $(document).off('mouseup',fireMouseUp);
     $(document).off('touchend',fireMouseUp);
     slideButton.off('mouseout',fireMouseUp);
-    GoogleDemoApp.instance.open("start:subheadline--2 subopenmode");
+    if(GoogleDemoApp.instance.mode=="mobile"){
+      GoogleDemoApp.instance.open('stagesmobile.intromobile');
+    }else{
+      GoogleDemoApp.instance.open("start:subheadline--2 subopenmode");
+    };
     return;
   }
   if(Math.abs(slideButtonEnd.element.offsetLeft-slideButton.element.offsetLeft)<30){
