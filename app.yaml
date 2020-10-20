@@ -10,5 +10,5 @@ handlers:
   upload: ikea/index.html
 
 - url: /ikea/(.*)
-  static_files: \1
+  static_files: ikea/\1
   upload: ikea/(.*)
