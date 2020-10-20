@@ -1,4 +1,4 @@
-var Background = new CanvasEngine('backgroundCanvas',{folder:'renders/'});
+var Background = new CanvasEngine('backgroundCanvas',{folder:'/ikea/renders/'});
 Background.queuePlays = [];
 
 Background.animationList = [
