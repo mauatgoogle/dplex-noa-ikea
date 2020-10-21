@@ -145,9 +145,9 @@ Background.addSpriteSheet('office/elements.colors.png',[
 {key:'obox1_color',crop:[2,0,2,1],pivot:{x:0.5,y:0.88},x:0.542,y:0.309},
 {key:'obox3_color',crop:[4,0,3,1],pivot:{x:0.5,y:0.98},x:0.625,y:0.307},
 ]);
-// Background.addSpriteSheet('dining/chairs.png',[
-//   {key:'googlehome' ,crop:[9,6,1,1],pivot:{x:0.5,y:0.5},x:0.76,y:0.578},
-// ]);
+Background.addSpriteSheet('dining/chairs.png',[
+  {key:'googlehome' ,crop:[9,6,1,1],pivot:{x:0.5,y:0.5},x:0.76,y:0.578},
+]);
 Background.addSpriteSheet('dining/chairsglow.png',[
   {key:'googlehome_glow' ,crop:[9,6,1,1],pivot:{x:0.5,y:0.5},x:0.76,y:0.578},
 ]);
@@ -388,4 +388,10 @@ Background.logic = function(){
       };
     };
   };
+  this.sprites.googlehome.visible = this.sprites.googlehome_glow.visible;
+  if(this.sprites.googlehome.visible){
+    this.sprites.googlehome.alpha = (Math.sin(getTimer()/700)*0.5+0.5)*1*this.sprites.googlehome_glow.alpha;
+    this.sprites.googlehome.x = this.sprites.googlehome_glow.x;
+    this.sprites.googlehome.y = this.sprites.googlehome_glow.y;
+  }
 };

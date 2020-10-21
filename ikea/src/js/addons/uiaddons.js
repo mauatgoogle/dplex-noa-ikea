@@ -52,6 +52,10 @@ function fireMouseUp(e){
   $(document).off('touchend',fireMouseUp);
   slideButton.off('mouseout',fireMouseUp);
 };
+function resetExploreButton(){
+  sliderDots.css({width:(mousePosition.max-47-0)+'px'});
+  slideButton.css({left:0+'px'});
+}
 var startPressTime = 0;
 var mDown = function (e){
     $(document).on('mouseup',fireMouseUp);

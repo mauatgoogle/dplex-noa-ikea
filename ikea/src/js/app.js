@@ -314,6 +314,13 @@ GoogleDemoApp.prototype.openBack = function(slug){
 }
 GoogleDemoApp.prototype.open = function(slug,force){
   // if(this.blockKeysAndScroll) return;
+  if(slug=='RESTART'){
+    // Background.set('initial');
+    Background.set('zoomout');
+    this.open('start:subheadline--2');
+    resetExploreButton();
+    return;
+  }
   if(slug=='NEXT'){
     this.nextSection();
     return;

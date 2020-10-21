@@ -7,10 +7,20 @@
   height: 48px;
   background-color: $white;
   border-radius: 24px;
-  box-shadow: 2px 4px 12px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 4px 12px 0 rgba($black, 0.2);
 
+  svg,
   .icon-home {
     transition: all 450ms ease-in-out;
+  }
+
+  span {
+    position: absolute;
+    top: 12px;
+    left: 70px;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    color: $white;
   }
 
   &--intro .icon-home {
@@ -34,7 +44,11 @@
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     
     &:hover {
-      transform: scale(1.2) !important;
+      box-shadow: 2px 4px 12px 0 rgba($black, 0.4);
+
+      svg {
+        transform: scale(1.2) !important;
+      }
     }    
   }
 }
