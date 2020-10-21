@@ -44,6 +44,7 @@ var SiteCallbacks = {
   "stages.intro.0": function () {
     // setTimeout(function(){GoogleDemoApp.instance.blockKeysAndScroll(false);},2000);
 
+    $('#stageNavigation').removeClass('fadeOut');
     // GoogleDemoApp.instance.blockKeysAndScroll(true);
     GoogleDemoApp.instance.timeNextSection(5);
     updateStageBtn(0, 0);
