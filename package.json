@@ -1,17 +1,17 @@
 {
-  "name": "google_cloud",
+  "name": "dplex-noa-ikea",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Demo site for IKEA projects built around Google Cloud Services",
+  "main": "ikea/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "https://theelectricfactory.git.beanstalkapp.com/google_cloud.git"
+    "url": "https://github.com/mauatgoogle/dplex-noa-ikea.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["demo","googlecloud","showcase"],
+  "author": "The Electric Factory",
   "license": "ISC",
   "devDependencies": {
     "del": "^5.1.0",
